@@ -1,11 +1,12 @@
 import React from 'react'
+import './StyleSheets/statusbar.css'
 
 export default function Statusbar() {
   return (
     <div className = "statusBar">
-      <div><p>Current Debt-To-Income:</p> {}</div>
-      <div><p>Current Assets on file:</p> {}</div>
-      <div><p>Current Home Price:</p> {}</div>
+      <div className = "statusItem"><p>Current Debt-To-Income:</p> {}</div>
+      <div className = "statusItem"><p>Current Assets on file:</p> {}</div>
+      <div className = "statusItem"><p>Current Home Price:</p> {}</div>
     </div>
   )
 }

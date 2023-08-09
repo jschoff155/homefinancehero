@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import Home from './Home';
 import reportWebVitals from './reportWebVitals';
 import Statusbar from './Statusbar';
+import Propertyinfo from './Propertyinfo';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Home />
     <Statusbar/>
+    <Propertyinfo/>
   </React.StrictMode>
 );
 
