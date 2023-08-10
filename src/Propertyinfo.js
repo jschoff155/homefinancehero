@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './StyleSheets/primary.css'
 
-
-    
-
 export default function Propertyinfo() {
-    function loanAmountCalc(){
+    
+  const [totalLoanAmount, settotalLoanAmount] = useState("");
+  const [homeprice, sethomeprice] = useState("");
+  const [downpayment, setdownpayment] = useState("");
+
+  function loanAmountCalc(){
         const price = document.getElementById("homePrice").value;
         const downPayment = document.getElementById("downPayment").value;
         const totalLoanAmount = (price - downPayment);

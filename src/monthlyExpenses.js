@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function monthlyExpenses() {
+export default function MonthlyExpenses() {
 
-    const expenses = [
-        "Student Loans", 
-        "Auto Loans", 
-        "Credit Cards", 
-        "Misc Additional"];
+    //const expenses = [
+    //    "Student Loans", 
+    //    "Auto Loans", 
+    //    "Credit Cards", 
+     //   "Misc Additional"];
 
   return (
     <div>
@@ -22,7 +22,6 @@ export default function monthlyExpenses() {
             </tr>
           </thead>
             <tbody>
-            {expenses.map(expenses)}
             </tbody>
         </table>
     </div>

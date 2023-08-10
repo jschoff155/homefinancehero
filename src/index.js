@@ -4,7 +4,7 @@ import Home from './Home';
 import reportWebVitals from './reportWebVitals';
 import Statusbar from './Statusbar';
 import Propertyinfo from './Propertyinfo';
-import monthlyExpenses from './monthlyExpenses';
+import MonthlyExpenses from './MonthlyExpenses';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +12,7 @@ root.render(
     <Home />
     <Statusbar/>
     <Propertyinfo/>
-    <monthlyExpenses/>
+    <MonthlyExpenses/>
   </React.StrictMode>
 );
 
