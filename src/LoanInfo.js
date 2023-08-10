@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './StyleSheets/primary.css';
-import Propertyinfo from './Propertyinfo';
 
 export default function LoanInfo() {
-    function MonthlyPaymentCalc (){
-       const rate = document.getElementById("rate").value;
-       const term = document.getElementById("term").value;
-       const {totalLoanAmount} = useState(Propertyinfo);
-       //document.getElementById("paymentAmount").innerHTML = `Monthly Payment Amount: ${rate + term}`;
+    function monthlyPaymentCalc (){
     }
     return (
     <div id="page">
@@ -19,7 +14,7 @@ export default function LoanInfo() {
         <input id="term"></input><br></br>
         <label id="monthlyPayment"></label>
         <label id="paymentAmount"></label>
-        <button type="button" onClick={MonthlyPaymentCalc()}>Calculate Payment</button>
+        <button type="button" onClick={monthlyPaymentCalc()}>Calculate Payment</button>
       </form>
     </div>
   )

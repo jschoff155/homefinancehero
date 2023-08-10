@@ -1,8 +1,10 @@
 import React from 'react'
 import './StyleSheets/primary.css'
 
+
+    
+
 export default function Propertyinfo() {
-  
     function loanAmountCalc(){
         const price = document.getElementById("homePrice").value;
         const downPayment = document.getElementById("downPayment").value;
