@@ -1,3 +1,4 @@
+import './StyleSheets/statusbar.css'
 function Home() {
   return (
       <header className="App-header">

@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding:0;
+}
+#page{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    text-align: center;
+    width: 50em;
+    border-style:solid;
+    border-color:red;
+}
+label{
+    font-size: 2em;
+    width:100%;
+}
+input{
+    width:80%;
+    height:50px;
+    font-size:2em;
+    align-items: center;
+}
+button{
+    height:100px;
+    width:500px;
+    font-size:2em;
+}
