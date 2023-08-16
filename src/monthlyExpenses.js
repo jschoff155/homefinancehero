@@ -3,20 +3,28 @@ import './StyleSheets/MonthlyExpenses.css'
 
 export default function MonthlyExpenses() {
   function totalMonthlyDebts(){
-    const mAutoLoans = document.getElementById("mEMonthlyAutoLoans").int;
-    const mStdLoans = document.getElementById("mEMonthlyStdLoans").int;
-    const mCredit = document.getElementById("mEMonthlyCredit").int;
-    const mMiscDebts = document.getElementById("mEMiscDebtsMonthly").int;
-    const combinedmonthlyExpenses = (mAutoLoans + mStdLoans + mCredit + mMiscDebts).int;
-    document.getElementById("mETotalMonthly").innerHTML = {combinedmonthlyExpenses};
+    const mEMonthlyAutoLoans = document.getElementById("mEMonthlyAutoLoans").value;
+    const mAutoLoans = parseInt(mEMonthlyAutoLoans);
+    const mEMonthlyStdLoans = document.getElementById("mEMonthlyStdLoans").value;
+    const mStdLoans = parseInt(mEMonthlyStdLoans);
+    const mEMonthlyCredit = document.getElementById("mEMonthlyCredit").value;
+    const mCredit = parseInt(mEMonthlyCredit);
+    const mEMiscDebtsMonthly = document.getElementById("mEMiscDebtsMonthly").value;
+    const mMiscDebts = parseInt(mEMiscDebtsMonthly);
+    const combinedmonthlyExpenses = +(mAutoLoans + mStdLoans + mCredit + mMiscDebts);
+    document.getElementById("mETotalMonthly").innerHTML = `${combinedmonthlyExpenses}`;
   }
   function DebtTotal(){
-    const totalAutoLoans = document.getElementById("mETotalAutoLoans").int;
-    const totalStdLoans = document.getElementById("mETotalStdLoans").int;
-    const totalCredit = document.getElementById("mETotalCreditDebt").int;
-    const totalMiscDebts = document.getElementById("mEMiscDebtsTotal").int;
-    const combinedDebtAmount = (totalAutoLoans + totalStdLoans + totalCredit + totalMiscDebts).int;
-    document.getElementById("mETotalDebt").innerHTML = {combinedDebtAmount};
+    const mETotalAutoLoans = document.getElementById("mETotalAutoLoans").value;
+    const totalAutoLoans = parseInt(mETotalAutoLoans);
+    const mETotalStdLoans = document.getElementById("mETotalStdLoans").value;
+    const totalStdLoans = parseInt(mETotalStdLoans);
+    const mETotalCreditDebt = document.getElementById("mETotalCreditDebt").value;
+    const totalCredit = parseInt(mETotalCreditDebt);
+    const mEMiscDebtsTotal = document.getElementById("mEMiscDebtsTotal").value;
+    const totalMiscDebts = parseInt(mEMiscDebtsTotal);
+    const combinedDebtAmount = (totalAutoLoans + totalStdLoans + totalCredit + totalMiscDebts);
+    document.getElementById("mETotalDebt").innerHTML = `${combinedDebtAmount}`;
   }
   return (
     <div id="monthlyExpenses">
@@ -53,14 +61,14 @@ export default function MonthlyExpenses() {
               <td class="mEInputField"><input id="mEMiscDebtsTotal" class="mEtotalDebt"></input></td>
             </tr>
             <tr className="mEtr">
-              <td class="mEdebtType">Totals</td>
+              <td class="mEdebtType"></td>
               <td class="mEInputField"><button onClick={totalMonthlyDebts}>Calculate Minimum Payment Total</button></td>
               <td class="mEInputField"><button onClick={DebtTotal}>Calculate Total Debt Amount</button></td>
             </tr>
             <tr className="mEtr">
               <td class="mEdebtType">Totals</td>
-              <td class="mEInputField"><label id="mETotalMonthly" class="mEmonthly"></label></td>
-              <td class="mEInputField"><label id="mETotalDebt" class="mEtotalDebt"></label></td>
+              <td class="mEInputField"><label>Monthly Payments: $</label><label id="mETotalMonthly" class="mEmonthly"></label></td>
+              <td class="mEInputField"><label>Total Debts: $</label><label id="mETotalDebt" class="mEtotalDebt"></label></td>
             </tr>
         </table>
     </div>
