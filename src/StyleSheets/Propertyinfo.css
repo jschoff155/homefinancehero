@@ -9,7 +9,7 @@
 }
 form{
     text-align: center;
-    width: 50em;
+    width: 40em;
     border-style:solid;
     border-color:red;
 }
@@ -23,7 +23,7 @@ input{
     font-size:2em;
     align-items: center;
 }
-button{
+#button{
     height:100px;
     width:500px;
     font-size:2em;

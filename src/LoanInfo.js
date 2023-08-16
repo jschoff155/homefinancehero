@@ -1,5 +1,4 @@
 import React from 'react';
-import './StyleSheets/primary.css';
 
 export default function LoanInfo() {
     function monthlyPaymentCalc (){

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import './StyleSheets/primary.css'
+import React from 'react'
+import './StyleSheets/Propertyinfo.css'
 
 export default function Propertyinfo() {
     
-  const [totalLoanAmount, settotalLoanAmount] = useState("");
-  const [homeprice, sethomeprice] = useState("");
-  const [downpayment, setdownpayment] = useState("");
+  //const [totalLoanAmount, settotalLoanAmount] = useState("");
+  //const [homeprice, sethomeprice] = useState("");
+  //const [downpayment, setdownpayment] = useState("");
 
   function loanAmountCalc(){
         const price = document.getElementById("homePrice").value;
@@ -23,7 +23,7 @@ export default function Propertyinfo() {
         <input id="homePrice"></input><br></br>
         <label>Down Payment</label><br></br>
         <input id="downPayment"></input><br></br>
-        <button type="button" onClick={loanAmountCalc}>Calculate</button>
+        <button id="button" type="button" onClick={loanAmountCalc}>Calculate</button>
         <br></br>
         <label id="loanAmount"></label>
         

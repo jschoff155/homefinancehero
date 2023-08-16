@@ -5,11 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import Statusbar from './Statusbar';
 import Propertyinfo from './Propertyinfo';
 import MonthlyExpenses from './MonthlyExpenses';
+import Navigation from './Navigation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Home />
+    <Navigation/>
     <Statusbar/>
     <Propertyinfo/>
     <MonthlyExpenses/>

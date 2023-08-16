@@ -1,0 +1,14 @@
+*{
+    margin:0;
+    padding:0;
+}
+div{
+    width:100%;
+    display:block;
+    text-align: center;
+}
+.navButton{
+width:20%;
+height: 80px;
+font-size: 2em;
+}
