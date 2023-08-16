@@ -1,0 +1,15 @@
+#monthlyExpenses{
+    border-style:solid;
+    border-color:red;
+}
+.mEtable{
+    column-count:4;
+}
+.monthlyExpensesIntro{
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom:20px;
+}
+th{
+    font-size:1.3em;
+}

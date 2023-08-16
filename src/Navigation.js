@@ -3,7 +3,7 @@ import './StyleSheets/Navigation.css'
 
 export default function Navigation() {
   return (
-    <div>
+    <div id="navigation">
       <button class="navButton">Property</button>
       <button class="navButton">Income</button>
       <button class="navButton">Expenses</button>

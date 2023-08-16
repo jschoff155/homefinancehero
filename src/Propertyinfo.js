@@ -11,20 +11,21 @@ export default function Propertyinfo() {
         const price = document.getElementById("homePrice").value;
         const downPayment = document.getElementById("downPayment").value;
         const totalLoanAmount = (price - downPayment);
-        document.getElementById("loanAmount").innerHTML = `Total Loan Amount = ${totalLoanAmount}`;
+        document.getElementById("loanAmount").innerHTML = `${totalLoanAmount}`;
     }
   
     return (
-    <div id="page">
-      <form>
+    <div id="propertyInformation">
+      <form id="pIform">
         <h1>Property Information</h1>
         
         <label>Home Price</label><br></br>
-        <input id="homePrice"></input><br></br>
+        <input className="pIinput" id="homePrice"></input><br></br>
         <label>Down Payment</label><br></br>
-        <input id="downPayment"></input><br></br>
-        <button id="button" type="button" onClick={loanAmountCalc}>Calculate</button>
+        <input className="pIinput" id="downPayment"></input><br></br>
+        <button id="pIbutton" type="button" onClick={loanAmountCalc}>Calculate</button>
         <br></br>
+        <label>Total Loan Amount: </label>
         <label id="loanAmount"></label>
         
       </form>

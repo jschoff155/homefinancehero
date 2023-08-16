@@ -2,12 +2,12 @@
     margin:0;
     padding:0;
 }
-#page{
+#propertyInformation{
     display:flex;
     justify-content: center;
     align-items: center;
 }
-form{
+#pIform{
     text-align: center;
     width: 40em;
     border-style:solid;
@@ -17,13 +17,13 @@ label{
     font-size: 2em;
     width:100%;
 }
-input{
+.pIinput{
     width:80%;
     height:50px;
     font-size:2em;
     align-items: center;
 }
-#button{
+#pIbutton{
     height:100px;
     width:500px;
     font-size:2em;
