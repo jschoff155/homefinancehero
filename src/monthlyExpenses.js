@@ -3,26 +3,18 @@ import './StyleSheets/MonthlyExpenses.css'
 
 export default function MonthlyExpenses() {
   function totalMonthlyDebts(){
-    const mEMonthlyAutoLoans = document.getElementById("mEMonthlyAutoLoans").value;
-    const mAutoLoans = parseInt(mEMonthlyAutoLoans);
-    const mEMonthlyStdLoans = document.getElementById("mEMonthlyStdLoans").value;
-    const mStdLoans = parseInt(mEMonthlyStdLoans);
-    const mEMonthlyCredit = document.getElementById("mEMonthlyCredit").value;
-    const mCredit = parseInt(mEMonthlyCredit);
-    const mEMiscDebtsMonthly = document.getElementById("mEMiscDebtsMonthly").value;
-    const mMiscDebts = parseInt(mEMiscDebtsMonthly);
+    const mAutoLoans = parseInt(document.getElementById("mEMonthlyAutoLoans").value);
+    const mStdLoans = parseInt(document.getElementById("mEMonthlyStdLoans").value);
+    const mCredit = parseInt(document.getElementById("mEMonthlyCredit").value);
+    const mMiscDebts = parseInt(document.getElementById("mEMiscDebtsMonthly").value);
     const combinedmonthlyExpenses = +(mAutoLoans + mStdLoans + mCredit + mMiscDebts);
     document.getElementById("mETotalMonthly").innerHTML = `${combinedmonthlyExpenses}`;
   }
   function DebtTotal(){
-    const mETotalAutoLoans = document.getElementById("mETotalAutoLoans").value;
-    const totalAutoLoans = parseInt(mETotalAutoLoans);
-    const mETotalStdLoans = document.getElementById("mETotalStdLoans").value;
-    const totalStdLoans = parseInt(mETotalStdLoans);
-    const mETotalCreditDebt = document.getElementById("mETotalCreditDebt").value;
-    const totalCredit = parseInt(mETotalCreditDebt);
-    const mEMiscDebtsTotal = document.getElementById("mEMiscDebtsTotal").value;
-    const totalMiscDebts = parseInt(mEMiscDebtsTotal);
+    const totalAutoLoans = parseInt(document.getElementById("mETotalAutoLoans").value);
+    const totalStdLoans = parseInt(document.getElementById("mETotalStdLoans").value);
+    const totalCredit = parseInt(document.getElementById("mETotalCreditDebt").value);
+    const totalMiscDebts = parseInt(document.getElementById("mEMiscDebtsTotal").value);
     const combinedDebtAmount = (totalAutoLoans + totalStdLoans + totalCredit + totalMiscDebts);
     document.getElementById("mETotalDebt").innerHTML = `${combinedDebtAmount}`;
   }

@@ -6,6 +6,7 @@ import Statusbar from './Statusbar';
 import Propertyinfo from './Propertyinfo';
 import MonthlyExpenses from './MonthlyExpenses';
 import Navigation from './Navigation';
+import Income from './Income';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <Statusbar/>
     <Propertyinfo/>
     <MonthlyExpenses/>
+    <Income/>
   </React.StrictMode>
 );
 
