@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import './StyleSheets/Income.css'
 
 export default function Income() {
-    const [hourlyPay, sethourlyPay] = useState("");
-    const [monthlyPay, setmonthlyPay] = useState("");
-    const [salaryPay, setsalaryPay] = useState("");
+    const [hourlyPay, setHourlyPay] = useState("");
+    const [monthlyPay, setMonthlyPay] = useState("");
+    const [salaryPay, setSalaryPay] = useState("");
     
-    const onChangeH = event => sethourlyPay(event.target.value);
-    const onChangeM = event => setmonthlyPay(event.target.value);
-    const onChangeS = event => setsalaryPay(event.target.value);
+    const onChangeH = event => setHourlyPay(event.target.value);
+    const onChangeM = event => setMonthlyPay(event.target.value);
+    const onChangeS = event => setSalaryPay(event.target.value);
 
     function hourlyPayQs(){
         document.getElementById("hourlySelected").style.display="block";
@@ -25,18 +25,6 @@ export default function Income() {
         document.getElementById("monthlySelected").style.display="none";
         document.getElementById("salarySelected").style.display="block";
     }
-    function monthlyIncomeH(){
-        let mGrossH = ((parseInt(hourlyPay) * 2080)/12);
-        document.getElementById("mGrossH").innerHTML = `${mGrossH}`;
-    }
-    function monthlyIncomeM(){
-        let mGrossM = (parseInt(monthlyPay));
-        document.getElementById("mGrossM").innerHTML = `${mGrossM}`;
-    }
-    function monthlyIncomeS(){
-        let mGrossS = (parseInt(salaryPay)/12);
-        document.getElementById("mGrossS").innerHTML = `${mGrossS}`;
-    }
 
   return (
     <div id="income">
@@ -52,25 +40,51 @@ export default function Income() {
         <div id="hourlySelected">
             <label>How much do you make per hour?</label>
             <input type="text" value={hourlyPay} onChange={onChangeH}></input>
-            <button onClick={monthlyIncomeH}>Calculate monthly</button>
             <label>Your gross income per month: $</label>
-            <label id="mGrossH"></label>
+            <label id="mGrossH">{hourlyPay && ((parseInt(hourlyPay) * 2080)/12).toFixed(2)}</label>
         </div>
 
         <div id="monthlySelected">
             <label>How much do you make per month?</label>
             <input type="text" value={monthlyPay} onChange={onChangeM}></input>
-            <button onClick={monthlyIncomeM}>Calculate monthly</button>
             <label>Your gross income per month: $</label>
-            <label id="mGrossM"></label>
+            <label id="mGrossM">{monthlyPay && ((parseInt(monthlyPay))).toFixed(2)}</label>
         </div>
 
         <div id="salarySelected">
             <label>How much do you make per year?</label>
             <input type="text" value={salaryPay} onChange={onChangeS}></input>
-            <button onClick={monthlyIncomeS}>Calculate monthly</button>
             <label>Your gross income per month: $</label>
-            <label id="MgrossS"></label>
+            <label id="MgrossS">{salaryPay && ((parseInt(salaryPay))/12).toFixed(2)}</label>
+        </div>
+        
+        <h2>Borrower Two</h2>
+        <label for = "payType">How are you paid?</label>
+        <select id="payType">
+            <option>Please Select</option>
+            <option value="hourly" onClick={hourlyPayQs}>Hourly</option>
+            <option value="monthly" onClick={monthlyPayQs}>Monthly</option>
+            <option value="salary" onClick={salaryPayQs}>Salary</option>
+        </select>
+        <div id="hourlySelected">
+            <label>How much do you make per hour?</label>
+            <input type="text" value={hourlyPay} onChange={onChangeH}></input>
+            <label>Your gross income per month: $</label>
+            <label id="mGrossH">{hourlyPay && ((parseInt(hourlyPay) * 2080)/12).toFixed(2)}</label>
+        </div>
+
+        <div id="monthlySelected">
+            <label>How much do you make per month?</label>
+            <input type="text" value={monthlyPay} onChange={onChangeM}></input>
+            <label>Your gross income per month: $</label>
+            <label id="mGrossM">{monthlyPay && ((parseInt(monthlyPay))).toFixed(2)}</label>
+        </div>
+
+        <div id="salarySelected">
+            <label>How much do you make per year?</label>
+            <input type="text" value={salaryPay} onChange={onChangeS}></input>
+            <label>Your gross income per month: $</label>
+            <label id="MgrossS">{salaryPay && ((parseInt(salaryPay))/12).toFixed(2)}</label>
         </div>
     </div>
   )
