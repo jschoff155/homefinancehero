@@ -7,6 +7,7 @@ import Propertyinfo from './Propertyinfo';
 import MonthlyExpenses from './MonthlyExpenses';
 import Navigation from './Navigation';
 import Income from './Income';
+import Assets from './Assets';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
     <Propertyinfo/>
     <Income/>
     <MonthlyExpenses/>
+    <Assets/>
   </React.StrictMode>
 );
 
