@@ -15,8 +15,8 @@ root.render(
     <Navigation/>
     <Statusbar/>
     <Propertyinfo/>
-    <MonthlyExpenses/>
     <Income/>
+    <MonthlyExpenses/>
   </React.StrictMode>
 );
 
