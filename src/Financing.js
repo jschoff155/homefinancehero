@@ -19,7 +19,6 @@ export default function Financing() {
         <input></input><br></br>
         <label>Loan Amount</label>
         <label>*import from LoanInfo*</label>
-        
       </div>
     </div>
   )

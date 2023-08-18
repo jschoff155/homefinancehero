@@ -4,7 +4,15 @@
 }
 #income{
     border-style: solid;
+    text-align: center;
 }
-#hourlySelected, #monthlySelected, #salarySelected{
+.payTypeSelection, .borrowerIncomeDetails{
     display:none;
+}
+#borrowerIncomeAreas{
+    display:flex;
+}
+.borrowerIncomeDetails{
+    flex:50%;
+    width:50%;
 }
