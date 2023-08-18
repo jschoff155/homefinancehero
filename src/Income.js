@@ -9,6 +9,8 @@ export default function Income() {
     const [monthlyPayBT, setMonthlyPayBT] = useState("");
     const [salaryPayBT, setSalaryPayBT] = useState("");
     
+    const totalMonthlyIncome = (hourlyPayBO && monthlyPayBO && salaryPayBO && hourlyPayBT && monthlyPayBT && salaryPayBT && parseInt(hourlyPayBO)+parseInt(monthlyPayBO)+parseInt(salaryPayBO)+parseInt(hourlyPayBT)+parseInt(monthlyPayBT)+parseInt(salaryPayBT));
+
     const onChangeHBO = event => setHourlyPayBO(event.target.value);
     const onChangeMBO = event => setMonthlyPayBO(event.target.value);
     const onChangeSBO = event => setSalaryPayBO(event.target.value);
@@ -68,15 +70,16 @@ export default function Income() {
   return (
     <div id="income">
         <h1>Income</h1>
+        <label>Combined Monthly Income: $</label><label>{totalMonthlyIncome && ((parseFloat(totalMonthlyIncome))).toFixed(2)}</label><br></br>
         <label>Number of borrowers?</label><br></br>
         <select>
             <option onClick={reset}></option>
-            <option onClick={showBODetails}>One</option>
-            <option onClick={showBTDetails}>Two</option>
+            <option onClick={showBODetails}>1</option>
+            <option onClick={showBTDetails}>2</option>
         </select>
         <div id="borrowerIncomeAreas">
         <div id="borrowerOneDetails" className="borrowerIncomeDetails">
-            <h2>Borrower One</h2>
+            <h2>Borrower 1</h2>
             <label for = "payType">How are you paid?</label>
             <select id="payType">
                 <option>Please Select</option>
@@ -89,7 +92,7 @@ export default function Income() {
                 <input type="text" value={hourlyPayBO} onChange={onChangeHBO}></input>
                 <br></br>
                 <label>Your gross income per month: $</label>
-                <label id="mGrossH">{hourlyPayBO && ((parseInt(hourlyPayBO) * 2080)/12).toFixed(2)}</label>
+                <label>{hourlyPayBO && ((parseInt(hourlyPayBO) * 2080)/12).toFixed(2)}</label>
             </div>
 
             <div id="monthlySelectedBO" className="payTypeSelection">
@@ -97,7 +100,7 @@ export default function Income() {
                 <input type="text" value={monthlyPayBO} onChange={onChangeMBO}></input>
                 <br></br>
                 <label>Your gross income per month: $</label>
-                <label id="mGrossM">{monthlyPayBO && ((parseInt(monthlyPayBO))).toFixed(2)}</label>
+                <label>{monthlyPayBO && ((parseInt(monthlyPayBO))).toFixed(2)}</label>
             </div>
 
             <div id="salarySelectedBO" className="payTypeSelection">
@@ -105,12 +108,12 @@ export default function Income() {
                 <input type="text" value={salaryPayBO} onChange={onChangeSBO}></input>
                 <br></br>
                 <label>Your gross income per month: $</label>
-                <label id="MgrossS">{salaryPayBO && ((parseInt(salaryPayBO))/12).toFixed(2)}</label>
+                <label>{salaryPayBO && ((parseInt(salaryPayBO))/12).toFixed(2)}</label>
             </div>
         </div>
         
         <div id="borrowerTwoDetails" className="borrowerIncomeDetails">
-            <h2>Borrower Two</h2>
+            <h2>Borrower 2</h2>
             <label for = "payType">How are you paid?</label>
             <select id="payType">
                 <option>Please Select</option>
@@ -123,7 +126,7 @@ export default function Income() {
                 <input type="text" value={hourlyPayBT} onChange={onChangeHBT}></input>
                 <br></br>
                 <label>Your gross income per month: $</label>
-                <label id="mGrossH">{hourlyPayBT && ((parseInt(hourlyPayBT) * 2080)/12).toFixed(2)}</label>
+                <label>{hourlyPayBT && ((parseInt(hourlyPayBT) * 2080)/12).toFixed(2)}</label>
             </div>
 
             <div id="monthlySelectedBT" className="payTypeSelection">
@@ -131,7 +134,7 @@ export default function Income() {
                 <input type="text" value={monthlyPayBT} onChange={onChangeMBT}></input>
                 <br></br>
                 <label>Your gross income per month: $</label>
-                <label id="mGrossM">{monthlyPayBT && ((parseInt(monthlyPayBT))).toFixed(2)}</label>
+                <label>{monthlyPayBT && ((parseInt(monthlyPayBT))).toFixed(2)}</label>
             </div>
 
             <div id="salarySelectedBT" className="payTypeSelection">
@@ -139,7 +142,7 @@ export default function Income() {
                 <input type="text" value={salaryPayBT} onChange={onChangeSBT}></input>
                 <br></br>
                 <label>Your gross income per month: $</label>
-                <label id="MgrossS">{salaryPayBT && ((parseInt(salaryPayBT))/12).toFixed(2)}</label>
+                <label>{salaryPayBT && ((parseInt(salaryPayBT))/12).toFixed(2)}</label>
             </div>
         </div>
         </div>

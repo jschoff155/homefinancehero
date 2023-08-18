@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './StyleSheets/MonthlyExpenses.css'
 
 export default function MonthlyExpenses() {
-  function totalMonthlyDebts(){
-    const mAutoLoans = parseInt(document.getElementById("mEMonthlyAutoLoans").value);
-    const mStdLoans = parseInt(document.getElementById("mEMonthlyStdLoans").value);
-    const mCredit = parseInt(document.getElementById("mEMonthlyCredit").value);
-    const mMiscDebts = parseInt(document.getElementById("mEMiscDebtsMonthly").value);
-    const combinedmonthlyExpenses = +(mAutoLoans + mStdLoans + mCredit + mMiscDebts);
-    document.getElementById("mETotalMonthly").innerHTML = `${combinedmonthlyExpenses}`;
-  }
-  function DebtTotal(){
-    const totalAutoLoans = parseInt(document.getElementById("mETotalAutoLoans").value);
-    const totalStdLoans = parseInt(document.getElementById("mETotalStdLoans").value);
-    const totalCredit = parseInt(document.getElementById("mETotalCreditDebt").value);
-    const totalMiscDebts = parseInt(document.getElementById("mEMiscDebtsTotal").value);
-    const combinedDebtAmount = (totalAutoLoans + totalStdLoans + totalCredit + totalMiscDebts);
-    document.getElementById("mETotalDebt").innerHTML = `${combinedDebtAmount}`;
-  }
+  const [mAutoLoans, setmAutoLoans] = useState("");
+  const [mStdLoans, setmStdLoans] = useState("");
+  const [mCredit, setmCredit] = useState("");
+  const [mMiscDebts, setmMiscDebts] = useState("");
+  const [tAutoLoans, settAutoLoans] = useState("");
+  const [tStdLoans, settStdLoans] = useState("");
+  const [tCredit, settCredit] = useState("");
+  const [tMiscDebts, settMiscDebts] = useState("");
+  
+  const onChangemAL = event => setmAutoLoans(event.target.value);
+  const onChangemSL = event => setmStdLoans(event.target.value);
+  const onChangemC = event => setmCredit(event.target.value);
+  const onChangemMD = event => setmMiscDebts(event.target.value);
+  const onChangetAL = event => settAutoLoans(event.target.value);
+  const onChangetSL = event => settStdLoans(event.target.value);
+  const onChangetC = event => settCredit(event.target.value);
+  const onChangetMD = event => settMiscDebts(event.target.value);
+  
+  const totalMonthlyExpenses = (mAutoLoans+mStdLoans+mCredit+mMiscDebts);
+  const totalDebtAmount = (tAutoLoans+tStdLoans+tCredit+tMiscDebts);
+
+
   return (
     <div id="monthlyExpenses">
     <h1>Monthly Expenses</h1>
@@ -34,33 +40,31 @@ export default function MonthlyExpenses() {
             </tr>
             <tr className="mEtr">
               <td class="mEdebtType">Auto loans</td>
-              <td><input id="mEMonthlyAutoLoans" class="mEmonthly"></input></td>
-              <td><input id="mETotalAutoLoans" class="mEtotalDebt"></input></td>
+              <td><input type="text" value={mAutoLoans} onChange={onChangemAL}></input></td>
+              <td><input type="text" value={tAutoLoans} onChange={onChangetAL}></input></td>
             </tr>
             <tr className="mEtr">
               <td class="mEdebtType">Student loans</td>
-              <td class="mEInputField"><input id="mEMonthlyStdLoans" class="mEmonthly"></input></td>
-              <td class="mEInputField"><input id="mETotalStdLoans" class="mEtotalDebt"></input></td>
+              <td class="mEInputField"><input type="text" value={mStdLoans} onChange={onChangemSL}></input></td>
+              <td class="mEInputField"><input type="text" value={tStdLoans} onChange={onChangetSL}></input></td>
             </tr>
             <tr className="mEtr">
               <td class="mEdebtType">Credit Cards</td>
-              <td class="mEInputField"><input id="mEMonthlyCredit" class="mEmonthly"></input></td>
-              <td class="mEInputField"><input id="mETotalCreditDebt" class="mEtotalDebt"></input></td>
+              <td class="mEInputField"><input type="text" value={mCredit} onChange={onChangemC}></input></td>
+              <td class="mEInputField"><input type="text" value={tCredit} onChange={onChangetC}></input></td>
             </tr>
             <tr className="mEtr">
               <td class="mEdebtType">All other credit debts</td>
-              <td class="mEInputField"><input id="mEMiscDebtsMonthly" class="mEmonthly"></input></td>
-              <td class="mEInputField"><input id="mEMiscDebtsTotal" class="mEtotalDebt"></input></td>
+              <td class="mEInputField"><input type="text" value={mMiscDebts} onChange={onChangemMD}></input></td>
+              <td class="mEInputField"><input type="text" value={tMiscDebts} onChange={onChangetMD}></input></td>
             </tr>
             <tr className="mEtr">
               <td class="mEdebtType"></td>
-              <td class="mEInputField"><button onClick={totalMonthlyDebts}>Calculate Minimum Payment Total</button></td>
-              <td class="mEInputField"><button onClick={DebtTotal}>Calculate Total Debt Amount</button></td>
             </tr>
             <tr className="mEtr">
-              <td class="mEdebtType">Totals</td>
-              <td class="mEInputField"><label>Monthly Payments: $</label><label id="mETotalMonthly" class="mEmonthly"></label></td>
-              <td class="mEInputField"><label>Total Debts: $</label><label id="mETotalDebt" class="mEtotalDebt"></label></td>
+              <td></td>
+              <td class="mEInputField"><label>Total Monthly Payments: $</label><label>{totalMonthlyExpenses}</label></td>
+              <td class="mEInputField"><label>Total Debts: $</label><label>{totalDebtAmount}</label></td>
             </tr>
         </table>
     </div>

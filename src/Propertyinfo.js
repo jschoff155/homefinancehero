@@ -1,18 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './StyleSheets/Propertyinfo.css'
 
 export default function Propertyinfo() {
-    
-  //const [totalLoanAmount, settotalLoanAmount] = useState("");
-  //const [homeprice, sethomeprice] = useState("");
-  //const [downpayment, setdownpayment] = useState("");
+  
+  const [homePrice, setHomePrice] = useState("");
+  const [downPayment, setDownPayment] = useState("");
 
-  function loanAmountCalc(){
-        const price = document.getElementById("homePrice").value;
-        const downPayment = document.getElementById("downPayment").value;
-        const totalLoanAmount = (price - downPayment);
-        document.getElementById("loanAmount").innerHTML = `${totalLoanAmount}`;
-    }
+  const totalLoanAmount = (homePrice && downPayment && (parseInt(homePrice) - parseInt(downPayment)));
+  
+  const onChangeHP = event => setHomePrice(event.target.value);
+  const onChangeDP = event => setDownPayment(event.target.value);
   
     return (
     <div id="propertyInformation">
@@ -20,13 +17,12 @@ export default function Propertyinfo() {
         <h1>Property Information</h1>
         
         <label>Home Price</label><br></br>
-        <input className="pIinput" id="homePrice"></input><br></br>
+        <input type="text" value={homePrice} onChange={onChangeHP}></input><br></br>
         <label>Down Payment</label><br></br>
-        <input className="pIinput" id="downPayment"></input><br></br>
-        <button id="pIbutton" type="button" onClick={loanAmountCalc}>Calculate</button>
-        <br></br>
-        <label>Total Loan Amount: </label>
-        <label id="loanAmount"></label>
+        <input type="text" value={downPayment} onChange={onChangeDP}></input><br></br>
+        
+        <label>Total Loan Amount: $</label>
+        <label id="loanAmount">{totalLoanAmount && ((parseInt(totalLoanAmount))).toFixed(2)}</label>
         
       </form>
     </div>
