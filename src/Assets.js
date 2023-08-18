@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './StyleSheets/Assets.css'
+
 export default function Assets() {
     const [cAAmount, setcAAmount] = useState("");
     const [sAAmount, setsAAmount] = useState("");
@@ -14,35 +15,31 @@ export default function Assets() {
     return (
     <div id="assets">
       <h1>Assets on file</h1>
-      <table className='mETable'>
-            <tr className="mEtr">
-              <th className="mETh">Asset Type</th>
-              <th className="mETh">Total Amount</th>
+      <h2><label>Total Assets on file: ${cAAmount && (parseInt(cAAmount)).toFixed(2)}</label></h2>
+      <table className='aTable'>
+            <tr className="atr">
+              <th className="aTh">Asset Type</th>
+              <th className="aTh">Total Amount</th>
             </tr>
-            <tr className="mEtr">
+            <tr className="atr">
               <td class="assetType">Checking Accounts</td>
               <td><input type="text" value={cAAmount} onChange={onChangeCHK}></input></td>
             </tr>
-            <tr className="mEtr">
-              <td class="mEdebtType">Savings Accounts</td>
-              <td class="mEInputField"><input type="text" value={sAAmount} onChange={onChangeSAV}></input></td>
+            <tr className="atr">
+              <td class="aLabel">Savings Accounts</td>
+              <td class="aInputField"><input type="text" value={sAAmount} onChange={onChangeSAV}></input></td>
             </tr>
-            <tr className="mEtr">
-              <td class="mEdebtType">IRAs/401Ks</td>
-              <td class="mEInputField"><input type="text" value={rEAmount} onChange={onChangeRET}></input></td>
+            <tr className="atr">
+              <td class="aLabel">IRAs/401Ks</td>
+              <td class="aInputField"><input type="text" value={rEAmount} onChange={onChangeRET}></input></td>
             </tr>
-            <tr className="mEtr">
-              <td class="mEdebtType">Gifts</td>
-              <td class="mEInputField"><input type="text" value={gAmount} onChange={onChangeGFT}></input></td>
+            <tr className="atr">
+              <td class="aLabel">Gifts</td>
+              <td class="aInputField"><input type="text" value={gAmount} onChange={onChangeGFT}></input></td>
             </tr>
-            <tr className="mEtr">
-              <td class="mEdebtType"></td>
-              <td class="mEInputField"><button>Calculate Minimum Payment Total</button></td>
-              <td class="mEInputField"><button>Calculate Total Debt Amount</button></td>
-            </tr>
-            <tr className="mEtr">
-              <td class="mEdebtType">Totals</td>
-              <td class="mEInputField"><label>Total Assets on file: $</label><label id="mETotalMonthly" class="mEmonthly"></label></td>
+            <tr className="atr">
+              <td class="aLabel">Totals</td>
+              <td class="aInputField"><label id="mETotalMonthly" class="mEmonthly"></label></td>
             </tr>
         </table>
     </div>
