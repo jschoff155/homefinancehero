@@ -20,8 +20,8 @@ export default function MonthlyExpenses() {
   const onChangetC = event => settCredit(event.target.value);
   const onChangetMD = event => settMiscDebts(event.target.value);
   
-  const totalMonthlyExpenses = (mAutoLoans+mStdLoans+mCredit+mMiscDebts);
-  const totalDebtAmount = (tAutoLoans+tStdLoans+tCredit+tMiscDebts);
+  const totalMonthlyExpenses = (mAutoLoans && mStdLoans && mCredit && mMiscDebts && parseInt(mAutoLoans)+parseInt(mStdLoans)+parseInt(mCredit)+parseInt(mMiscDebts));
+  const totalDebtAmount = (tAutoLoans && tStdLoans && tCredit && tMiscDebts && parseInt(tAutoLoans)+parseInt(tStdLoans)+parseInt(tCredit)+parseInt(tMiscDebts));
 
 
   return (
@@ -30,6 +30,7 @@ export default function MonthlyExpenses() {
       <div className="monthlyExpensesIntro">
         <p>Please only include debts which are relevant to your credit report.</p>
         <p>Utilities, insurance payments, and similar revolving payments need not be added.</p>
+        <p>Please ensure all fields have a value for proper calculations</p>
       </div>
       
       <table className='mETable'>
@@ -63,8 +64,8 @@ export default function MonthlyExpenses() {
             </tr>
             <tr className="mEtr">
               <td></td>
-              <td class="mEInputField"><label>Total Monthly Payments: $</label><label>{totalMonthlyExpenses}</label></td>
-              <td class="mEInputField"><label>Total Debts: $</label><label>{totalDebtAmount}</label></td>
+              <td class="mEInputField"><label>Total Monthly Payments: $</label><label>{totalMonthlyExpenses && ((parseInt(totalMonthlyExpenses))).toFixed(2)}</label></td>
+              <td class="mEInputField"><label>Total Debts: $</label><label>{totalDebtAmount && ((parseInt(totalDebtAmount))).toFixed(2)}</label></td>
             </tr>
         </table>
     </div>
