@@ -12,10 +12,12 @@ export default function Assets() {
     const onChangeRET = event => setrEAmount(event.target.value);
     const onChangeGFT = event => setgAmount(event.target.value);
     
+    const totalAssets = (cAAmount && sAAmount && rEAmount && gAmount && (parseInt(cAAmount)+parseInt(sAAmount)+parseInt(rEAmount)+parseInt(gAmount)));
+
     return (
     <div id="assets">
       <h1>Assets on file</h1>
-      <h2><label>Total Assets on file: ${cAAmount && (parseInt(cAAmount)).toFixed(2)}</label></h2>
+      <label>Total Assets on file: ${totalAssets && (parseInt(totalAssets)).toFixed(2)}</label>
       <table className='aTable'>
             <tr className="atr">
               <th className="aTh">Asset Type</th>
@@ -36,10 +38,6 @@ export default function Assets() {
             <tr className="atr">
               <td class="aLabel">Gifts</td>
               <td class="aInputField"><input type="text" value={gAmount} onChange={onChangeGFT}></input></td>
-            </tr>
-            <tr className="atr">
-              <td class="aLabel">Totals</td>
-              <td class="aInputField"><label id="mETotalMonthly" class="mEmonthly"></label></td>
             </tr>
         </table>
     </div>
