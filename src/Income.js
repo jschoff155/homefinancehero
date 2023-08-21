@@ -70,7 +70,7 @@ export default function Income() {
   return (
     <div id="income">
         <h1>Income</h1>
-        <label>Combined Monthly Income: $</label><label>{totalMonthlyIncome && ((parseFloat(totalMonthlyIncome))).toFixed(2)}</label><br></br>
+        <label>Total Monthly Income: $</label><label>{totalMonthlyIncome && ((parseFloat(totalMonthlyIncome))).toFixed(2)}</label><br></br>
         <label>Number of borrowers?</label><br></br>
         <select>
             <option onClick={reset}></option>
@@ -90,25 +90,16 @@ export default function Income() {
             <div id="hourlySelectedBO" className="payTypeSelection">
                 <label>How much do you make per hour?</label>
                 <input type="text" value={hourlyPayBO} onChange={onChangeHBO}></input>
-                <br></br>
-                <label>Your gross income per month: $</label>
-                <label>{hourlyPayBO && ((parseInt(hourlyPayBO) * 2080)/12).toFixed(2)}</label>
             </div>
 
             <div id="monthlySelectedBO" className="payTypeSelection">
                 <label>How much do you make per month?</label>
                 <input type="text" value={monthlyPayBO} onChange={onChangeMBO}></input>
-                <br></br>
-                <label>Your gross income per month: $</label>
-                <label>{monthlyPayBO && ((parseInt(monthlyPayBO))).toFixed(2)}</label>
             </div>
 
             <div id="salarySelectedBO" className="payTypeSelection">
                 <label>How much do you make per year?</label>
                 <input type="text" value={salaryPayBO} onChange={onChangeSBO}></input>
-                <br></br>
-                <label>Your gross income per month: $</label>
-                <label>{salaryPayBO && ((parseInt(salaryPayBO))/12).toFixed(2)}</label>
             </div>
         </div>
         
@@ -124,25 +115,16 @@ export default function Income() {
             <div id="hourlySelectedBT" className="payTypeSelection">
                 <label>How much do you make per hour?</label>
                 <input type="text" value={hourlyPayBT} onChange={onChangeHBT}></input>
-                <br></br>
-                <label>Your gross income per month: $</label>
-                <label>{hourlyPayBT && ((parseInt(hourlyPayBT) * 2080)/12).toFixed(2)}</label>
             </div>
 
             <div id="monthlySelectedBT" className="payTypeSelection">
                 <label>How much do you make per month?</label>
                 <input type="text" value={monthlyPayBT} onChange={onChangeMBT}></input>
-                <br></br>
-                <label>Your gross income per month: $</label>
-                <label>{monthlyPayBT && ((parseInt(monthlyPayBT))).toFixed(2)}</label>
             </div>
 
             <div id="salarySelectedBT" className="payTypeSelection">
                 <label>How much do you make per year?</label>
                 <input type="text" value={salaryPayBT} onChange={onChangeSBT}></input>
-                <br></br>
-                <label>Your gross income per month: $</label>
-                <label>{salaryPayBT && ((parseInt(salaryPayBT))/12).toFixed(2)}</label>
             </div>
         </div>
         </div>

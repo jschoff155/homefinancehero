@@ -1,3 +1,7 @@
 #aTable{
     column-count: 2;
+    justify-content: center;
+}
+#assets{
+    text-align: center;
 }
