@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Operator from './Operator';
 import './StyleSheets/MonthlyExpenses.css'
 
 export default function MonthlyExpenses() {
@@ -68,6 +69,7 @@ export default function MonthlyExpenses() {
               <td class="mEInputField"><label>Total Debts: $</label><label>{totalDebtAmount && ((parseInt(totalDebtAmount))).toFixed(2)}</label></td>
             </tr>
         </table>
+        <Operator otmDebt = {totalMonthlyExpenses}/>
     </div>
   )
 }
