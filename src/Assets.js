@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Statusbar from './Statusbar';
+import Operator from './Operator';
 import './StyleSheets/Assets.css'
 
 export default function Assets() {
@@ -40,7 +40,7 @@ export default function Assets() {
               <td class="aLabel">Gifts</td>
               <td class="aInputField"><input type="text" value={gAmount} onChange={onChangeGFT}></input></td>
             </tr>
-            <Statusbar tAssets={(totalAssets).valueOf}/>
+            <Operator tAssets={totalAssets}/>
         </table>
     </div>
   )
