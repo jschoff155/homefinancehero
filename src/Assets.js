@@ -12,12 +12,12 @@ export default function Assets() {
     const onChangeRET = event => setrEAmount(event.target.value);
     const onChangeGFT = event => setgAmount(event.target.value);
     
-    const totalAssets = (cAAmount && sAAmount && rEAmount && gAmount && (parseInt(cAAmount)+parseInt(sAAmount)+parseInt(rEAmount)+parseInt(gAmount)));
+    const tAssets = (cAAmount && sAAmount && rEAmount && gAmount && (parseInt(cAAmount)+parseInt(sAAmount)+parseInt(rEAmount)+parseInt(gAmount)));
 
     return (
     <div id="assets">
       <h1>Assets on file</h1>
-      <label>Total Assets on file: ${totalAssets && (parseInt(totalAssets)).toFixed(2)}</label>
+      <label>Total Assets on file: ${tAssets && (parseInt(tAssets)).toFixed(2)}</label>
       <table className='aTable'>
             <tr className="atr">
               <th className="aTh">Asset Type</th>

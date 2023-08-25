@@ -11,15 +11,21 @@ import Financing from './Financing';
 
 
 export default function App() {
-  return (
+    const [tAssets, settAssets] = useState();
+    const [tLoanAmount, settLoanAmount] = useState();
+    //const [tMonthlyExpenses, settMonthlyExpenses] = useState();
+    //const [tMonthlyIncome, settMonthlyIncome] = useState();
+
+
+    return (
     <>
     <Home />
     <Navigation/>
-    <Statusbar/>
+    <Statusbar tAssets={tAssets} settAssets={settAssets} tLoanAmount={tLoanAmount} settLoanAmount={settLoanAmount}/>
     <Propertyinfo/>
     <Income/>
-    <MonthlyExpenses/>
-    <Assets/>
+    <MonthlyExpenses tLoanAmount={tLoanAmount} settLoanAmount={settLoanAmount}/>
+    <Assets tAssets={tAssets} settAssets={settAssets}/>
     <Financing/>
     </>
   )
