@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Operator from './Operator';
 import './StyleSheets/Assets.css'
 
 export default function Assets() {
@@ -40,7 +39,6 @@ export default function Assets() {
               <td class="aLabel">Gifts</td>
               <td class="aInputField"><input type="text" value={gAmount} onChange={onChangeGFT}></input></td>
             </tr>
-            <Operator tAssets={totalAssets}/>
         </table>
     </div>
   )

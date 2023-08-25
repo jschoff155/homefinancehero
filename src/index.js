@@ -1,26 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './Home';
 import reportWebVitals from './reportWebVitals';
-import Statusbar from './Statusbar';
-import Propertyinfo from './Propertyinfo';
-import MonthlyExpenses from './MonthlyExpenses';
-import Navigation from './Navigation';
-import Income from './Income';
-import Assets from './Assets';
-import Financing from './Financing';
+import App from './App';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Home />
-    <Navigation/>
-    <Statusbar/>
-    <Propertyinfo/>
-    <Income/>
-    <MonthlyExpenses/>
-    <Assets/>
-    <Financing/>
+    <App/>
   </React.StrictMode>
 );
 
