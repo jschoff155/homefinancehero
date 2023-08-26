@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Home from './Home';
 import Statusbar from './Statusbar';
 import Propertyinfo from './Propertyinfo';
@@ -8,24 +8,16 @@ import Income from './Income';
 import Assets from './Assets';
 import Financing from './Financing';
 
-
-
 export default function App() {
-    const [tAssets, settAssets] = useState();
-    const [tLoanAmount, settLoanAmount] = useState();
-    //const [tMonthlyExpenses, settMonthlyExpenses] = useState();
-    //const [tMonthlyIncome, settMonthlyIncome] = useState();
-
-
     return (
     <>
     <Home />
     <Navigation/>
-    <Statusbar tAssets={tAssets} settAssets={settAssets} tLoanAmount={tLoanAmount} settLoanAmount={settLoanAmount}/>
+    <Statusbar />
     <Propertyinfo/>
     <Income/>
-    <MonthlyExpenses tLoanAmount={tLoanAmount} settLoanAmount={settLoanAmount}/>
-    <Assets tAssets={tAssets} settAssets={settAssets}/>
+    <MonthlyExpenses />
+    <Assets />
     <Financing/>
     </>
   )
