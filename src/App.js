@@ -1,22 +1,26 @@
-import React from 'react'
-import Home from './Home';
-import Statusbar from './Statusbar';
-import Propertyinfo from './Propertyinfo';
+import React, { useState, useCallback } from 'react'
+import Statusbar from './ChildComponents/Statusbar';
+import Propertyinfo from './ChildComponents/Propertyinfo';
 import MonthlyExpenses from './MonthlyExpenses';
 import Navigation from './Navigation';
-import Income from './Income';
-import Assets from './Assets';
-import Financing from './Financing';
+import Income from './ChildComponents/Income';
+import Assets from './ChildComponents/Assets';
+import Financing from './ChildComponents/Financing';
+
 
 export default function App() {
+    const getAssets=(tAssets)=>{
+      console.log({tAssets})
+    }
+
     return (
     <>
-    <Home />
+    <h1>Home Finance Hero </h1>
     <Navigation/>
-    <Statusbar />
+    <Statusbar tAssets={tAssets} tLoanAmount={tLoanAmount}/>
     <Propertyinfo/>
     <Income/>
-    <MonthlyExpenses />
+    <MonthlyExpenses tAssets={getAssets}/>
     <Assets />
     <Financing/>
     </>
