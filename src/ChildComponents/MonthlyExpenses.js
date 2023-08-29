@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import './StyleSheets/MonthlyExpenses.css'
+import App from '../App';
+import '../StyleSheets/MonthlyExpenses.css'
 
 export default function MonthlyExpenses() {
   const [mAutoLoans, setmAutoLoans] = useState("");
@@ -22,7 +23,7 @@ export default function MonthlyExpenses() {
   
   const totalMonthlyExpenses = (mAutoLoans && mStdLoans && mCredit && mMiscDebts && parseInt(mAutoLoans)+parseInt(mStdLoans)+parseInt(mCredit)+parseInt(mMiscDebts));
   const totalDebtAmount = (tAutoLoans && tStdLoans && tCredit && tMiscDebts && parseInt(tAutoLoans)+parseInt(tStdLoans)+parseInt(tCredit)+parseInt(tMiscDebts));
-
+  <App totalMonthlyExpenses={totalMonthlyExpenses}/>
 
   return (
     <div id="monthlyExpenses">

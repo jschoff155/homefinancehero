@@ -1,5 +1,5 @@
 import React from 'react'
-import './StyleSheets/Financing.css'
+import '../StyleSheets/Financing.css'
 
 export default function Financing() {
   return (

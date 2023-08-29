@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './StyleSheets/Propertyinfo.css'
+import '../StyleSheets/Propertyinfo.css'
 
 export default function Propertyinfo() {
   

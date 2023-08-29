@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './StyleSheets/Income.css'
+import '../StyleSheets/Income.css'
 
 export default function Income() {
     const [hourlyPayBO, setHourlyPayBO] = useState("");

@@ -1,23 +1,22 @@
 import React, { useState } from 'react'
-import './StyleSheets/Assets.css'
+import '../StyleSheets/Assets.css'
 
-export default function Assets() {
-    const [cAAmount, setcAAmount] = useState("");
-    const [sAAmount, setsAAmount] = useState("");
-    const [rEAmount, setrEAmount] = useState("");
-    const [gAmount, setgAmount] = useState("");
+export default function Assets(props) {
+    const [cAAmount, setcAAmount] = useState(0);
+    const [sAAmount, setsAAmount] = useState(0);
+    const [rEAmount, setrEAmount] = useState(0);
+    const [gAmount, setgAmount] = useState(0);
 
     const onChangeCHK = event => setcAAmount(event.target.value);
     const onChangeSAV = event => setsAAmount(event.target.value);
     const onChangeRET = event => setrEAmount(event.target.value);
     const onChangeGFT = event => setgAmount(event.target.value);
-    
-    const tAssets = (cAAmount && sAAmount && rEAmount && gAmount && (parseInt(cAAmount)+parseInt(sAAmount)+parseInt(rEAmount)+parseInt(gAmount)));
+    const totalAssets = (cAAmount && sAAmount && rEAmount && gAmount && (parseInt(cAAmount)+parseInt(sAAmount)+parseInt(rEAmount)+parseInt(gAmount)));
 
     return (
     <div id="assets">
       <h1>Assets on file</h1>
-      <label>Total Assets on file: ${tAssets && (parseInt(tAssets)).toFixed(2)}</label>
+      <label>Total Assets on file: ${totalAssets && (parseInt(totalAssets)).toFixed(2)}</label>
       <table className='aTable'>
             <tr className="atr">
               <th className="aTh">Asset Type</th>

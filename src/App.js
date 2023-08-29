@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Statusbar from './ChildComponents/Statusbar';
 import Propertyinfo from './ChildComponents/Propertyinfo';
 import MonthlyExpenses from './ChildComponents/MonthlyExpenses';
@@ -7,41 +7,33 @@ import Income from './ChildComponents/Income';
 import Assets from './ChildComponents/Assets';
 import Financing from './ChildComponents/Financing';
 
-class App extends React.Component {
+export default function App() { //Defining states for the variables
+  const [apptotalAssets, setapptotalAssets] = useState(0);
+  const [apptotalLoanAmount, setapptotalLoanAmount] = useState(0);
+  const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState(0);
+  const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState(0);
+  
+  //Defining functions to be passed as props
+  const onChangeAssetTotal = event =>setapptotalAssets(event.target.value);
+  const onChangeLoanTotal = event =>setapptotalLoanAmount(event.target.value);
+  const onChangeMonthlyIncomeTotal = event =>setapptotalMonthlyIncome(event.target.value);
+  const onChangeMonthlyExpensesTotal = event =>setapptotalMonthlyExpenses(event.target.value);
 
-  state = {
-    name:"",
-  }
-  handleAssetCallback = (assetData) =>{
-    this.setState({totalAssets: assetData})
-  }
-  handleLoanCallback = (loanData) =>{
-    this.setState({totalLoanAmount: loanData})
-  }
-  render() {
-    const {totalAssets} = this.state;
-    const {totalLoanAmount} = this.state;
-
+  const appdebtToIncome = (apptotalMonthlyExpenses && apptotalMonthlyIncome && (parseInt(apptotalMonthlyExpenses)/parseInt(apptotalMonthlyIncome)));
+  
+  //UI with props identified for their respective components
     return(
       <div>
-        <Assets parentCallback={this.handleAssetCallback}/>
-        {totalAssets}
-        <Propertyinfo parentCallback={this.handleLoanCallback}/>
-        {totalLoanAmount}
-
         <>
         <h1>Home Finance Hero </h1>
         <Navigation/>
-        <Statusbar totalAssets={totalAssets} totalLoanAmount={totalLoanAmount}/>
-        <Propertyinfo/>
-        <Income/>
-        <MonthlyExpenses/>
-        <Assets />
+        <Statusbar totalAssets={apptotalAssets} totalLoanAmount={apptotalLoanAmount} debtToIncome={appdebtToIncome}/>
+        <Propertyinfo totalLoanupdater={onChangeLoanTotal}/>
+        <Income totalIncomeupdater={onChangeMonthlyIncomeTotal}/>
+        <MonthlyExpenses totalExpensesupdater={onChangeMonthlyExpensesTotal}/>
+        <Assets totalAssetupdater={onChangeAssetTotal}/>
         <Financing/>
         </>
       </div>
-      
     )
   }
-}
-export default App
