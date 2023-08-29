@@ -8,10 +8,10 @@ import Assets from './ChildComponents/Assets';
 import Financing from './ChildComponents/Financing';
 
 export default function App() { //Defining states for the variables
-  const [apptotalAssets, setapptotalAssets] = useState(0);
-  const [apptotalLoanAmount, setapptotalLoanAmount] = useState(0);
-  const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState(0);
-  const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState(0);
+  const [apptotalAssets, setapptotalAssets] = useState("");
+  const [apptotalLoanAmount, setapptotalLoanAmount] = useState("");
+  const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
+  const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
   
   //Defining functions to be passed as props
   const onChangeAssetTotal = event =>setapptotalAssets(event.target.value);

@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import '../StyleSheets/Assets.css'
 
 export default function Assets(props) {
-    const [cAAmount, setcAAmount] = useState(0);
-    const [sAAmount, setsAAmount] = useState(0);
-    const [rEAmount, setrEAmount] = useState(0);
-    const [gAmount, setgAmount] = useState(0);
+    const [cAAmount, setcAAmount] = useState("");
+    const [sAAmount, setsAAmount] = useState("");
+    const [rEAmount, setrEAmount] = useState("");
+    const [gAmount, setgAmount] = useState("");
 
     const onChangeCHK = event => setcAAmount(event.target.value);
     const onChangeSAV = event => setsAAmount(event.target.value);
