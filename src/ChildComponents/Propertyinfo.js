@@ -15,14 +15,15 @@ export default function Propertyinfo() {
     <div id="propertyInformation">
       <form id="pIform">
         <h1>Property Information</h1>
-        
+        <label>Total Loan Amount: $</label>
+        <label id="loanAmount">{tLoanAmount && ((parseInt(tLoanAmount))).toFixed(2)}</label>
+        <br></br>
         <label>Home Price</label><br></br>
         <input type="text" value={homePrice} onChange={onChangeHP}></input><br></br>
         <label>Down Payment</label><br></br>
         <input type="text" value={downPayment} onChange={onChangeDP}></input><br></br>
         
-        <label>Total Loan Amount: $</label>
-        <label id="loanAmount">{tLoanAmount && ((parseInt(tLoanAmount))).toFixed(2)}</label>
+        
       </form>
     </div>
   )

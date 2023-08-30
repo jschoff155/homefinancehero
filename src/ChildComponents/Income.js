@@ -9,7 +9,7 @@ export default function Income() {
     const [monthlyPayBT, setMonthlyPayBT] = useState("");
     const [salaryPayBT, setSalaryPayBT] = useState("");
     
-    const totalMonthlyIncome = (hourlyPayBO && monthlyPayBO && salaryPayBO && hourlyPayBT && monthlyPayBT && salaryPayBT && ((parseInt(hourlyPayBO) * 2080)/12)+parseInt(monthlyPayBO)+((parseInt(salaryPayBO))/12)+((parseInt(hourlyPayBT) * 2080)/12)+parseInt(monthlyPayBT)+((parseInt(salaryPayBT))/12));
+    let totalMonthlyIncome = (hourlyPayBO && monthlyPayBO && salaryPayBO && hourlyPayBT && monthlyPayBT && salaryPayBT && ((parseInt(hourlyPayBO) * 2080)/12)+parseInt(monthlyPayBO)+((parseInt(salaryPayBO))/12)+((parseInt(hourlyPayBT) * 2080)/12)+parseInt(monthlyPayBT)+((parseInt(salaryPayBT))/12));
 
     const onChangeHBO = event => setHourlyPayBO(event.target.value);
     const onChangeMBO = event => setMonthlyPayBO(event.target.value);

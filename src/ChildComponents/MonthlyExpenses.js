@@ -21,14 +21,15 @@ export default function MonthlyExpenses() {
   const onChangetC = event => settCredit(event.target.value);
   const onChangetMD = event => settMiscDebts(event.target.value);
   
-  const totalMonthlyExpenses = (mAutoLoans && mStdLoans && mCredit && mMiscDebts && parseInt(mAutoLoans)+parseInt(mStdLoans)+parseInt(mCredit)+parseInt(mMiscDebts));
-  const totalDebtAmount = (tAutoLoans && tStdLoans && tCredit && tMiscDebts && parseInt(tAutoLoans)+parseInt(tStdLoans)+parseInt(tCredit)+parseInt(tMiscDebts));
+  let totalMonthlyExpenses = (mAutoLoans && mStdLoans && mCredit && mMiscDebts && parseInt(mAutoLoans)+parseInt(mStdLoans)+parseInt(mCredit)+parseInt(mMiscDebts));
+  let totalDebtAmount = (tAutoLoans && tStdLoans && tCredit && tMiscDebts && parseInt(tAutoLoans)+parseInt(tStdLoans)+parseInt(tCredit)+parseInt(tMiscDebts));
   <App totalMonthlyExpenses={totalMonthlyExpenses}/>
 
   return (
     <div id="monthlyExpenses">
     <h1>Monthly Expenses</h1>
       <div className="monthlyExpensesIntro">
+      <label>Total Monthly Payments: $</label><label>{totalMonthlyExpenses && ((parseInt(totalMonthlyExpenses))).toFixed(2)}</label>
         <p>Please only include debts which are relevant to your credit report.</p>
         <p>Utilities, insurance payments, and similar revolving payments need not be added.</p>
         <p>Please ensure all fields have a value for proper calculations</p>
@@ -65,7 +66,7 @@ export default function MonthlyExpenses() {
             </tr>
             <tr className="mEtr">
               <td></td>
-              <td class="mEInputField"><label>Total Monthly Payments: $</label><label>{totalMonthlyExpenses && ((parseInt(totalMonthlyExpenses))).toFixed(2)}</label></td>
+              <td class="mEInputField"></td>
               <td class="mEInputField"><label>Total Debts: $</label><label>{totalDebtAmount && ((parseInt(totalDebtAmount))).toFixed(2)}</label></td>
             </tr>
         </table>

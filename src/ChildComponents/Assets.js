@@ -6,11 +6,12 @@ export default function Assets(props) {
     const [sAAmount, setsAAmount] = useState("");
     const [rEAmount, setrEAmount] = useState("");
     const [gAmount, setgAmount] = useState("");
-
+    
     const onChangeCHK = event => setcAAmount(event.target.value);
     const onChangeSAV = event => setsAAmount(event.target.value);
     const onChangeRET = event => setrEAmount(event.target.value);
     const onChangeGFT = event => setgAmount(event.target.value);
+
     const totalAssets = (cAAmount && sAAmount && rEAmount && gAmount && (parseInt(cAAmount)+parseInt(sAAmount)+parseInt(rEAmount)+parseInt(gAmount)));
 
     return (

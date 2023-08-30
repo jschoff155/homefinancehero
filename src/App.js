@@ -14,10 +14,10 @@ export default function App() { //Defining states for the variables
   const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
   
   //Defining functions to be passed as props
-  const onChangeAssetTotal = event =>setapptotalAssets(event.target.value);
-  const onChangeLoanTotal = event =>setapptotalLoanAmount(event.target.value);
-  const onChangeMonthlyIncomeTotal = event =>setapptotalMonthlyIncome(event.target.value);
-  const onChangeMonthlyExpensesTotal = event =>setapptotalMonthlyExpenses(event.target.value);
+  const onChangeAssetTotal = num =>{setapptotalAssets(num)};
+  const onChangeLoanTotal = num =>{setapptotalLoanAmount(num)};
+  const onChangeMonthlyIncomeTotal = num =>{setapptotalMonthlyIncome(num)};
+  const onChangeMonthlyExpensesTotal = num =>{setapptotalMonthlyExpenses(num)};
 
   const appdebtToIncome = (apptotalMonthlyExpenses && apptotalMonthlyIncome && (parseInt(apptotalMonthlyExpenses)/parseInt(apptotalMonthlyIncome)));
   
@@ -28,10 +28,10 @@ export default function App() { //Defining states for the variables
         <h1>Home Finance Hero </h1>
         <Navigation/>
         <Statusbar totalAssets={apptotalAssets} totalLoanAmount={apptotalLoanAmount} debtToIncome={appdebtToIncome}/>
-        <Propertyinfo totalLoanupdater={onChangeLoanTotal}/>
-        <Income totalIncomeupdater={onChangeMonthlyIncomeTotal}/>
-        <MonthlyExpenses totalExpensesupdater={onChangeMonthlyExpensesTotal}/>
-        <Assets totalAssetupdater={onChangeAssetTotal}/>
+        <Propertyinfo onChangeLoanTotal={onChangeLoanTotal}/>
+        <Income onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal}/>
+        <MonthlyExpenses onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}/>
+        <Assets onChangeAssetTotal={onChangeAssetTotal}/>
         <Financing/>
         </>
       </div>
