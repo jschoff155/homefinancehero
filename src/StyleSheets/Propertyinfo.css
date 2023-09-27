@@ -9,9 +9,8 @@
 }
 #pIform{
     text-align: center;
-    width: 40em;
+    width: 100%;
     border-style:solid;
-    border-color:red;
 }
 label{
     font-size: 2em;
