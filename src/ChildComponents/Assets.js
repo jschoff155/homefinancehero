@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../StyleSheets/Assets.css'
 
-export default function Assets(props) {
+export default function Assets() {
     const [cAAmount, setcAAmount] = useState("");
     const [sAAmount, setsAAmount] = useState("");
     const [rEAmount, setrEAmount] = useState("");

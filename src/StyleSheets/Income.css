@@ -6,13 +6,13 @@
     border-style: solid;
     text-align: center;
 }
-.payTypeSelection, .borrowerIncomeDetails{
-    display:none;
-}
 #borrowerIncomeAreas{
     display:flex;
 }
 .borrowerIncomeDetails{
     flex:50%;
     width:50%;
+}
+#borrowerTwoDetails, .payTypeSelection{
+    display:none;
 }
