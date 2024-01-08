@@ -33,8 +33,8 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
     }
   };
 
-  let totalhourlyPayBO = parseInt(hourlyPayBO) * 2080;
-  let totalhourlyPayBT = parseInt(hourlyPayBT) * 2080;
+  let totalhourlyPayBO = (parseInt(hourlyPayBO) * 2080) / 12;
+  let totalhourlyPayBT = (parseInt(hourlyPayBT) * 2080) / 12;
   let totalmonthlyPayBO = parseInt(monthlyPayBO);
   let totalmonthlyPayBT = parseInt(monthlyPayBT);
   let totalsalaryPayBO = parseInt(salaryPayBO) / 12;

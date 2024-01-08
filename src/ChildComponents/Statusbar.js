@@ -5,14 +5,13 @@ export default function Statusbar(props) {
   return (
     <div className="statusBar">
       <div className="statusItem">
-        <p>Debt-To-Income:</p> {props.debtToIncome}
+        <p>Debt-To-Income %: {props.debtToIncome.toFixed(2)}</p>
       </div>
       <div className="statusItem">
-        <p>Assets on file:</p> {props.totalAssets}
+        <p>Assets on file: {props.totalAssets}</p>
       </div>
       <div className="statusItem">
-        <p>Loan Amount:</p>
-        {props.totalLoanAmount}
+        <p>Loan Amount: {props.totalLoanAmount}</p>
       </div>
     </div>
   );
