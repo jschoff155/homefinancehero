@@ -19,8 +19,8 @@ export default function Financing(props) {
         <label>Interest Rate</label>
         <input></input>
         <br></br>
-        <label>Loan Amount</label>
-        <label>*</label>
+        <label>Loan Amount:$</label>
+        <label>{props.apptotalLoanAmount}</label>
       </div>
     </div>
   );
