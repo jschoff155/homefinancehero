@@ -43,7 +43,6 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
       parseInt(tStdLoans) +
       parseInt(tCredit) +
       parseInt(tMiscDebts);
-  <App totalMonthlyExpenses={totalMonthlyExpenses} />;
 
   return (
     <div id="monthlyExpenses">
@@ -67,7 +66,6 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
         <tr className="mEtr">
           <th className="mETh">Payment Type</th>
           <th className="mETh">Monthly Minimum Payment</th>
-          <th className="mETh">Total Debt Amount</th>
         </tr>
         <tr className="mEtr">
           <td class="mEdebtType">Auto loans</td>
@@ -78,30 +76,17 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
               onChange={onChangemAL}
             ></input>
           </td>
-          <td>
-            <input
-              type="text"
-              value={tAutoLoans}
-              onChange={onChangetAL}
-            ></input>
-          </td>
         </tr>
         <tr className="mEtr">
           <td class="mEdebtType">Student loans</td>
           <td class="mEInputField">
             <input type="text" value={mStdLoans} onChange={onChangemSL}></input>
           </td>
-          <td class="mEInputField">
-            <input type="text" value={tStdLoans} onChange={onChangetSL}></input>
-          </td>
         </tr>
         <tr className="mEtr">
           <td class="mEdebtType">Credit Cards</td>
           <td class="mEInputField">
             <input type="text" value={mCredit} onChange={onChangemC}></input>
-          </td>
-          <td class="mEInputField">
-            <input type="text" value={tCredit} onChange={onChangetC}></input>
           </td>
         </tr>
         <tr className="mEtr">
@@ -113,13 +98,6 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
               onChange={onChangemMD}
             ></input>
           </td>
-          <td class="mEInputField">
-            <input
-              type="text"
-              value={tMiscDebts}
-              onChange={onChangetMD}
-            ></input>
-          </td>
         </tr>
         <tr className="mEtr">
           <td class="mEdebtType"></td>
@@ -127,12 +105,6 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
         <tr className="mEtr">
           <td></td>
           <td class="mEInputField"></td>
-          <td class="mEInputField">
-            <label>Total Debts: $</label>
-            <label>
-              {totalDebtAmount && parseInt(totalDebtAmount).toFixed(2)}
-            </label>
-          </td>
         </tr>
       </table>
     </div>
