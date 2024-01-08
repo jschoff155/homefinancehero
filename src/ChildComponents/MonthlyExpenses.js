@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import App from "../App";
 import "../StyleSheets/MonthlyExpenses.css";
 
 export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
@@ -7,10 +6,6 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
   const [mStdLoans, setmStdLoans] = useState("");
   const [mCredit, setmCredit] = useState("");
   const [mMiscDebts, setmMiscDebts] = useState("");
-  const [tAutoLoans, settAutoLoans] = useState("");
-  const [tStdLoans, settStdLoans] = useState("");
-  const [tCredit, settCredit] = useState("");
-  const [tMiscDebts, settMiscDebts] = useState("");
 
   useEffect(() => {
     onChangeMonthlyExpensesTotal(totalMonthlyExpenses);
@@ -20,10 +15,6 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
   const onChangemSL = (event) => setmStdLoans(event.target.value);
   const onChangemC = (event) => setmCredit(event.target.value);
   const onChangemMD = (event) => setmMiscDebts(event.target.value);
-  const onChangetAL = (event) => settAutoLoans(event.target.value);
-  const onChangetSL = (event) => settStdLoans(event.target.value);
-  const onChangetC = (event) => settCredit(event.target.value);
-  const onChangetMD = (event) => settMiscDebts(event.target.value);
 
   let totalMonthlyExpenses =
     mAutoLoans &&
@@ -34,15 +25,6 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
       parseInt(mStdLoans) +
       parseInt(mCredit) +
       parseInt(mMiscDebts);
-  let totalDebtAmount =
-    tAutoLoans &&
-    tStdLoans &&
-    tCredit &&
-    tMiscDebts &&
-    parseInt(tAutoLoans) +
-      parseInt(tStdLoans) +
-      parseInt(tCredit) +
-      parseInt(tMiscDebts);
 
   return (
     <div id="monthlyExpenses">

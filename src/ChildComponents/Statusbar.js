@@ -5,7 +5,7 @@ export default function Statusbar(props) {
   return (
     <div className="statusBar">
       <div className="statusItem">
-        <p>Debt-To-Income %: {props.debtToIncome.toFixed(2)}</p>
+        <p>Debt-To-Income %: {props.debtToIncome}</p>
       </div>
       <div className="statusItem">
         <p>Assets on file: ${props.totalAssets}</p>
