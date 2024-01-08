@@ -28,10 +28,11 @@ export default function App() {
     setapptotalMonthlyExpenses(num);
   };
 
-  const appdebtToIncome =
+  const appdebtToIncome = (
     apptotalMonthlyExpenses &&
     apptotalMonthlyIncome &&
-    (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) * 100;
+    (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) * 100
+  ).toFixed(2);
 
   //UI with props identified for their respective components
   return (
@@ -50,7 +51,7 @@ export default function App() {
           onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
         />
         <Assets onChangeAssetTotal={onChangeAssetTotal} />
-        <Financing />
+        <Financing apptotalLoanAmount={apptotalLoanAmount} />
       </>
     </div>
   );
