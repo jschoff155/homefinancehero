@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../StyleSheets/Income.css";
 
-export default function Income() {
+export default function Income({ onChangeMonthlyIncomeTotal }) {
   const [hourlyPayBO, setHourlyPayBO] = useState("");
   const [monthlyPayBO, setMonthlyPayBO] = useState("");
   const [salaryPayBO, setSalaryPayBO] = useState("");
   const [hourlyPayBT, setHourlyPayBT] = useState("");
   const [monthlyPayBT, setMonthlyPayBT] = useState("");
   const [salaryPayBT, setSalaryPayBT] = useState("");
+
+  useEffect(() => {
+    onChangeMonthlyIncomeTotal(totalMonthlyIncome);
+  });
 
   const handlePayTypeChangeBO = (selectedValue) => {
     if (selectedValue === "hourly") {
