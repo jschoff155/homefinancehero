@@ -93,14 +93,6 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
     document.getElementById("monthlySelectedBT").style.display = "none";
     document.getElementById("salarySelectedBT").style.display = "block";
   }
-  function reset() {
-    setHourlyPayBO(0);
-    setMonthlyPayBO(0);
-    setSalaryPayBO(0);
-    setHourlyPayBT(0);
-    setMonthlyPayBT(0);
-    setSalaryPayBT(0);
-  }
   function showBODetails() {
     document.getElementById("borrowerOneDetails").style.display = "block";
     document.getElementById("borrowerTwoDetails").style.display = "none";
@@ -108,6 +100,14 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   function showBTDetails() {
     document.getElementById("borrowerOneDetails").style.display = "block";
     document.getElementById("borrowerTwoDetails").style.display = "block";
+  }
+  function reset() {
+    setHourlyPayBO(0);
+    setMonthlyPayBO(0);
+    setSalaryPayBO(0);
+    setHourlyPayBT(0);
+    setMonthlyPayBT(0);
+    setSalaryPayBT(0);
   }
 
   return (

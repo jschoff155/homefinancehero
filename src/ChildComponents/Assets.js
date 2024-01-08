@@ -12,15 +12,21 @@ export default function AssetsArea({ onChangeAssetTotal }) {
   const onChangeRET = (event) => setrEAmount(event.target.value);
   const onChangeGFT = (event) => setgAmount(event.target.value);
 
-  const totalAssets =
-    cAAmount &&
-    sAAmount &&
-    rEAmount &&
-    gAmount &&
-    parseInt(cAAmount) +
-      parseInt(sAAmount) +
-      parseInt(rEAmount) +
-      parseInt(gAmount);
+  let totalcAAmount = parseInt(cAAmount);
+  let totalsAAmount = parseInt(sAAmount);
+  let totalrEAmount = parseInt(rEAmount);
+  let totalgAmount = parseInt(gAmount);
+
+  const assetValues = [
+    totalcAAmount || null,
+    totalsAAmount || null,
+    totalrEAmount || null,
+    totalgAmount || null,
+  ];
+
+  const totalAssets = assetValues.reduce((accumulator, currentValue) => {
+    return currentValue !== null ? accumulator + currentValue : accumulator;
+  }, 0);
 
   useEffect(() => {
     onChangeAssetTotal(totalAssets);
