@@ -26,6 +26,44 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
       parseInt(mCredit) +
       parseInt(mMiscDebts);
 
+  const paymentTypeLabel = [
+    {
+      title: "Auto Loans",
+      onChangeValue: mAutoLoans,
+      onChangeFunction: onChangemAL,
+    },
+    {
+      title: "Student Loans",
+      onChangeValue: mStdLoans,
+      onChangeFunction: onChangemSL,
+    },
+    {
+      title: "Credit Cards",
+      onChangeValue: mCredit,
+      onChangeFunction: onChangemC,
+    },
+    {
+      title: "All other credit debts",
+      onChangeValue: mMiscDebts,
+      onChangeFunction: onChangemMD,
+    },
+  ];
+
+  const ExpensesInput = (title, onChangeValue, onChangeFunction) => {
+    return (
+      <tr className="mEtr">
+        <td class="mEdebtType">{title}</td>
+        <td>
+          <input
+            type="text"
+            value={onChangeValue}
+            onChange={onChangeFunction}
+          ></input>
+        </td>
+      </tr>
+    );
+  };
+
   return (
     <div id="monthlyExpenses">
       <h1>Monthly Expenses</h1>
@@ -36,12 +74,11 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
         </label>
         <p>
           Please only include debts which are relevant to your credit report.
-        </p>
-        <p>
+          <br></br>
           Utilities, insurance payments, and similar revolving payments need not
-          be added.
+          be added. <br></br>Please ensure all fields have a value for proper
+          calculations
         </p>
-        <p>Please ensure all fields have a value for proper calculations</p>
       </div>
 
       <table className="mETable">
@@ -49,45 +86,13 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
           <th className="mETh">Payment Type</th>
           <th className="mETh">Monthly Minimum Payment</th>
         </tr>
-        <tr className="mEtr">
-          <td class="mEdebtType">Auto loans</td>
-          <td>
-            <input
-              type="text"
-              value={mAutoLoans}
-              onChange={onChangemAL}
-            ></input>
-          </td>
-        </tr>
-        <tr className="mEtr">
-          <td class="mEdebtType">Student loans</td>
-          <td class="mEInputField">
-            <input type="text" value={mStdLoans} onChange={onChangemSL}></input>
-          </td>
-        </tr>
-        <tr className="mEtr">
-          <td class="mEdebtType">Credit Cards</td>
-          <td class="mEInputField">
-            <input type="text" value={mCredit} onChange={onChangemC}></input>
-          </td>
-        </tr>
-        <tr className="mEtr">
-          <td class="mEdebtType">All other credit debts</td>
-          <td class="mEInputField">
-            <input
-              type="text"
-              value={mMiscDebts}
-              onChange={onChangemMD}
-            ></input>
-          </td>
-        </tr>
-        <tr className="mEtr">
-          <td class="mEdebtType"></td>
-        </tr>
-        <tr className="mEtr">
-          <td></td>
-          <td class="mEInputField"></td>
-        </tr>
+        {paymentTypeLabel.map((input) =>
+          ExpensesInput(
+            input.title,
+            input.onChangeValue,
+            input.onChangeFunction
+          )
+        )}
       </table>
     </div>
   );

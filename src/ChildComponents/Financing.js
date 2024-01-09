@@ -4,14 +4,13 @@ import "../StyleSheets/Financing.css";
 export default function Financing(props) {
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
-  const loanAmount = useState(props.apptotalLoanAmount);
 
   const rateForFormula = rate * 0.01;
 
   const paymentAmount =
-    loanAmount *
-      (((rateForFormula / 12) * ((1 + rateForFormula / 12) ^ term)) /
-        (((1 + rateForFormula / 12) ^ term) - 1)) || null;
+    props.apptotalLoanAmount *
+      (((rateForFormula / 12) * (1 + rateForFormula / 12) ** term) /
+        ((1 + rateForFormula / 12) ** term - 1)) || null;
 
   const onChangeTerm = (event) => setTerm(event.target.value);
   const onChangeRate = (event) => setRate(event.target.value);
@@ -30,7 +29,9 @@ export default function Financing(props) {
         <br></br>
         <label>Loan Amount:$</label>
         <label>{props.apptotalLoanAmount}</label>
+        <br></br>
         <label>Your monthly mortgage payment is:</label>
+        <br></br>
         <label>{paymentAmount}</label>
       </div>
     </div>
