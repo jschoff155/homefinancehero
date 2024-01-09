@@ -1,38 +1,15 @@
 import React from "react";
 import "../StyleSheets/Navigation.css";
 
-export default function Navigation({ setActiveComponent }) {
-  const handleButtonClick = (component) => {
-    setActiveComponent(component);
-  };
-
+export default function Navigation() {
   return (
     <div id="navigation">
       <div className="Icons"></div>
-      <button
-        className="navButton"
-        onClick={() => handleButtonClick("Property")}
-      >
-        Property
-      </button>
-      <button className="navButton" onClick={() => handleButtonClick("Income")}>
-        Income
-      </button>
-      <button
-        className="navButton"
-        onClick={() => handleButtonClick("Expenses")}
-      >
-        Expenses
-      </button>
-      <button className="navButton" onClick={() => handleButtonClick("Assets")}>
-        Assets
-      </button>
-      <button
-        className="navButton"
-        onClick={() => handleButtonClick("Financing")}
-      >
-        Financing
-      </button>
+      <button class="navButton">Property</button>
+      <button class="navButton">Income</button>
+      <button class="navButton">Expenses</button>
+      <button class="navButton">Assets</button>
+      <button class="navButton">Financing</button>
     </div>
   );
 }

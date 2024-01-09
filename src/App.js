@@ -8,7 +8,6 @@ import Assets from "./ChildComponents/Assets";
 import Financing from "./ChildComponents/Financing";
 
 export default function App() {
-  const [activeComponent, setActiveComponent] = useState("Property");
   //Defining states for the variables
   const [apptotalAssets, setapptotalAssets] = useState("");
   const [apptotalLoanAmount, setapptotalLoanAmount] = useState("");
@@ -34,41 +33,24 @@ export default function App() {
     apptotalMonthlyIncome &&
     (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) * 100;
 
-  const renderActiveComponent = () => {
-    switch (activeComponent) {
-      case "Property":
-        return <Propertyinfo onChangeLoanTotal={onChangeLoanTotal} />;
-      case "Income":
-        return (
-          <Income onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal} />
-        );
-      case "Expenses":
-        return (
-          <MonthlyExpenses
-            onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
-          />
-        );
-      case "Assets":
-        return <Assets onChangeAssetTotal={onChangeAssetTotal} />;
-      case "Financing":
-        return <Financing apptotalLoanAmount={apptotalLoanAmount} />;
-      default:
-        return null;
-    }
-  };
-
   //UI with props identified for their respective components
   return (
     <div>
       <>
         <h1>Home Finance Hero </h1>
-        <Navigation setActiveComponent={setActiveComponent} />
+        <Navigation />
         <Statusbar
           totalAssets={apptotalAssets}
           totalLoanAmount={apptotalLoanAmount}
           debtToIncome={appdebtToIncome}
         />
-        {renderActiveComponent()}
+        <Propertyinfo onChangeLoanTotal={onChangeLoanTotal} />
+        <Income onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal} />
+        <MonthlyExpenses
+          onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
+        />
+        <Assets onChangeAssetTotal={onChangeAssetTotal} />
+        <Financing apptotalLoanAmount={apptotalLoanAmount} />
       </>
     </div>
   );
