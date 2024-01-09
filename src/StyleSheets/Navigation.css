@@ -12,3 +12,11 @@ width:20%;
 height: 80px;
 font-size: 2em;
 }
+@media only screen and 
+(max-device-width:800px){
+    .navButton{
+        width:30%;
+        height:40px;
+        font-size: 1em
+    }
+}
