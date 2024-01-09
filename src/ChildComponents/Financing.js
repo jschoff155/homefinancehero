@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../StyleSheets/Financing.css";
 
 export default function Financing(props) {
@@ -22,9 +22,11 @@ export default function Financing(props) {
       <div className="mortgageDetails">
         <h2>Monthly payment (P&I)</h2>
         <label>Term</label>
+        <br></br>
         <input type="text" value={term} onChange={onChangeTerm}></input>
         <br></br>
         <label>Interest Rate</label>
+        <br></br>
         <input type="text" value={rate} onChange={onChangeRate}></input>
         <br></br>
         <label>Loan Amount:$</label>
