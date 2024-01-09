@@ -7,26 +7,35 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
   const [mCredit, setmCredit] = useState("");
   const [mMiscDebts, setmMiscDebts] = useState("");
 
-  useEffect(() => {
-    onChangeMonthlyExpensesTotal(totalMonthlyExpenses);
-  });
-
   const onChangemAL = (event) => setmAutoLoans(event.target.value);
   const onChangemSL = (event) => setmStdLoans(event.target.value);
   const onChangemC = (event) => setmCredit(event.target.value);
   const onChangemMD = (event) => setmMiscDebts(event.target.value);
 
-  let totalMonthlyExpenses =
-    mAutoLoans &&
-    mStdLoans &&
-    mCredit &&
-    mMiscDebts &&
-    parseInt(mAutoLoans) +
-      parseInt(mStdLoans) +
-      parseInt(mCredit) +
-      parseInt(mMiscDebts);
+  let totalmAutoLoans = parseInt(mAutoLoans);
+  let totalmStdLoans = parseInt(mStdLoans);
+  let totalmCredit = parseInt(mCredit);
+  let totalmMiscDebts = parseInt(mMiscDebts);
 
-  const paymentTypeLabel = [
+  const liabilityValues = [
+    totalmAutoLoans || null,
+    totalmStdLoans || null,
+    totalmCredit || null,
+    totalmMiscDebts || null,
+  ];
+
+  const totalMonthlyExpenses = liabilityValues.reduce(
+    (accumulator, currentValue) => {
+      return currentValue !== null ? accumulator + currentValue : accumulator;
+    },
+    0
+  );
+
+  useEffect(() => {
+    onChangeMonthlyExpensesTotal(totalMonthlyExpenses);
+  });
+
+  const paymentTypeInput = [
     {
       title: "Auto Loans",
       onChangeValue: mAutoLoans,
@@ -86,7 +95,7 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
           <th className="mETh">Payment Type</th>
           <th className="mETh">Monthly Minimum Payment</th>
         </tr>
-        {paymentTypeLabel.map((input) =>
+        {paymentTypeInput.map((input) =>
           ExpensesInput(
             input.title,
             input.onChangeValue,
