@@ -16,3 +16,15 @@
 h1{
     text-align: center;
 }
+
+@media only screen and 
+(max-device-width:800px){
+    .statusBar{
+        margin-bottom:20px;
+    }
+    .statusItem{
+        width:30%;
+        height:40px;
+        font-size: 1em
+    }
+}
