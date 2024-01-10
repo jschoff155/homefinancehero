@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
 import "../StyleSheets/Financing.css";
 
 export default function Financing(props) {
