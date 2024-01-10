@@ -6,6 +6,7 @@ import Navigation from "./ChildComponents/Navigation";
 import Income from "./ChildComponents/Income";
 import Assets from "./ChildComponents/Assets";
 import Financing from "./ChildComponents/Financing";
+import { Typography } from "@mui/material";
 
 export default function App() {
   //Defining states for the variables
@@ -37,7 +38,9 @@ export default function App() {
   return (
     <div>
       <>
-        <h1>Home Finance Hero </h1>
+        <Typography textAlign={"center"} variant="h3">
+          Home Finance Hero
+        </Typography>
         <Navigation />
         <Statusbar
           totalAssets={apptotalAssets}
