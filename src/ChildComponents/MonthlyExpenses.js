@@ -63,7 +63,7 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
 
   const ExpensesInput = (title, onChangeValue, onChangeFunction) => {
     return (
-      <Box>
+      <Box textAlign={"center"}>
         <Typography variant="h4">{title}</Typography>
         <TextField
           id="outlined-basic"
@@ -77,7 +77,7 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
   };
 
   return (
-    <Box>
+    <Box textAlign={"center"}>
       <Typography variant="h3">Monthly Expenses</Typography>
       <Typography variant="h4">
         Total Monthly Payments: $

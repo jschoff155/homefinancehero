@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import "../StyleSheets/Income.css";
+import Button from "@mui/material/Button";
 
 export default function Income({ onChangeMonthlyIncomeTotal }) {
   const [hourlyPayBO, setHourlyPayBO] = useState("");
@@ -8,6 +16,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   const [hourlyPayBT, setHourlyPayBT] = useState("");
   const [monthlyPayBT, setMonthlyPayBT] = useState("");
   const [salaryPayBT, setSalaryPayBT] = useState("");
+  const [numberOfBorrowers, setNumberOfBorrowers] = useState("");
 
   useEffect(() => {
     onChangeMonthlyIncomeTotal(totalMonthlyIncome);
@@ -62,6 +71,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   const onChangeHBT = (event) => setHourlyPayBT(event.target.value);
   const onChangeMBT = (event) => setMonthlyPayBT(event.target.value);
   const onChangeSBT = (event) => setSalaryPayBT(event.target.value);
+  const onChangeNOB = (event) => setNumberOfBorrowers(event.target.value);
 
   function hourlyPayQsBO() {
     document.getElementById("hourlySelectedBO").style.display = "block";
@@ -111,26 +121,43 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   }
 
   return (
-    <div id="income">
-      <h1>Income</h1>
-      <label>Total Monthly Income: $</label>
-      <label>
+    <Box>
+      <Typography variant="h3">Income</Typography>
+      <Typography variant="h4">
+        Total Monthly Income: $
         {totalMonthlyIncome && parseFloat(totalMonthlyIncome).toFixed(2)}
-      </label>
-      <br></br>
-      <button onClick={reset}>Reset</button>
-      <br></br>
-      <label>Number of borrowers?</label>
-      <br></br>
-      <select
-        id="numberOfBorrowers"
-        onChange={(e) =>
-          e.target.value === "1" ? showBODetails() : showBTDetails()
-        }
+      </Typography>
+      <Button variant="outlined" onClick={reset}>
+        Outlined
+      </Button>
+      <Typography variant="h3">Number of borrowers?</Typography>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={numberOfBorrowers}
+        onChange={onChangeNOB}
       >
-        <option value="1">1</option>
-        <option value="2">2</option>
-      </select>
+        <MenuItem value={1}>1</MenuItem>
+        <MenuItem value={2}>2</MenuItem>
+      </Select>
+      {numberOfBorrowers === 1 && (
+        <Box>
+          <Typography>How are you paid?</Typography>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={numberOfBorrowers}
+            onChange={handlePayTypeChangeBO}
+          >
+            <MenuItem value={1}>Hourly</MenuItem>
+            <MenuItem value={2}>Monthly</MenuItem>
+            <MenuItem value={3}>Salary</MenuItem>
+          </Select>
+        </Box>
+      )}
+    </Box>
+  );
+} /* 
       <div id="borrowerIncomeAreas">
         <div id="borrowerOneDetails" className="borrowerIncomeDetails">
           <h2>Borrower 1</h2>
@@ -219,6 +246,4 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    </div> */

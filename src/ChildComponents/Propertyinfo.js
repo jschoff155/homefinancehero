@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 import "../StyleSheets/Propertyinfo.css";
 
 export default function Propertyinfo({ onChangeLoanTotal }) {
@@ -16,23 +19,27 @@ export default function Propertyinfo({ onChangeLoanTotal }) {
   });
 
   return (
-    <div id="propertyInformation">
-      <form id="pIform">
-        <h1>Property Information</h1>
-        <label>Total Loan Amount: $</label>
-        <label id="loanAmount">
-          {tLoanAmount && parseInt(tLoanAmount).toFixed(2)}
-        </label>
-        <br></br>
-        <label>Home Price</label>
-        <br></br>
-        <input type="text" value={homePrice} onChange={onChangeHP}></input>
-        <br></br>
-        <label>Down Payment</label>
-        <br></br>
-        <input type="text" value={downPayment} onChange={onChangeDP}></input>
-        <br></br>
-      </form>
-    </div>
+    <Box textAlign={"center"}>
+      <Typography variant="h3">Loan Information</Typography>
+      <Typography variant="h4">
+        Total Loan Amount: ${tLoanAmount && parseInt(tLoanAmount).toFixed(2)}
+      </Typography>
+      <Typography>Home Price</Typography>
+      <TextField
+        id="outlined-basic"
+        variant="outlined"
+        type="text"
+        value={homePrice}
+        onChange={onChangeHP}
+      />
+      <Typography>Down Payment Amount</Typography>
+      <TextField
+        id="outlined-basic"
+        variant="outlined"
+        type="text"
+        value={downPayment}
+        onChange={onChangeDP}
+      />
+    </Box>
   );
 }

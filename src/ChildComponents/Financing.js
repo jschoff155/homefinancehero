@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
 import "../StyleSheets/Financing.css";
 
 export default function Financing(props) {
@@ -19,7 +20,7 @@ export default function Financing(props) {
   const onChangeRate = (event) => setRate(event.target.value);
 
   return (
-    <Box>
+    <Box textAlign={"center"}>
       <Typography variant="h3">Mortgage Calculator</Typography>
       <Typography variant="h4">Current Loan Amount</Typography>
       <Typography variant="h4">{props.apptotalLoanAmount}</Typography>
@@ -28,7 +29,7 @@ export default function Financing(props) {
       <Typography variant="h4">Interest Rate</Typography>
       <TextField type="text" value={rate} onChange={onChangeRate} />
       <Typography variant="h4">Estimated P&I Payment:</Typography>
-      <Typography variant="h4">{paymentAmount.toFixed(2)}</Typography>
+      <Typography variant="h4">{paymentAmount}</Typography>
     </Box>
   );
 }
