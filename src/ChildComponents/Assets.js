@@ -61,7 +61,7 @@ export default function AssetsArea({ onChangeAssetTotal }) {
   const assetUI = (title, onChangeValue, onChangeFunction) => {
     return (
       <Box>
-        <Typography variant="h3">{title}</Typography>
+        <Typography variant="h4">{title}</Typography>
         <TextField
           id="outlined-basic"
           variant="outlined"
@@ -75,8 +75,8 @@ export default function AssetsArea({ onChangeAssetTotal }) {
 
   return (
     <Box>
-      <Typography variant="h2">Assets on file</Typography>
-      <Typography variant="h3">
+      <Typography variant="h3">Assets on file</Typography>
+      <Typography variant="h4">
         Total Assets on file: ${totalAssets && parseInt(totalAssets).toFixed(2)}
       </Typography>
       {assetTypeLabel.map((input) =>

@@ -20,15 +20,15 @@ export default function Financing(props) {
 
   return (
     <Box>
-      <Typography variant="h2">Mortgage Calculator</Typography>
-      <Typography variant="h3">Current Loan Amount</Typography>
-      <Typography variant="h3">{props.apptotalLoanAmount}</Typography>
-      <Typography variant="h3">Term</Typography>
+      <Typography variant="h3">Mortgage Calculator</Typography>
+      <Typography variant="h4">Current Loan Amount</Typography>
+      <Typography variant="h4">{props.apptotalLoanAmount}</Typography>
+      <Typography variant="h4">Term</Typography>
       <TextField type="text" value={term} onChange={onChangeTerm} />
-      <Typography variant="h3">Interest Rate</Typography>
+      <Typography variant="h4">Interest Rate</Typography>
       <TextField type="text" value={rate} onChange={onChangeRate} />
-      <Typography variant="h3">Estimated P&I Payment:</Typography>
-      <Typography variant="h3">{paymentAmount.toFixed(2)}</Typography>
+      <Typography variant="h4">Estimated P&I Payment:</Typography>
+      <Typography variant="h4">{paymentAmount.toFixed(2)}</Typography>
     </Box>
   );
 }

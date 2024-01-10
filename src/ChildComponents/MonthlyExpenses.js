@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 import "../StyleSheets/MonthlyExpenses.css";
 
 export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
@@ -60,49 +63,33 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
 
   const ExpensesInput = (title, onChangeValue, onChangeFunction) => {
     return (
-      <tr className="mEtr">
-        <td class="mEdebtType">{title}</td>
-        <td>
-          <input
-            type="text"
-            value={onChangeValue}
-            onChange={onChangeFunction}
-          ></input>
-        </td>
-      </tr>
+      <Box>
+        <Typography variant="h4">{title}</Typography>
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          type="text"
+          value={onChangeValue}
+          onChange={onChangeFunction}
+        />
+      </Box>
     );
   };
 
   return (
-    <div id="monthlyExpenses">
-      <h1>Monthly Expenses</h1>
-      <div className="monthlyExpensesIntro">
-        <label>Total Monthly Payments: $</label>
-        <label>
-          {totalMonthlyExpenses && parseInt(totalMonthlyExpenses).toFixed(2)}
-        </label>
-        <p>
-          Please only include debts which are relevant to your credit report.
-          <br></br>
-          Utilities, insurance payments, and similar revolving payments need not
-          be added. <br></br>Please ensure all fields have a value for proper
-          calculations
-        </p>
-      </div>
-
-      <table className="mETable">
-        <tr className="mEtr">
-          <th className="mETh">Payment Type</th>
-          <th className="mETh">Monthly Minimum Payment</th>
-        </tr>
-        {paymentTypeInput.map((input) =>
-          ExpensesInput(
-            input.title,
-            input.onChangeValue,
-            input.onChangeFunction
-          )
-        )}
-      </table>
-    </div>
+    <Box>
+      <Typography variant="h3">Monthly Expenses</Typography>
+      <Typography variant="h4">
+        Total Monthly Payments: $
+        {totalMonthlyExpenses && parseInt(totalMonthlyExpenses).toFixed(2)}
+      </Typography>
+      <Typography variant="h4">
+        Only include debts which appear on your credit report.
+      </Typography>
+      <Typography variant="h4"></Typography>
+      {paymentTypeInput.map((input) =>
+        ExpensesInput(input.title, input.onChangeValue, input.onChangeFunction)
+      )}
+    </Box>
   );
 }
