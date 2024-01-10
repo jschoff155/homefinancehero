@@ -79,8 +79,6 @@ export default function AssetsArea({ onChangeAssetTotal }) {
       <Typography variant="h3">
         Total Assets on file: ${totalAssets && parseInt(totalAssets).toFixed(2)}
       </Typography>
-      <Typography variant="h2">Asset Type</Typography>
-      <Typography variant="h2">Total Amount</Typography>
       {assetTypeLabel.map((input) =>
         assetUI(input.title, input.onChangeValue, input.onChangeFunction)
       )}
