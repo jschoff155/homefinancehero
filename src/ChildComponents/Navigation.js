@@ -5,7 +5,12 @@ import "../StyleSheets/Navigation.css";
 
 export default function Navigation() {
   return (
-    <Stack spacing={2} direction="row">
+    <Stack
+      spacing={2}
+      direction="row"
+      display={"flex"}
+      justifyContent={"space-around"}
+    >
       <Button variant="outlined">Property</Button>
       <Button variant="outlined">Income</Button>
       <Button variant="outlined">Expenses</Button>
