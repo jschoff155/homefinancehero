@@ -13,10 +13,13 @@ function LandingPage() {
         might need to improve on rather than having your credit pulled and
         reducing your score for no reason when you could stage yourself for
         success better knowing what comes next. Please review the areas above
-        for your information. These are all estimates and are not a full denial
-        or approval by any means, the information here is meant to be
-        informative at best and you should apply with a lending institution for
-        a definitive answer on whether or not you are able to purchase a home.
+        for your information.
+      </Typography>
+      <Typography textAlign={"center"} mx={8} my={4} fontStyle={"italic"}>
+        ***These are all estimates and are not a full denial or approval by any
+        means, the information here is meant to be informative at best and you
+        should apply with a lending institution for a definitive answer on
+        whether or not you are able to purchase a home.***
       </Typography>
     </Box>
   );
