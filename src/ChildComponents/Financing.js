@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 import "../StyleSheets/Financing.css";
 
 export default function Financing(props) {
@@ -16,26 +19,16 @@ export default function Financing(props) {
   const onChangeRate = (event) => setRate(event.target.value);
 
   return (
-    <div id="financing">
-      <h1>Financing Information</h1>
-      <div id="amortizationSchedule"></div>
-      <div className="mortgageDetails">
-        <h2>Monthly payment (P&I)</h2>
-        <label>Term</label>
-        <br></br>
-        <input type="text" value={term} onChange={onChangeTerm}></input>
-        <br></br>
-        <label>Interest Rate</label>
-        <br></br>
-        <input type="text" value={rate} onChange={onChangeRate}></input>
-        <br></br>
-        <label>Loan Amount:$</label>
-        <label>{props.apptotalLoanAmount}</label>
-        <br></br>
-        <label>Your monthly mortgage payment is:</label>
-        <br></br>
-        <label>{paymentAmount}</label>
-      </div>
-    </div>
+    <Box textAlign={"center"}>
+      <Typography variant="h3">Mortgage Calculator</Typography>
+      <Typography variant="h4">Current Loan Amount</Typography>
+      <Typography variant="h4">{props.apptotalLoanAmount}</Typography>
+      <Typography variant="h4">Term</Typography>
+      <TextField type="text" value={term} onChange={onChangeTerm} />
+      <Typography variant="h4">Interest Rate</Typography>
+      <TextField type="text" value={rate} onChange={onChangeRate} />
+      <Typography variant="h4">Estimated P&I Payment:</Typography>
+      <Typography variant="h4">{paymentAmount}</Typography>
+    </Box>
   );
 }

@@ -1,15 +1,35 @@
 import React from "react";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import "../StyleSheets/Navigation.css";
 
-export default function Navigation() {
+export default function Navigation({ setActiveComponent }) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   return (
-    <div id="navigation">
-      <div className="Icons"></div>
-      <button class="navButton">Property</button>
-      <button class="navButton">Income</button>
-      <button class="navButton">Expenses</button>
-      <button class="navButton">Assets</button>
-      <button class="navButton">Financing</button>
-    </div>
+    <Stack
+      spacing={2}
+      direction="row"
+      display={"flex"}
+      justifyContent={"space-around"}
+    >
+      <Button variant="outlined" onClick={() => handleButtonClick("Property")}>
+        Property
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
+        Income
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Expenses")}>
+        Expenses
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Assets")}>
+        Assets
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Financing")}>
+        Financing
+      </Button>
+    </Stack>
   );
 }

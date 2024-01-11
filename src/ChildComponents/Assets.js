@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 import "../StyleSheets/Assets.css";
 
 export default function AssetsArea({ onChangeAssetTotal }) {
@@ -54,36 +57,31 @@ export default function AssetsArea({ onChangeAssetTotal }) {
       onChangeFunction: onChangeGFT,
     },
   ];
+
   const assetUI = (title, onChangeValue, onChangeFunction) => {
     return (
-      <tr className="mEtr">
-        <td class="mEdebtType">{title}</td>
-        <td>
-          <input
-            type="text"
-            value={onChangeValue}
-            onChange={onChangeFunction}
-          ></input>
-        </td>
-      </tr>
+      <Box textAlign={"center"}>
+        <Typography variant="h4">{title}</Typography>
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          type="text"
+          value={onChangeValue}
+          onChange={onChangeFunction}
+        />
+      </Box>
     );
   };
 
   return (
-    <div id="assets">
-      <h1>Assets on file</h1>
-      <label>
+    <Box textAlign={"center"}>
+      <Typography variant="h3">Assets on file</Typography>
+      <Typography variant="h4">
         Total Assets on file: ${totalAssets && parseInt(totalAssets).toFixed(2)}
-      </label>
-      <table className="mETable">
-        <tr className="mEtr">
-          <th className="mETh">Asset Type</th>
-          <th className="mETh">Total Amount</th>
-        </tr>
-        {assetTypeLabel.map((input) =>
-          assetUI(input.title, input.onChangeValue, input.onChangeFunction)
-        )}
-      </table>
-    </div>
+      </Typography>
+      {assetTypeLabel.map((input) =>
+        assetUI(input.title, input.onChangeValue, input.onChangeFunction)
+      )}
+    </Box>
   );
 }
