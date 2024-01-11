@@ -10,10 +10,10 @@ import { Typography } from "@mui/material";
 import LandingPage from "./ChildComponents/LandingPage";
 
 export default function App() {
-  const [apptotalAssets, setapptotalAssets] = useState("");
-  const [apptotalLoanAmount, setapptotalLoanAmount] = useState("");
-  const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
-  const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
+  const [apptotalAssets] = useState("");
+  const [apptotalLoanAmount] = useState("");
+  //const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
+  //const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
   const [activeComponent, setActiveComponent] = useState("LandingPage");
   const [componentInputs, setComponentInputs] = useState({
     Property: {
