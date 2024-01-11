@@ -127,7 +127,7 @@ export default function App() {
   return (
     <>
       <Typography textAlign={"center"} variant="h3" my={4}>
-        Home Finance Hero
+        Mortgage Application Preparedness Guide
       </Typography>
       <Navigation setActiveComponent={setActiveComponent} />
       <Statusbar
