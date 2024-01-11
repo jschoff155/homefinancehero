@@ -3,7 +3,11 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import "../StyleSheets/Navigation.css";
 
-export default function Navigation() {
+export default function Navigation({ setActiveComponent }) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   return (
     <Stack
       spacing={2}
@@ -11,11 +15,21 @@ export default function Navigation() {
       display={"flex"}
       justifyContent={"space-around"}
     >
-      <Button variant="outlined">Property</Button>
-      <Button variant="outlined">Income</Button>
-      <Button variant="outlined">Expenses</Button>
-      <Button variant="outlined">Assets</Button>
-      <Button variant="outlined">Financing</Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Property")}>
+        Property
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
+        Income
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Expenses")}>
+        Expenses
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Assets")}>
+        Assets
+      </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Financing")}>
+        Financing
+      </Button>
     </Stack>
   );
 }

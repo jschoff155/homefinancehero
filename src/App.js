@@ -7,54 +7,135 @@ import Income from "./ChildComponents/Income";
 import Assets from "./ChildComponents/Assets";
 import Financing from "./ChildComponents/Financing";
 import { Typography } from "@mui/material";
+import LandingPage from "./ChildComponents/LandingPage";
 
 export default function App() {
-  //Defining states for the variables
   const [apptotalAssets, setapptotalAssets] = useState("");
   const [apptotalLoanAmount, setapptotalLoanAmount] = useState("");
   const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
   const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
+  const [activeComponent, setActiveComponent] = useState("LandingPage");
+  const [componentInputs, setComponentInputs] = useState({
+    Property: {
+      apptotalAssets: "",
+      apptotalLoanAmount: "",
+    },
+    Income: {
+      apptotalMonthlyIncome: "",
+    },
+    Expenses: {
+      apptotalMonthlyExpenses: "",
+    },
+    Assets: {
+      apptotalAssets: "",
+    },
+    Financing: {
+      apptotalLoanAmount: "",
+    },
+  });
 
-  //Defining functions to be passed as props
+  const renderActiveComponent = () => {
+    switch (activeComponent) {
+      case "LandingPage":
+        return <LandingPage />;
+      case "Property":
+        return (
+          <Propertyinfo
+            onChangeLoanTotal={onChangeLoanTotal}
+            {...componentInputs.Property}
+          />
+        );
+      case "Income":
+        return (
+          <Income
+            onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal}
+            {...componentInputs.Income}
+          />
+        );
+      case "Expenses":
+        return (
+          <MonthlyExpenses
+            onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
+            {...componentInputs.Expenses}
+          />
+        );
+      case "Assets":
+        return (
+          <Assets
+            onChangeAssetTotal={onChangeAssetTotal}
+            {...componentInputs.Assets}
+          />
+        );
+      case "Financing":
+        return (
+          <Financing
+            apptotalLoanAmount={componentInputs.Financing.apptotalLoanAmount}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   const onChangeAssetTotal = (num) => {
-    setapptotalAssets(num);
+    setComponentInputs((prevInputs) => ({
+      ...prevInputs,
+      [activeComponent]: {
+        ...prevInputs[activeComponent],
+        apptotalAssets: num,
+      },
+    }));
   };
+
   const onChangeLoanTotal = (num) => {
-    setapptotalLoanAmount(num);
+    setComponentInputs((prevInputs) => ({
+      ...prevInputs,
+      [activeComponent]: {
+        ...prevInputs[activeComponent],
+        apptotalLoanAmount: num,
+      },
+    }));
   };
+
   const onChangeMonthlyIncomeTotal = (num) => {
-    setapptotalMonthlyIncome(num);
+    setComponentInputs((prevInputs) => ({
+      ...prevInputs,
+      [activeComponent]: {
+        ...prevInputs[activeComponent],
+        apptotalMonthlyIncome: num,
+      },
+    }));
   };
+
   const onChangeMonthlyExpensesTotal = (num) => {
-    setapptotalMonthlyExpenses(num);
+    setComponentInputs((prevInputs) => ({
+      ...prevInputs,
+      [activeComponent]: {
+        ...prevInputs[activeComponent],
+        apptotalMonthlyExpenses: num,
+      },
+    }));
   };
 
   const appdebtToIncome =
-    apptotalMonthlyExpenses &&
-    apptotalMonthlyIncome &&
-    (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) * 100;
+    componentInputs.Income.apptotalMonthlyExpenses &&
+    componentInputs.Income.apptotalMonthlyIncome &&
+    (parseInt(componentInputs.Income.apptotalMonthlyExpenses) /
+      parseInt(componentInputs.Income.apptotalMonthlyIncome)) *
+      100;
 
-  //UI with props identified for their respective components
   return (
-    <div>
-      <>
-        <Typography textAlign={"center"} variant="h3">
-          Home Finance Hero
-        </Typography>
-        <Navigation />
-        <Statusbar
-          totalAssets={apptotalAssets}
-          totalLoanAmount={apptotalLoanAmount}
-          debtToIncome={appdebtToIncome}
-        />
-        <Propertyinfo onChangeLoanTotal={onChangeLoanTotal} />
-        <Income onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal} />
-        <MonthlyExpenses
-          onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
-        />
-        <Assets onChangeAssetTotal={onChangeAssetTotal} />
-        <Financing apptotalLoanAmount={apptotalLoanAmount} />
-      </>
-    </div>
+    <>
+      <Typography textAlign={"center"} variant="h3" my={4}>
+        Home Finance Hero
+      </Typography>
+      <Navigation setActiveComponent={setActiveComponent} />
+      <Statusbar
+        totalAssets={apptotalAssets}
+        totalLoanAmount={apptotalLoanAmount}
+        debtToIncome={appdebtToIncome}
+      />
+      {renderActiveComponent()}
+    </>
   );
 }
