@@ -7,26 +7,34 @@ import "../StyleSheets/Financing.css";
 export default function Financing(props) {
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
+  const [loan, setLoan] = useState("");
 
   const rateForFormula = rate * 0.01;
 
   const paymentAmount =
-    props.apptotalLoanAmount *
-      (((rateForFormula / 12) * (1 + rateForFormula / 12) ** term) /
-        ((1 + rateForFormula / 12) ** term - 1)) || null;
+    (loan &&
+      term &&
+      rate &&
+      (
+        (parseInt(loan) *
+          ((rateForFormula / 12) * (1 + rateForFormula / 12) ** term)) /
+        ((1 + rateForFormula / 12) ** term - 1)
+      ).toFixed(2)) ||
+    null;
 
   const onChangeTerm = (event) => setTerm(event.target.value);
   const onChangeRate = (event) => setRate(event.target.value);
-
+  const onChangeLoan = (event) => setLoan(event.target.value);
   return (
     <Box textAlign={"center"}>
       <Typography variant="h3">Mortgage Calculator</Typography>
       <Typography variant="h4">Current Loan Amount</Typography>
-      <Typography variant="h4">{props.apptotalLoanAmount}</Typography>
-      <Typography variant="h4">Term</Typography>
-      <TextField type="text" value={term} onChange={onChangeTerm} />
+      <TextField type="int" value={loan} onChange={onChangeLoan} />
+      {/* <Typography variant="h4">{props.apptotalLoanAmount}</Typography> */}
+      <Typography variant="h4">Term (in years)</Typography>
+      <TextField type="int" value={term} onChange={onChangeTerm} />
       <Typography variant="h4">Interest Rate</Typography>
-      <TextField type="text" value={rate} onChange={onChangeRate} />
+      <TextField type="int" value={rate} onChange={onChangeRate} />
       <Typography variant="h4">Estimated P&I Payment:</Typography>
       <Typography variant="h4">{paymentAmount}</Typography>
     </Box>

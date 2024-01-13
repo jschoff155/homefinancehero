@@ -130,11 +130,11 @@ export default function App() {
         Mortgage Application Preparedness Guide
       </Typography>
       <Navigation setActiveComponent={setActiveComponent} />
-      <Statusbar
+      {/* <Statusbar
         totalAssets={apptotalAssets}
         totalLoanAmount={apptotalLoanAmount}
         debtToIncome={appdebtToIncome}
-      />
+      /> */}
       {renderActiveComponent()}
     </>
   );

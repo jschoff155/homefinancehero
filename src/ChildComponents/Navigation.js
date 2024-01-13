@@ -15,9 +15,9 @@ export default function Navigation({ setActiveComponent }) {
       display={"flex"}
       justifyContent={"space-around"}
     >
-      <Button variant="outlined" onClick={() => handleButtonClick("Property")}>
+      {/* <Button variant="outlined" onClick={() => handleButtonClick("Property")}>
         Property
-      </Button>
+      </Button> */}
       <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
         Income
       </Button>

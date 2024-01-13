@@ -4,7 +4,11 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import "../StyleSheets/Propertyinfo.css";
 
-export default function Propertyinfo({ onChangeLoanTotal }) {
+export default function Propertyinfo({
+  onChangeLoanTotal,
+  apptotalLoanAmount,
+  onChangeAssetTotal,
+}) {
   const [homePrice, setHomePrice] = useState("");
   const [downPayment, setDownPayment] = useState("");
 
@@ -16,7 +20,14 @@ export default function Propertyinfo({ onChangeLoanTotal }) {
 
   useEffect(() => {
     onChangeLoanTotal(tLoanAmount);
-  });
+    onChangeAssetTotal(homePrice);
+  }, [onChangeLoanTotal, onChangeAssetTotal, homePrice, tLoanAmount]);
+
+  useEffect(() => {
+    // Set the initial values when the component mounts
+    setHomePrice(apptotalLoanAmount.homePrice || "");
+    setDownPayment(apptotalLoanAmount.downPayment || "");
+  }, [apptotalLoanAmount]);
 
   return (
     <Box textAlign={"center"}>
