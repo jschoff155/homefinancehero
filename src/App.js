@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Statusbar from "./ChildComponents/Statusbar";
+// import Statusbar from "./ChildComponents/Statusbar";
 import Propertyinfo from "./ChildComponents/Propertyinfo";
 import MonthlyExpenses from "./ChildComponents/MonthlyExpenses";
 import Navigation from "./ChildComponents/Navigation";
@@ -10,8 +10,8 @@ import { Typography } from "@mui/material";
 import LandingPage from "./ChildComponents/LandingPage";
 
 export default function App() {
-  const [apptotalAssets] = useState("");
-  const [apptotalLoanAmount] = useState("");
+  // const [apptotalAssets] = useState("");
+  // const [apptotalLoanAmount] = useState("");
   //const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
   //const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
   const [activeComponent, setActiveComponent] = useState("LandingPage");
@@ -117,12 +117,12 @@ export default function App() {
     }));
   };
 
-  const appdebtToIncome =
-    componentInputs.Income.apptotalMonthlyExpenses &&
-    componentInputs.Income.apptotalMonthlyIncome &&
-    (parseInt(componentInputs.Income.apptotalMonthlyExpenses) /
-      parseInt(componentInputs.Income.apptotalMonthlyIncome)) *
-      100;
+  // const appdebtToIncome =
+  //   componentInputs.Income.apptotalMonthlyExpenses &&
+  //   componentInputs.Income.apptotalMonthlyIncome &&
+  //   (parseInt(componentInputs.Income.apptotalMonthlyExpenses) /
+  //     parseInt(componentInputs.Income.apptotalMonthlyIncome)) *
+  //     100;
 
   return (
     <>
