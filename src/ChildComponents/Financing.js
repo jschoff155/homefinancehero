@@ -31,7 +31,7 @@ export default function Financing(props) {
       <Typography variant="h4">Current Loan Amount</Typography>
       <TextField type="int" value={loan} onChange={onChangeLoan} />
       {/* <Typography variant="h4">{props.apptotalLoanAmount}</Typography> */}
-      <Typography variant="h4">Term (in years)</Typography>
+      <Typography variant="h4">Term</Typography>
       <TextField type="int" value={term} onChange={onChangeTerm} />
       <Typography variant="h4">Interest Rate</Typography>
       <TextField type="int" value={rate} onChange={onChangeRate} />
