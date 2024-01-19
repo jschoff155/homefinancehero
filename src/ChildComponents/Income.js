@@ -65,7 +65,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   }
 
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} mx={8} my={5}>
       <Typography variant="h3">Income</Typography>
       <Typography variant="h4">
         Total Monthly Income: $

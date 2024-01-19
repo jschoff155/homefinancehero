@@ -30,7 +30,7 @@ export default function Propertyinfo({
   }, [apptotalLoanAmount]);
 
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} my={10}>
       <Typography variant="h3">Loan Information</Typography>
       <Typography variant="h4">
         Total Loan Amount: ${tLoanAmount && parseInt(tLoanAmount).toFixed(2)}

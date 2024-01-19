@@ -77,7 +77,7 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
   };
 
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} mx={8} my={5}>
       <Typography variant="h3">Monthly Expenses</Typography>
       <Typography variant="h4">
         Total Monthly Payments: $

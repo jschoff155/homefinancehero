@@ -74,7 +74,7 @@ export default function AssetsArea({ onChangeAssetTotal }) {
   };
 
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} mx={8} my={5}>
       <Typography variant="h3">Assets on file</Typography>
       <Typography variant="h4">
         Total Assets on file: ${totalAssets && parseInt(totalAssets).toFixed(2)}
