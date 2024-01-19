@@ -26,7 +26,7 @@ export default function Financing(props) {
   const onChangeRate = (event) => setRate(event.target.value);
   const onChangeLoan = (event) => setLoan(event.target.value);
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} mx={8} my={5}>
       <Typography variant="h3">Mortgage Calculator</Typography>
       <Typography variant="h4">Current Loan Amount</Typography>
       <TextField type="int" value={loan} onChange={onChangeLoan} />

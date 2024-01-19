@@ -65,7 +65,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   }
 
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} mx={8} my={5}>
       <Typography variant="h3">Income</Typography>
       <Typography variant="h4">
         Total Monthly Income: $
@@ -112,7 +112,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="text"
+                type="int"
                 value={monthlyPayBO}
                 onChange={onChangeMBO}
               />
@@ -152,7 +152,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="text"
+                type="int"
                 value={monthlyPayBO}
                 onChange={onChangeMBO}
               />
@@ -188,7 +188,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="text"
+                type="int"
                 value={monthlyPayBT}
                 onChange={onChangeMBT}
               />
@@ -208,93 +208,4 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
       )}
     </Box>
   );
-} /* 
-      <div id="borrowerIncomeAreas">
-        <div id="borrowerOneDetails" className="borrowerIncomeDetails">
-          <h2>Borrower 1</h2>
-          <label for="payType">How are you paid?</label>
-          <select onChange={(e) => handlePayTypeChangeBO(e.target.value)}>
-            <option value=""></option>
-            <option value="hourly" onChange={hourlyPayQsBO}>
-              Hourly
-            </option>
-            <option value="monthly" onChange={monthlyPayQsBO}>
-              Monthly
-            </option>
-            <option value="salary" onChange={salaryPayQsBO}>
-              Salary
-            </option>
-          </select>
-
-          <div id="hourlySelectedBO" className="payTypeSelection">
-            <label>How much do you make per hour?</label>
-            <input
-              type="text"
-              value={hourlyPayBO}
-              onChange={onChangeHBO}
-            ></input>
-          </div>
-
-          <div id="monthlySelectedBO" className="payTypeSelection">
-            <label>How much do you make per month?</label>
-            <input
-              type="text"
-              value={monthlyPayBO}
-              onChange={onChangeMBO}
-            ></input>
-          </div>
-
-          <div id="salarySelectedBO" className="payTypeSelection">
-            <label>How much do you make per year?</label>
-            <input
-              type="text"
-              value={salaryPayBO}
-              onChange={onChangeSBO}
-            ></input>
-          </div>
-        </div>
-
-        <div id="borrowerTwoDetails" className="borrowerIncomeDetails">
-          <h2>Borrower 2</h2>
-          <label for="payType">How are you paid?</label>
-          <select onChange={(e) => handlePayTypeChangeBT(e.target.value)}>
-            <option value=""></option>
-            <option value="hourly" onChange={hourlyPayQsBT}>
-              Hourly
-            </option>
-            <option value="monthly" onChange={monthlyPayQsBT}>
-              Monthly
-            </option>
-            <option value="salary" onChange={salaryPayQsBT}>
-              Salary
-            </option>
-          </select>
-          <div id="hourlySelectedBT" className="payTypeSelection">
-            <label>How much do you make per hour?</label>
-            <input
-              type="text"
-              value={hourlyPayBT}
-              onChange={onChangeHBT}
-            ></input>
-          </div>
-
-          <div id="monthlySelectedBT" className="payTypeSelection">
-            <label>How much do you make per month?</label>
-            <input
-              type="text"
-              value={monthlyPayBT}
-              onChange={onChangeMBT}
-            ></input>
-          </div>
-
-          <div id="salarySelectedBT" className="payTypeSelection">
-            <label>How much do you make per year?</label>
-            <input
-              type="text"
-              value={salaryPayBT}
-              onChange={onChangeSBT}
-            ></input>
-          </div>
-        </div>
-      </div>
-    </div> */
+}
