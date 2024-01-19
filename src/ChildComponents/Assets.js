@@ -65,7 +65,7 @@ export default function AssetsArea({ onChangeAssetTotal }) {
         <TextField
           id="outlined-basic"
           variant="outlined"
-          type="text"
+          type="int"
           value={onChangeValue}
           onChange={onChangeFunction}
         />
