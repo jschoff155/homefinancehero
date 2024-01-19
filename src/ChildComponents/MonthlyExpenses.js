@@ -68,7 +68,7 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
         <TextField
           id="outlined-basic"
           variant="outlined"
-          type="text"
+          type="int"
           value={onChangeValue}
           onChange={onChangeFunction}
         />
