@@ -33,7 +33,7 @@ export default function AssetsArea({ onChangeAssetTotal }) {
 
   useEffect(() => {
     onChangeAssetTotal(totalAssets);
-  });
+  }, [totalAssets, onChangeAssetTotal]);
 
   const assetTypeLabel = [
     {

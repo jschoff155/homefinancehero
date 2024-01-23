@@ -18,17 +18,6 @@ export default function Propertyinfo({
   const onChangeHP = (event) => setHomePrice(event.target.value);
   const onChangeDP = (event) => setDownPayment(event.target.value);
 
-  useEffect(() => {
-    onChangeLoanTotal(tLoanAmount);
-    onChangeAssetTotal(homePrice);
-  }, [onChangeLoanTotal, onChangeAssetTotal, homePrice, tLoanAmount]);
-
-  useEffect(() => {
-    // Set the initial values when the component mounts
-    setHomePrice(apptotalLoanAmount.homePrice || "");
-    setDownPayment(apptotalLoanAmount.downPayment || "");
-  }, [apptotalLoanAmount]);
-
   return (
     <Box textAlign={"center"} my={10}>
       <Typography variant="h3">Loan Information</Typography>
