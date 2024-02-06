@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import "../StyleSheets/Financing.css";
 
 export default function Financing(props) {
@@ -25,13 +26,23 @@ export default function Financing(props) {
   const onChangeTerm = (event) => setTerm(event.target.value);
   const onChangeRate = (event) => setRate(event.target.value);
   const onChangeLoan = (event) => setLoan(event.target.value);
+
+  function reset() {
+    setTerm("");
+    setRate("");
+    setLoan("");
+  }
+
   return (
     <Box textAlign={"center"} mx={8} my={5}>
       <Typography variant="h3">Mortgage Calculator</Typography>
+      <Button variant="outline" labelId="Reset" onClick={reset}>
+        Reset
+      </Button>
       <Typography variant="h4">Current Loan Amount</Typography>
       <TextField type="int" value={loan} onChange={onChangeLoan} />
       {<Typography variant="h4">{props.apptotalLoanAmount}</Typography>}
-      <Typography variant="h4">Term</Typography>
+      <Typography variant="h4">Term (in months)</Typography>
       <TextField type="int" value={term} onChange={onChangeTerm} />
       <Typography variant="h4">Interest Rate</Typography>
       <TextField type="int" value={rate} onChange={onChangeRate} />

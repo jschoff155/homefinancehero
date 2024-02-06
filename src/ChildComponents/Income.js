@@ -56,12 +56,12 @@ export default function Income({ setapptotalMonthlyIncome }) {
   const onChangeSBT = (event) => setSalaryPayBT(event.target.value);
 
   function reset() {
-    setHourlyPayBO(0);
-    setMonthlyPayBO(0);
-    setSalaryPayBO(0);
-    setHourlyPayBT(0);
-    setMonthlyPayBT(0);
-    setSalaryPayBT(0);
+    setHourlyPayBO("");
+    setMonthlyPayBO("");
+    setSalaryPayBO("");
+    setHourlyPayBT("");
+    setMonthlyPayBT("");
+    setSalaryPayBT("");
   }
 
   return (
@@ -72,7 +72,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
         {totalMonthlyIncome && parseFloat(totalMonthlyIncome).toFixed(2)}
       </Typography>
       <Button variant="outline" labelId="Reset" onClick={reset}>
-        Reset Incomes
+        Reset
       </Button>
       <Typography variant="h3">Number of borrowers?</Typography>
       <Select

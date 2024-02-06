@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import "../StyleSheets/Assets.css";
 
 export default function AssetsArea({ setApptotalAssets }) {
@@ -57,6 +58,12 @@ export default function AssetsArea({ setApptotalAssets }) {
       onChangeFunction: onChangeGFT,
     },
   ];
+  function reset() {
+    setcAAmount("");
+    setsAAmount("");
+    setrEAmount("");
+    setgAmount("");
+  }
 
   const assetUI = (title, onChangeValue, onChangeFunction) => {
     return (
@@ -79,6 +86,9 @@ export default function AssetsArea({ setApptotalAssets }) {
       <Typography variant="h4">
         Total Assets on file: ${totalAssets && parseInt(totalAssets).toFixed(2)}
       </Typography>
+      <Button variant="outline" labelId="Reset" onClick={reset}>
+        Reset
+      </Button>
       {assetTypeLabel.map((input) =>
         assetUI(input.title, input.onChangeValue, input.onChangeFunction)
       )}
