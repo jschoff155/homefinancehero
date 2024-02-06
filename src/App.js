@@ -119,11 +119,9 @@ export default function App() {
   };
 
   const appdebtToIncome =
-    componentInputs.Income.apptotalMonthlyExpenses &&
-    componentInputs.Income.apptotalMonthlyIncome &&
-    (parseInt(componentInputs.Income.apptotalMonthlyExpenses) /
-      parseInt(componentInputs.Income.apptotalMonthlyIncome)) *
-      100;
+    apptotalMonthlyExpenses &&
+    apptotalMonthlyIncome &&
+    (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) * 100;
 
   return (
     <>
@@ -135,7 +133,9 @@ export default function App() {
         <Statusbar
           totalAssets={apptotalAssets}
           totalLoanAmount={apptotalLoanAmount}
-          debtToIncome={appdebtToIncome}
+          appdebtToIncome={appdebtToIncome}
+          apptotalMonthlyIncome={apptotalMonthlyIncome}
+          apptotalMonthlyExpenses={apptotalMonthlyExpenses}
         />
       }
       {renderActiveComponent()}
