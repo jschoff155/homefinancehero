@@ -9,7 +9,7 @@ import Financing from "./ChildComponents/Financing";
 import { Typography } from "@mui/material";
 import LandingPage from "./ChildComponents/LandingPage";
 
-export default function App(props) {
+export default function App() {
   const [apptotalAssets, setApptotalAssets] = useState("");
   const [apptotalLoanAmount, setAppTotalLoanAmount] = useState("");
   const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
@@ -39,10 +39,19 @@ export default function App(props) {
       case "LandingPage":
         return <LandingPage />;
       case "Property":
-        return <Propertyinfo onChangeLoanTotal={onChangeLoanTotal} />;
+        return (
+          <Propertyinfo
+            setAppTotalLoanAmount={setAppTotalLoanAmount}
+            onChangeLoanTotal={onChangeLoanTotal}
+          />
+        );
+
       case "Income":
         return (
-          <Income onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal} />
+          <Income
+            setapptotalMonthlyIncome={setapptotalMonthlyIncome}
+            apptotalMonthlyIncome={apptotalMonthlyIncome}
+          />
         );
       case "Expenses":
         return (
@@ -53,6 +62,7 @@ export default function App(props) {
       case "Assets":
         return (
           <Assets
+            setApptotalAssets={setApptotalAssets}
             onChangeAssetTotal={onChangeAssetTotal}
             apptotalAssets={componentInputs.Assets.apptotalAssets}
           />

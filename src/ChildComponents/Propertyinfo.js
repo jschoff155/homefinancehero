@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import "../StyleSheets/Propertyinfo.css";
 
 export default function Propertyinfo({
-  onChangeLoanTotal,
+  setAppTotalLoanAmount,
   apptotalLoanAmount,
-  onChangeAssetTotal,
 }) {
   const [homePrice, setHomePrice] = useState("");
   const [downPayment, setDownPayment] = useState("");
@@ -17,6 +16,10 @@ export default function Propertyinfo({
 
   const onChangeHP = (event) => setHomePrice(event.target.value);
   const onChangeDP = (event) => setDownPayment(event.target.value);
+
+  useEffect(() => {
+    setAppTotalLoanAmount(tLoanAmount);
+  }, [tLoanAmount, setAppTotalLoanAmount]);
 
   return (
     <Box textAlign={"center"} my={10}>

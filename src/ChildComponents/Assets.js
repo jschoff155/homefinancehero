@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import "../StyleSheets/Assets.css";
 
-export default function AssetsArea({ onChangeAssetTotal }) {
+export default function AssetsArea({ setApptotalAssets }) {
   const [cAAmount, setcAAmount] = useState("");
   const [sAAmount, setsAAmount] = useState("");
   const [rEAmount, setrEAmount] = useState("");
@@ -32,8 +32,8 @@ export default function AssetsArea({ onChangeAssetTotal }) {
   }, 0);
 
   useEffect(() => {
-    onChangeAssetTotal(totalAssets);
-  }, [totalAssets, onChangeAssetTotal]);
+    setApptotalAssets(totalAssets);
+  }, [totalAssets, setApptotalAssets]);
 
   const assetTypeLabel = [
     {

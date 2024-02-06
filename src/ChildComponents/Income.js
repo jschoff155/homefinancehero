@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import "../StyleSheets/Income.css";
 import Button from "@mui/material/Button";
 
-export default function Income({ onChangeMonthlyIncomeTotal }) {
+export default function Income({ setapptotalMonthlyIncome }) {
   const [payTypeBO, setpayTypeBO] = useState("");
   const [payTypeBT, setpayTypeBT] = useState("");
   const [hourlyPayBO, setHourlyPayBO] = useState("");
@@ -19,7 +19,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   const [numberOfBorrowers, setNumberOfBorrowers] = useState("");
 
   useEffect(() => {
-    onChangeMonthlyIncomeTotal(totalMonthlyIncome);
+    setapptotalMonthlyIncome(totalMonthlyIncome);
   });
 
   let totalhourlyPayBO = (parseInt(hourlyPayBO) * 2080) / 12;
