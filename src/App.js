@@ -50,12 +50,13 @@ export default function App() {
         return (
           <Income
             setapptotalMonthlyIncome={setapptotalMonthlyIncome}
-            apptotalMonthlyIncome={apptotalMonthlyIncome}
+            onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal}
           />
         );
       case "Expenses":
         return (
           <MonthlyExpenses
+            setapptotalMonthlyExpenses={setapptotalMonthlyExpenses}
             onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
           />
         );
@@ -64,7 +65,6 @@ export default function App() {
           <Assets
             setApptotalAssets={setApptotalAssets}
             onChangeAssetTotal={onChangeAssetTotal}
-            apptotalAssets={componentInputs.Assets.apptotalAssets}
           />
         );
       case "Financing":

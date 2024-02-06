@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../StyleSheets/MonthlyExpenses.css";
 
-export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
+export default function MonthlyExpenses({ setapptotalMonthlyExpenses }) {
   const [mAutoLoans, setmAutoLoans] = useState("");
   const [mStdLoans, setmStdLoans] = useState("");
   const [mCredit, setmCredit] = useState("");
@@ -36,8 +36,8 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
   );
 
   useEffect(() => {
-    onChangeMonthlyExpensesTotal(totalMonthlyExpenses);
-  });
+    setapptotalMonthlyExpenses(totalMonthlyExpenses);
+  }, [totalMonthlyExpenses, setapptotalMonthlyExpenses]);
 
   const paymentTypeInput = [
     {
