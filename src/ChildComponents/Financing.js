@@ -55,7 +55,7 @@ export default function Financing({ setAppTotalLoanAmount }) {
       <TextField
         id="outlined-basic"
         variant="outlined"
-        type="text"
+        type="number"
         value={homePrice}
         onChange={onChangeHP}
       />
@@ -63,7 +63,7 @@ export default function Financing({ setAppTotalLoanAmount }) {
       <TextField
         id="outlined-basic"
         variant="outlined"
-        type="text"
+        type="number"
         value={downPayment}
         onChange={onChangeDP}
       />
