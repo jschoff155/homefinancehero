@@ -142,7 +142,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input hourly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={hourlyPayBO}
                 onChange={onChangeHBO}
               />
@@ -152,7 +152,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={monthlyPayBO}
                 onChange={onChangeMBO}
               />
@@ -162,7 +162,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input annual salary</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={salaryPayBO}
                 onChange={onChangeSBO}
               />
@@ -178,7 +178,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input hourly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={hourlyPayBT}
                 onChange={onChangeHBT}
               />
@@ -188,7 +188,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={monthlyPayBT}
                 onChange={onChangeMBT}
               />
@@ -198,7 +198,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input annual salary</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={salaryPayBT}
                 onChange={onChangeSBT}
               />
