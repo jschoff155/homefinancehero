@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -7,19 +7,27 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import "../StyleSheets/Financing.css";
 
-export default function Financing(props) {
+export default function Financing({ setAppTotalLoanAmount }) {
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
-  const [loan, setLoan] = useState("");
+  const [homePrice, setHomePrice] = useState("");
+  const [downPayment, setDownPayment] = useState("");
 
   const rateForFormula = rate * 0.01;
 
+  const tLoanAmount =
+    homePrice && downPayment && parseInt(homePrice) - parseInt(downPayment);
+
+  useEffect(() => {
+    setAppTotalLoanAmount(tLoanAmount);
+  }, [tLoanAmount, setAppTotalLoanAmount]);
+
   const paymentAmount =
-    (loan &&
+    (tLoanAmount &&
       term &&
       rate &&
       (
-        (parseInt(loan) *
+        (parseInt(tLoanAmount) *
           ((rateForFormula / 12) * (1 + rateForFormula / 12) ** term)) /
         ((1 + rateForFormula / 12) ** term - 1)
       ).toFixed(2)) ||
@@ -27,21 +35,15 @@ export default function Financing(props) {
 
   const onChangeTerm = (event) => setTerm(event.target.value);
   const onChangeRate = (event) => setRate(event.target.value);
-  const onChangeLoan = (event) => setLoan(event.target.value);
+  const onChangeHP = (event) => setHomePrice(event.target.value);
+  const onChangeDP = (event) => setDownPayment(event.target.value);
 
   function reset() {
     setTerm("");
     setRate("");
-    setLoan("");
+    setHomePrice("");
+    setDownPayment("");
   }
-  const selectStyles = {
-    menuList: (styles) => {
-      return {
-        ...styles,
-        maxHeight: 136,
-      };
-    },
-  };
 
   return (
     <Box textAlign={"center"} mx={8} my={5}>
@@ -49,15 +51,30 @@ export default function Financing(props) {
       <Button variant="outline" labelId="Reset" onClick={reset}>
         Reset
       </Button>
-      <Typography variant="h4">Current Loan Amount</Typography>
-      <TextField type="int" value={loan} onChange={onChangeLoan} />
-      {<Typography variant="h4">{props.apptotalLoanAmount}</Typography>}
+      <Typography>Home Price</Typography>
+      <TextField
+        id="outlined-basic"
+        variant="outlined"
+        type="text"
+        value={homePrice}
+        onChange={onChangeHP}
+      />
+      <Typography>Down Payment Amount</Typography>
+      <TextField
+        id="outlined-basic"
+        variant="outlined"
+        type="text"
+        value={downPayment}
+        onChange={onChangeDP}
+      />
+      <Typography variant="h4">
+        Total Loan Amount: ${tLoanAmount && parseInt(tLoanAmount).toFixed(2)}
+      </Typography>
 
       <Typography variant="h4">Term</Typography>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        styles={selectStyles}
         value={term}
         onChange={onChangeTerm}
       >
@@ -70,7 +87,6 @@ export default function Financing(props) {
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        styles={selectStyles}
         value={rate}
         onChange={onChangeRate}
       >

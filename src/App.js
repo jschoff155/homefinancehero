@@ -70,6 +70,8 @@ export default function App() {
       case "Financing":
         return (
           <Financing
+            setAppTotalLoanAmount={setAppTotalLoanAmount}
+            onChangeLoanTotal={onChangeLoanTotal}
             apptotalLoanAmount={componentInputs.Financing.apptotalLoanAmount}
           />
         );

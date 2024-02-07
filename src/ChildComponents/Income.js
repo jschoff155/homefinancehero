@@ -102,7 +102,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input hourly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={hourlyPayBO}
                 onChange={onChangeHBO}
               />
@@ -112,7 +112,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={monthlyPayBO}
                 onChange={onChangeMBO}
               />
@@ -122,7 +122,7 @@ export default function Income({ setapptotalMonthlyIncome }) {
             <Box>
               <Typography>Please input annual salary</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={salaryPayBO}
                 onChange={onChangeSBO}
               />

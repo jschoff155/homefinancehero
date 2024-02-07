@@ -6,10 +6,10 @@ import Button from "@mui/material/Button";
 import "../StyleSheets/Assets.css";
 
 export default function AssetsArea({ setApptotalAssets }) {
-  const [cAAmount, setcAAmount] = useState("");
-  const [sAAmount, setsAAmount] = useState("");
-  const [rEAmount, setrEAmount] = useState("");
-  const [gAmount, setgAmount] = useState("");
+  const [cAAmount, setcAAmount] = useState();
+  const [sAAmount, setsAAmount] = useState();
+  const [rEAmount, setrEAmount] = useState();
+  const [gAmount, setgAmount] = useState();
 
   const onChangeCHK = (event) => setcAAmount(event.target.value);
   const onChangeSAV = (event) => setsAAmount(event.target.value);
@@ -33,6 +33,7 @@ export default function AssetsArea({ setApptotalAssets }) {
   }, 0);
 
   useEffect(() => {
+    console.log(totalAssets);
     setApptotalAssets(totalAssets);
   }, [totalAssets, setApptotalAssets]);
 
@@ -86,7 +87,7 @@ export default function AssetsArea({ setApptotalAssets }) {
       <Typography variant="h4">
         Total Assets on file: ${totalAssets && parseInt(totalAssets).toFixed(2)}
       </Typography>
-      <Button variant="outline" labelId="Reset" onClick={reset}>
+      <Button variant="outline" labelId="Reset" onClick={() => reset}>
         Reset
       </Button>
       {assetTypeLabel.map((input) =>
