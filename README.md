@@ -1,8 +1,15 @@
-IN DEVELOPMENT - Home Finance Hero (HFH) is a mockup Underwriter which can take information surrounding your current financial situation and advice what nexts steps it would advise. 
-Fields which it will analyze for you include:
-Income
-Assets
-Liabilities
-Home Loan Financing figures - Amortization table, mortgage payment based on term and rate input by user, adjusting loan amount based on user inputs, and more.
+https://homefinancehero.netlify.app/
 
-BACK END - Enhanced functionality will allow user to email themselves a copy of their standing and what next steps the HFH would advise. This allows them to either speak with a lender to move forward, speak with a financial situation about setting them up for success when applying for a home loan, or allowing them to make financial changes themselves to improve their chances of being approved for a home loan.
+Continuous Integration / Continuous Development Status
+
+After working in the financial field for a couple years, it became clear many customers weren’t aware of the process, information, guidelines, or restrictions which were involved in the mortgage application process. While some sales’ people attempted to educate and set their clients for success, others took advantage of this to pad their pockets. I have been building an application since then to provide information to customers, so they aren’t able to be manipulated by malicious sales individuals when they go to apply for a home loan, which is already the second most stressful thing many people face.
+
+Built with: React | JavaScript | HTML | CSS | Material UI > Exploring mobile application development for iOS and Android with Xamarin
+
+Home finance hero allows the user to input common information lending agencies would ask for including but not limited to monthly expenses, income, and projected loan amount and provide feedback on how well their chances of being approved are. Further updates will reflect documentation expected throughout the application process, financial statements the lender will send you and explain how to read them, and various terms customers might not have prior knowledge of including but not limited to Regulation B, RESPA, Regulation Z, Fair Lending guidelines, and more. 
+)https://homefinancehero.netlify.app/
+After working in the financial field for a couple years, it became clear many customers weren’t aware of the process, information, guidelines, or restrictions which were involved in the mortgage application process. While some sales’ people attempted to educate and set their clients for success, others took advantage of this to pad their pockets. I have been building an application since then to provide information to customers, so they aren’t able to be manipulated by malicious sales individuals when they go to apply for a home loan, which is already the second most stressful thing many people face.
+
+Built with: React | JavaScript | HTML | CSS | Material UI > Exploring mobile application development for iOS and Android with Xamarin
+
+Home finance hero allows the user to input common information lending agencies would ask for including but not limited to monthly expenses, income, and projected loan amount and provide feedback on how well their chances of being approved are. Further updates will reflect documentation expected throughout the application process, financial statements the lender will send you and explain how to read them, and various terms customers might not have prior knowledge of including but not limited to Regulation B, RESPA, Regulation Z, Fair Lending guidelines, and more. 
