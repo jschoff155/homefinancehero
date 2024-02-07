@@ -75,7 +75,7 @@ export default function MonthlyExpenses({ setapptotalMonthlyExpenses }) {
         <TextField
           id="outlined-basic"
           variant="outlined"
-          type="int"
+          type="number"
           value={onChangeValue}
           onChange={onChangeFunction}
         />
