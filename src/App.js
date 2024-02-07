@@ -121,7 +121,10 @@ export default function App() {
   const appdebtToIncome =
     apptotalMonthlyExpenses &&
     apptotalMonthlyIncome &&
-    (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) * 100;
+    (
+      (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) *
+      100
+    ).toFixed(2);
 
   return (
     <>
