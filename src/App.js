@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import Statusbar from "./ChildComponents/Statusbar";
+import Statusbar from "./ChildComponents/Statusbar";
 import Propertyinfo from "./ChildComponents/Propertyinfo";
 import MonthlyExpenses from "./ChildComponents/MonthlyExpenses";
 import Navigation from "./ChildComponents/Navigation";
@@ -10,10 +10,10 @@ import { Typography } from "@mui/material";
 import LandingPage from "./ChildComponents/LandingPage";
 
 export default function App() {
-  // const [apptotalAssets] = useState("");
-  // const [apptotalLoanAmount] = useState("");
-  //const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
-  //const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
+  const [apptotalAssets, setApptotalAssets] = useState("");
+  const [apptotalLoanAmount, setAppTotalLoanAmount] = useState("");
+  const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
+  const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
   const [activeComponent, setActiveComponent] = useState("LandingPage");
   const [componentInputs, setComponentInputs] = useState({
     Property: {
@@ -41,34 +41,37 @@ export default function App() {
       case "Property":
         return (
           <Propertyinfo
+            setAppTotalLoanAmount={setAppTotalLoanAmount}
             onChangeLoanTotal={onChangeLoanTotal}
-            {...componentInputs.Property}
           />
         );
+
       case "Income":
         return (
           <Income
+            setapptotalMonthlyIncome={setapptotalMonthlyIncome}
             onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal}
-            {...componentInputs.Income}
           />
         );
       case "Expenses":
         return (
           <MonthlyExpenses
+            setapptotalMonthlyExpenses={setapptotalMonthlyExpenses}
             onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
-            {...componentInputs.Expenses}
           />
         );
       case "Assets":
         return (
           <Assets
+            setApptotalAssets={setApptotalAssets}
             onChangeAssetTotal={onChangeAssetTotal}
-            {...componentInputs.Assets}
           />
         );
       case "Financing":
         return (
           <Financing
+            setAppTotalLoanAmount={setAppTotalLoanAmount}
+            onChangeLoanTotal={onChangeLoanTotal}
             apptotalLoanAmount={componentInputs.Financing.apptotalLoanAmount}
           />
         );
@@ -117,12 +120,13 @@ export default function App() {
     }));
   };
 
-  // const appdebtToIncome =
-  //   componentInputs.Income.apptotalMonthlyExpenses &&
-  //   componentInputs.Income.apptotalMonthlyIncome &&
-  //   (parseInt(componentInputs.Income.apptotalMonthlyExpenses) /
-  //     parseInt(componentInputs.Income.apptotalMonthlyIncome)) *
-  //     100;
+  const appdebtToIncome =
+    apptotalMonthlyExpenses &&
+    apptotalMonthlyIncome &&
+    (
+      (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) *
+      100
+    ).toFixed(2);
 
   return (
     <>
@@ -130,11 +134,15 @@ export default function App() {
         Mortgage Application Preparedness Guide
       </Typography>
       <Navigation setActiveComponent={setActiveComponent} />
-      {/* <Statusbar
-        totalAssets={apptotalAssets}
-        totalLoanAmount={apptotalLoanAmount}
-        debtToIncome={appdebtToIncome}
-      /> */}
+      {
+        <Statusbar
+          totalAssets={apptotalAssets}
+          totalLoanAmount={apptotalLoanAmount}
+          appdebtToIncome={appdebtToIncome}
+          apptotalMonthlyIncome={apptotalMonthlyIncome}
+          apptotalMonthlyExpenses={apptotalMonthlyExpenses}
+        />
+      }
       {renderActiveComponent()}
     </>
   );

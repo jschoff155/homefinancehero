@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import "../StyleSheets/Income.css";
 import Button from "@mui/material/Button";
 
-export default function Income({ onChangeMonthlyIncomeTotal }) {
+export default function Income({ setapptotalMonthlyIncome }) {
   const [payTypeBO, setpayTypeBO] = useState("");
   const [payTypeBT, setpayTypeBT] = useState("");
   const [hourlyPayBO, setHourlyPayBO] = useState("");
@@ -19,7 +19,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   const [numberOfBorrowers, setNumberOfBorrowers] = useState("");
 
   useEffect(() => {
-    onChangeMonthlyIncomeTotal(totalMonthlyIncome);
+    setapptotalMonthlyIncome(totalMonthlyIncome);
   });
 
   let totalhourlyPayBO = (parseInt(hourlyPayBO) * 2080) / 12;
@@ -56,12 +56,12 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
   const onChangeSBT = (event) => setSalaryPayBT(event.target.value);
 
   function reset() {
-    setHourlyPayBO(0);
-    setMonthlyPayBO(0);
-    setSalaryPayBO(0);
-    setHourlyPayBT(0);
-    setMonthlyPayBT(0);
-    setSalaryPayBT(0);
+    setHourlyPayBO("");
+    setMonthlyPayBO("");
+    setSalaryPayBO("");
+    setHourlyPayBT("");
+    setMonthlyPayBT("");
+    setSalaryPayBT("");
   }
 
   return (
@@ -72,7 +72,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
         {totalMonthlyIncome && parseFloat(totalMonthlyIncome).toFixed(2)}
       </Typography>
       <Button variant="outline" labelId="Reset" onClick={reset}>
-        Reset Incomes
+        Reset
       </Button>
       <Typography variant="h3">Number of borrowers?</Typography>
       <Select
@@ -102,7 +102,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input hourly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={hourlyPayBO}
                 onChange={onChangeHBO}
               />
@@ -112,7 +112,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={monthlyPayBO}
                 onChange={onChangeMBO}
               />
@@ -122,7 +122,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input annual salary</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={salaryPayBO}
                 onChange={onChangeSBO}
               />
@@ -142,7 +142,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input hourly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={hourlyPayBO}
                 onChange={onChangeHBO}
               />
@@ -152,7 +152,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={monthlyPayBO}
                 onChange={onChangeMBO}
               />
@@ -162,7 +162,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input annual salary</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={salaryPayBO}
                 onChange={onChangeSBO}
               />
@@ -178,7 +178,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input hourly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={hourlyPayBT}
                 onChange={onChangeHBT}
               />
@@ -188,7 +188,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input monthly rate</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={monthlyPayBT}
                 onChange={onChangeMBT}
               />
@@ -198,7 +198,7 @@ export default function Income({ onChangeMonthlyIncomeTotal }) {
             <Box>
               <Typography>Please input annual salary</Typography>
               <TextField
-                type="int"
+                type="number"
                 value={salaryPayBT}
                 onChange={onChangeSBT}
               />

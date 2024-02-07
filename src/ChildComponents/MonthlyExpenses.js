@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import "../StyleSheets/MonthlyExpenses.css";
 
-export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
+export default function MonthlyExpenses({ setapptotalMonthlyExpenses }) {
   const [mAutoLoans, setmAutoLoans] = useState("");
   const [mStdLoans, setmStdLoans] = useState("");
   const [mCredit, setmCredit] = useState("");
@@ -35,8 +36,8 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
   );
 
   useEffect(() => {
-    onChangeMonthlyExpensesTotal(totalMonthlyExpenses);
-  });
+    setapptotalMonthlyExpenses(totalMonthlyExpenses);
+  }, [totalMonthlyExpenses, setapptotalMonthlyExpenses]);
 
   const paymentTypeInput = [
     {
@@ -60,6 +61,12 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
       onChangeFunction: onChangemMD,
     },
   ];
+  function reset() {
+    setmAutoLoans("");
+    setmStdLoans("");
+    setmCredit("");
+    setmMiscDebts("");
+  }
 
   const ExpensesInput = (title, onChangeValue, onChangeFunction) => {
     return (
@@ -68,7 +75,7 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
         <TextField
           id="outlined-basic"
           variant="outlined"
-          type="int"
+          type="number"
           value={onChangeValue}
           onChange={onChangeFunction}
         />
@@ -86,6 +93,9 @@ export default function MonthlyExpenses({ onChangeMonthlyExpensesTotal }) {
       <Typography variant="h4">
         Only include debts which appear on your credit report.
       </Typography>
+      <Button variant="outline" labelId="Reset" onClick={reset}>
+        Reset
+      </Button>
       <Typography variant="h4"></Typography>
       {paymentTypeInput.map((input) =>
         ExpensesInput(input.title, input.onChangeValue, input.onChangeFunction)

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import "../StyleSheets/Assets.css";
 
-export default function AssetsArea({ onChangeAssetTotal }) {
-  const [cAAmount, setcAAmount] = useState("");
-  const [sAAmount, setsAAmount] = useState("");
-  const [rEAmount, setrEAmount] = useState("");
-  const [gAmount, setgAmount] = useState("");
+export default function AssetsArea({ setApptotalAssets }) {
+  const [cAAmount, setcAAmount] = useState();
+  const [sAAmount, setsAAmount] = useState();
+  const [rEAmount, setrEAmount] = useState();
+  const [gAmount, setgAmount] = useState();
 
   const onChangeCHK = (event) => setcAAmount(event.target.value);
   const onChangeSAV = (event) => setsAAmount(event.target.value);
@@ -32,8 +33,9 @@ export default function AssetsArea({ onChangeAssetTotal }) {
   }, 0);
 
   useEffect(() => {
-    onChangeAssetTotal(totalAssets);
-  });
+    console.log(totalAssets);
+    setApptotalAssets(totalAssets);
+  }, [totalAssets, setApptotalAssets]);
 
   const assetTypeLabel = [
     {
@@ -57,6 +59,12 @@ export default function AssetsArea({ onChangeAssetTotal }) {
       onChangeFunction: onChangeGFT,
     },
   ];
+  function reset() {
+    setcAAmount("");
+    setsAAmount("");
+    setrEAmount("");
+    setgAmount("");
+  }
 
   const assetUI = (title, onChangeValue, onChangeFunction) => {
     return (
@@ -65,7 +73,7 @@ export default function AssetsArea({ onChangeAssetTotal }) {
         <TextField
           id="outlined-basic"
           variant="outlined"
-          type="int"
+          type="number"
           value={onChangeValue}
           onChange={onChangeFunction}
         />
@@ -79,6 +87,9 @@ export default function AssetsArea({ onChangeAssetTotal }) {
       <Typography variant="h4">
         Total Assets on file: ${totalAssets && parseInt(totalAssets).toFixed(2)}
       </Typography>
+      <Button variant="outline" labelId="Reset" onClick={() => reset}>
+        Reset
+      </Button>
       {assetTypeLabel.map((input) =>
         assetUI(input.title, input.onChangeValue, input.onChangeFunction)
       )}
