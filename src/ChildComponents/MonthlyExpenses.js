@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../StyleSheets/MonthlyExpenses.css";
+import "../StyleSheets/Universal.css";
 
 export default function MonthlyExpenses({ setapptotalMonthlyExpenses }) {
   const [mAutoLoans, setmAutoLoans] = useState("");

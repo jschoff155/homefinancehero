@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../StyleSheets/Propertyinfo.css";
+import "../StyleSheets/Universal.css";
 
 export default function Propertyinfo({
   setAppTotalLoanAmount,

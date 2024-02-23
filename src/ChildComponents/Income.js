@@ -4,8 +4,9 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import "../StyleSheets/Income.css";
 import Button from "@mui/material/Button";
+import "../StyleSheets/Income.css";
+import "../StyleSheets/Universal.css";
 
 export default function Income({ setapptotalMonthlyIncome }) {
   const [payTypeBO, setpayTypeBO] = useState("");

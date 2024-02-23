@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import "../StyleSheets/Financing.css";
+import "../StyleSheets/Universal.css";
 
 export default function Financing({ setAppTotalLoanAmount }) {
   const [term, setTerm] = useState("");
