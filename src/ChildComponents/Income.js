@@ -39,12 +39,11 @@ export default function Income({ setapptotalMonthlyIncome }) {
     totalsalaryPayBT || null,
   ];
 
-  const totalMonthlyIncome = incomeValues.reduce(
-    (accumulator, currentValue) => {
+  const totalMonthlyIncome = incomeValues
+    .reduce((accumulator, currentValue) => {
       return currentValue !== null ? accumulator + currentValue : accumulator;
-    },
-    0
-  );
+    }, 0)
+    .toFixed(2);
 
   const onChangeNOB = (event) => setNumberOfBorrowers(event.target.value);
   const onChangePTBO = (event) => setpayTypeBO(event.target.value);

@@ -7,6 +7,9 @@ export default function Summary(props) {
   return (
     <Stack display={"flex"} justifyContent={"space-around"} mx={5} my={4}>
       <Typography variant="h5">
+        Total Monthly Income: {props.apptotalMonthlyIncome}
+      </Typography>
+      <Typography variant="h5">
         Debt-To-Income %: {props.appdebtToIncome}
       </Typography>
       <Alert variant="filled" severity="success">
