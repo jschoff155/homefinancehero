@@ -5,6 +5,7 @@ import MonthlyExpenses from "./ChildComponents/MonthlyExpenses";
 import Navigation from "./ChildComponents/Navigation";
 import Income from "./ChildComponents/Income";
 import Assets from "./ChildComponents/Assets";
+import Summary from "./ChildComponents/Summary";
 import Financing from "./ChildComponents/Financing";
 import { Typography } from "@mui/material";
 import LandingPage from "./ChildComponents/LandingPage";
@@ -39,12 +40,7 @@ export default function App() {
       case "LandingPage":
         return <LandingPage />;
       case "Property":
-        return (
-          <Propertyinfo
-            setAppTotalLoanAmount={setAppTotalLoanAmount}
-            onChangeLoanTotal={onChangeLoanTotal}
-          />
-        );
+        return <Propertyinfo setAppTotalLoanAmount={setAppTotalLoanAmount} />;
 
       case "Income":
         return (
@@ -61,43 +57,27 @@ export default function App() {
           />
         );
       case "Assets":
-        return (
-          <Assets
-            setApptotalAssets={setApptotalAssets}
-            onChangeAssetTotal={onChangeAssetTotal}
-          />
-        );
+        return <Assets setApptotalAssets={setApptotalAssets} />;
       case "Financing":
         return (
           <Financing
             setAppTotalLoanAmount={setAppTotalLoanAmount}
-            onChangeLoanTotal={onChangeLoanTotal}
             apptotalLoanAmount={componentInputs.Financing.apptotalLoanAmount}
+          />
+        );
+      case "Summary":
+        return (
+          <Summary
+            totalAssets={apptotalAssets}
+            totalLoanAmount={apptotalLoanAmount}
+            appdebtToIncome={appdebtToIncome}
+            apptotalMonthlyIncome={apptotalMonthlyIncome}
+            apptotalMonthlyExpenses={apptotalMonthlyExpenses}
           />
         );
       default:
         return null;
     }
-  };
-
-  const onChangeAssetTotal = (num) => {
-    setComponentInputs((prevInputs) => ({
-      ...prevInputs,
-      [activeComponent]: {
-        ...prevInputs[activeComponent],
-        apptotalAssets: num,
-      },
-    }));
-  };
-
-  const onChangeLoanTotal = (num) => {
-    setComponentInputs((prevInputs) => ({
-      ...prevInputs,
-      [activeComponent]: {
-        ...prevInputs[activeComponent],
-        apptotalLoanAmount: num,
-      },
-    }));
   };
 
   const onChangeMonthlyIncomeTotal = (num) => {

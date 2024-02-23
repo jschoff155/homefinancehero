@@ -34,7 +34,10 @@ export default function AssetsArea({ setApptotalAssets }) {
   }, 0);
 
   useEffect(() => {
-    console.log(totalAssets);
+    setApptotalAssets(totalAssets);
+  }, [totalAssets, setApptotalAssets]);
+
+  useEffect(() => {
     setApptotalAssets(totalAssets);
   }, [totalAssets, setApptotalAssets]);
 
