@@ -32,6 +32,7 @@ export default function Summary(props) {
       <Typography variant="h5">
         Down payment amount: ${props.apptotalDownPaymentAmount}
       </Typography>
+      <Typography variant="h5">Assets on file: ${props.totalAssets}</Typography>
       {props.apptotalDownPaymentAmount > props.totalAssets ? (
         <Alert variant="filled" severity="warning">
           Your downpayment amount exceeds your available assets on file. Please
@@ -40,13 +41,16 @@ export default function Summary(props) {
         </Alert>
       ) : (
         <Alert variant="filled" severity="success">
-          You have enough assets on file to cover the downpayment you're
-          planning for.
+          You assets on file exceed your downpayment. You're good to go!
         </Alert>
       )}
-      <Typography variant="h5">Assets on file: ${props.totalAssets}</Typography>
+
       <Typography variant="h5">
         Loan Amount: ${props.totalLoanAmount}
+      </Typography>
+      <Typography variant="h5">
+        Mortgage Payment (Principal & Interest): $
+        {props.appMortgageMonthlyPayment}
       </Typography>
     </Stack>
   );
