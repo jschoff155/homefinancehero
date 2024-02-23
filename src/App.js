@@ -15,25 +15,9 @@ export default function App() {
   const [apptotalLoanAmount, setAppTotalLoanAmount] = useState("");
   const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
   const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
+  const [appMortgageMonthlyPayment, setappMortgageMonthlyPayment] =
+    useState("");
   const [activeComponent, setActiveComponent] = useState("LandingPage");
-  const [componentInputs, setComponentInputs] = useState({
-    Property: {
-      apptotalAssets: "",
-      apptotalLoanAmount: "",
-    },
-    Income: {
-      apptotalMonthlyIncome: "",
-    },
-    Expenses: {
-      apptotalMonthlyExpenses: "",
-    },
-    Assets: {
-      apptotalAssets: "",
-    },
-    Financing: {
-      apptotalLoanAmount: "",
-    },
-  });
 
   const renderActiveComponent = () => {
     switch (activeComponent) {
@@ -43,17 +27,11 @@ export default function App() {
         return <Propertyinfo setAppTotalLoanAmount={setAppTotalLoanAmount} />;
 
       case "Income":
-        return (
-          <Income
-            setapptotalMonthlyIncome={setapptotalMonthlyIncome}
-            onChangeMonthlyIncomeTotal={onChangeMonthlyIncomeTotal}
-          />
-        );
+        return <Income setapptotalMonthlyIncome={setapptotalMonthlyIncome} />;
       case "Expenses":
         return (
           <MonthlyExpenses
             setapptotalMonthlyExpenses={setapptotalMonthlyExpenses}
-            onChangeMonthlyExpensesTotal={onChangeMonthlyExpensesTotal}
           />
         );
       case "Assets":
@@ -62,7 +40,8 @@ export default function App() {
         return (
           <Financing
             setAppTotalLoanAmount={setAppTotalLoanAmount}
-            apptotalLoanAmount={componentInputs.Financing.apptotalLoanAmount}
+            setapptotalMonthlyIncome={setapptotalMonthlyIncome}
+            setappMortgageMonthlyPayment={setappMortgageMonthlyPayment}
           />
         );
       case "Summary":
@@ -73,6 +52,7 @@ export default function App() {
             appdebtToIncome={appdebtToIncome}
             apptotalMonthlyIncome={apptotalMonthlyIncome}
             apptotalMonthlyExpenses={apptotalMonthlyExpenses}
+            appMortgageMonthlyPayment={appMortgageMonthlyPayment}
           />
         );
       default:
@@ -80,34 +60,17 @@ export default function App() {
     }
   };
 
-  const onChangeMonthlyIncomeTotal = (num) => {
-    setComponentInputs((prevInputs) => ({
-      ...prevInputs,
-      [activeComponent]: {
-        ...prevInputs[activeComponent],
-        apptotalMonthlyIncome: num,
-      },
-    }));
-  };
-
-  const onChangeMonthlyExpensesTotal = (num) => {
-    setComponentInputs((prevInputs) => ({
-      ...prevInputs,
-      [activeComponent]: {
-        ...prevInputs[activeComponent],
-        apptotalMonthlyExpenses: num,
-      },
-    }));
-  };
-
   const appdebtToIncome =
     apptotalMonthlyExpenses &&
     apptotalMonthlyIncome &&
+    appMortgageMonthlyPayment &&
     (
-      (parseInt(apptotalMonthlyExpenses) / parseInt(apptotalMonthlyIncome)) *
+      ((parseInt(appMortgageMonthlyPayment) +
+        parseInt(apptotalMonthlyExpenses)) /
+        parseInt(apptotalMonthlyIncome)) *
       100
     ).toFixed(2);
-
+  console.log(appMortgageMonthlyPayment);
   return (
     <>
       <Typography textAlign={"center"} variant="h3" my={4}>

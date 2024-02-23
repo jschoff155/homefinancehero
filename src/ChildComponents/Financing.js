@@ -8,7 +8,10 @@ import Select from "@mui/material/Select";
 import "../StyleSheets/Financing.css";
 import "../StyleSheets/Universal.css";
 
-export default function Financing({ setAppTotalLoanAmount }) {
+export default function Financing({
+  setAppTotalLoanAmount,
+  setappMortgageMonthlyPayment,
+}) {
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
   const [homePrice, setHomePrice] = useState("");
@@ -45,6 +48,10 @@ export default function Financing({ setAppTotalLoanAmount }) {
     setHomePrice("");
     setDownPayment("");
   }
+
+  useEffect(() => {
+    setappMortgageMonthlyPayment(paymentAmount);
+  }, [paymentAmount, setappMortgageMonthlyPayment]);
 
   return (
     <Box textAlign={"center"} mx={8} my={5}>
