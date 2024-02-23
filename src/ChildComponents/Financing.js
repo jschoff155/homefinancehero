@@ -11,6 +11,7 @@ import "../StyleSheets/Universal.css";
 export default function Financing({
   setAppTotalLoanAmount,
   setappMortgageMonthlyPayment,
+  setAppDownPaymentAmount,
 }) {
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
@@ -25,6 +26,10 @@ export default function Financing({
   useEffect(() => {
     setAppTotalLoanAmount(tLoanAmount);
   }, [tLoanAmount, setAppTotalLoanAmount]);
+
+  useEffect(() => {
+    setAppDownPaymentAmount(downPayment);
+  }, [downPayment, setAppDownPaymentAmount]);
 
   const paymentAmount =
     (tLoanAmount &&

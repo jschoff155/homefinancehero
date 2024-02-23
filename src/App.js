@@ -13,6 +13,7 @@ import LandingPage from "./ChildComponents/LandingPage";
 export default function App() {
   const [apptotalAssets, setApptotalAssets] = useState("");
   const [apptotalLoanAmount, setAppTotalLoanAmount] = useState("");
+  const [apptotalDownPaymentAmount, setAppDownPaymentAmount] = useState("");
   const [apptotalMonthlyIncome, setapptotalMonthlyIncome] = useState("");
   const [apptotalMonthlyExpenses, setapptotalMonthlyExpenses] = useState("");
   const [appMortgageMonthlyPayment, setappMortgageMonthlyPayment] =
@@ -42,6 +43,7 @@ export default function App() {
             setAppTotalLoanAmount={setAppTotalLoanAmount}
             setapptotalMonthlyIncome={setapptotalMonthlyIncome}
             setappMortgageMonthlyPayment={setappMortgageMonthlyPayment}
+            setAppDownPaymentAmount={setAppDownPaymentAmount}
           />
         );
       case "Summary":
@@ -53,6 +55,7 @@ export default function App() {
             apptotalMonthlyIncome={apptotalMonthlyIncome}
             apptotalMonthlyExpenses={apptotalMonthlyExpenses}
             appMortgageMonthlyPayment={appMortgageMonthlyPayment}
+            apptotalDownPaymentAmount={apptotalDownPaymentAmount}
           />
         );
       default:
