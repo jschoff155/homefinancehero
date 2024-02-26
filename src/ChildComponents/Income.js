@@ -88,15 +88,9 @@ export default function Income({ setapptotalMonthlyIncome }) {
         <Box>
           <Typography>How is borrower one paid?</Typography>
           <Select value={payTypeBO} onChange={onChangePTBO}>
-            <MenuItem value={"hourly"} onChange={onChangePTBO}>
-              Hourly
-            </MenuItem>
-            <MenuItem value={"monthly"} onChange={onChangePTBO}>
-              Monthly
-            </MenuItem>
-            <MenuItem value={"salary"} onChange={onChangePTBO}>
-              Salary
-            </MenuItem>
+            <MenuItem value={"hourly"}>Hourly</MenuItem>
+            <MenuItem value={"monthly"}>Monthly</MenuItem>
+            <MenuItem value={"salary"}>Salary</MenuItem>
           </Select>
           {payTypeBO === "hourly" && (
             <Box>
