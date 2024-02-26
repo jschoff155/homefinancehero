@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Statusbar from "./ChildComponents/Statusbar";
 import Propertyinfo from "./ChildComponents/Propertyinfo";
 import MonthlyExpenses from "./ChildComponents/MonthlyExpenses";
-import Navigation from "./ChildComponents/Navigation";
 import Income from "./ChildComponents/Income";
 import Assets from "./ChildComponents/Assets";
 import Summary from "./ChildComponents/Summary";
@@ -97,7 +96,6 @@ export default function App() {
       <Typography textAlign={"center"} variant="h3" my={4}>
         Mortgage Application Preparedness Guide
       </Typography>
-      <Navigation setActiveComponent={setActiveComponent} />
       {
         <Statusbar
           totalAssets={apptotalAssets}

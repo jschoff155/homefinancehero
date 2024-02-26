@@ -24,7 +24,7 @@ export default function Summary(props) {
           Monthly Income: {props.apptotalMonthlyIncome}
         </Typography>
         <Typography variant="h5" my={3}>
-          Monthly Expenses (prior to home financing):
+          Monthly Expenses (prior to home financing):{" "}
           {props.apptotalMonthlyExpenses}
         </Typography>
         <Typography variant="h5" my={3}>
