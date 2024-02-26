@@ -101,9 +101,14 @@ export default function AssetsArea({ setApptotalAssets, setActiveComponent }) {
       {assetTypeLabel.map((input) =>
         assetUI(input.title, input.onChangeValue, input.onChangeFunction)
       )}
-      <Button variant="outlined" onClick={() => handleButtonClick("Financing")}>
-        Financing
-      </Button>
+      <Box my={3}>
+        <Button
+          variant="outlined"
+          onClick={() => handleButtonClick("Financing")}
+        >
+          Next: Loan Terms
+        </Button>
+      </Box>
     </Box>
   );
 }

@@ -207,9 +207,14 @@ export default function Income({
           )}
         </Box>
       )}
-      <Button variant="outlined" onClick={() => handleButtonClick("Expenses")}>
-        Expenses
-      </Button>
+      <Box my={3}>
+        <Button
+          variant="outlined"
+          onClick={() => handleButtonClick("Expenses")}
+        >
+          Next: Expenses
+        </Button>
+      </Box>
     </Box>
   );
 }

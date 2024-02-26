@@ -164,9 +164,11 @@ export default function Financing({
       )}*/}
       <Typography variant="h4">Estimated P&I Payment:</Typography>
       <Typography variant="h4">{paymentAmount}</Typography>
-      <Button variant="outlined" onClick={() => handleButtonClick("Summary")}>
-        See your Summary
-      </Button>
+      <Box my={3}>
+        <Button variant="outlined" onClick={() => handleButtonClick("Summary")}>
+          See Your Summary
+        </Button>
+      </Box>
     </Box>
   );
 }

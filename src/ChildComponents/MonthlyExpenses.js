@@ -108,9 +108,11 @@ export default function MonthlyExpenses({
       {paymentTypeInput.map((input) =>
         ExpensesInput(input.title, input.onChangeValue, input.onChangeFunction)
       )}
-      <Button variant="outlined" onClick={() => handleButtonClick("Assets")}>
-        Assets
-      </Button>
+      <Box my={3}>
+        <Button variant="outlined" onClick={() => handleButtonClick("Assets")}>
+          Next: Assets
+        </Button>
+      </Box>
     </Box>
   );
 }
