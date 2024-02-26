@@ -4,8 +4,16 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../StyleSheets/MonthlyExpenses.css";
+import "../StyleSheets/Universal.css";
 
-export default function MonthlyExpenses({ setapptotalMonthlyExpenses }) {
+export default function MonthlyExpenses({
+  setapptotalMonthlyExpenses,
+  setActiveComponent,
+}) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   const [mAutoLoans, setmAutoLoans] = useState("");
   const [mStdLoans, setmStdLoans] = useState("");
   const [mCredit, setmCredit] = useState("");
@@ -100,6 +108,11 @@ export default function MonthlyExpenses({ setapptotalMonthlyExpenses }) {
       {paymentTypeInput.map((input) =>
         ExpensesInput(input.title, input.onChangeValue, input.onChangeFunction)
       )}
+      <Box my={3}>
+        <Button variant="outlined" onClick={() => handleButtonClick("Assets")}>
+          Next: Assets
+        </Button>
+      </Box>
     </Box>
   );
 }

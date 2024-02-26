@@ -4,8 +4,13 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../StyleSheets/Assets.css";
+import "../StyleSheets/Universal.css";
 
-export default function AssetsArea({ setApptotalAssets }) {
+export default function AssetsArea({ setApptotalAssets, setActiveComponent }) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   const [cAAmount, setcAAmount] = useState();
   const [sAAmount, setsAAmount] = useState();
   const [rEAmount, setrEAmount] = useState();
@@ -33,7 +38,10 @@ export default function AssetsArea({ setApptotalAssets }) {
   }, 0);
 
   useEffect(() => {
-    console.log(totalAssets);
+    setApptotalAssets(totalAssets);
+  }, [totalAssets, setApptotalAssets]);
+
+  useEffect(() => {
     setApptotalAssets(totalAssets);
   }, [totalAssets, setApptotalAssets]);
 
@@ -93,6 +101,14 @@ export default function AssetsArea({ setApptotalAssets }) {
       {assetTypeLabel.map((input) =>
         assetUI(input.title, input.onChangeValue, input.onChangeFunction)
       )}
+      <Box my={3}>
+        <Button
+          variant="outlined"
+          onClick={() => handleButtonClick("Financing")}
+        >
+          Next: Loan Terms
+        </Button>
+      </Box>
     </Box>
   );
 }

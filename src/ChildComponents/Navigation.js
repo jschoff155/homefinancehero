@@ -27,6 +27,9 @@ export default function Navigation({ setActiveComponent }) {
       <Button variant="outlined" onClick={() => handleButtonClick("Financing")}>
         Financing
       </Button>
+      <Button variant="outlined" onClick={() => handleButtonClick("Summary")}>
+        Summary
+      </Button>
     </Stack>
   );
 }

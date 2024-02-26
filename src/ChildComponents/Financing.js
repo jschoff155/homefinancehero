@@ -5,9 +5,20 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+//import Alert from "@mui/material/Alert";
 import "../StyleSheets/Financing.css";
+import "../StyleSheets/Universal.css";
 
-export default function Financing({ setAppTotalLoanAmount }) {
+export default function Financing({
+  setAppTotalLoanAmount,
+  setappMortgageMonthlyPayment,
+  setAppDownPaymentAmount,
+  setActiveComponent,
+}) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
   const [homePrice, setHomePrice] = useState("");
@@ -21,6 +32,10 @@ export default function Financing({ setAppTotalLoanAmount }) {
   useEffect(() => {
     setAppTotalLoanAmount(tLoanAmount);
   }, [tLoanAmount, setAppTotalLoanAmount]);
+
+  useEffect(() => {
+    setAppDownPaymentAmount(downPayment);
+  }, [downPayment, setAppDownPaymentAmount]);
 
   const paymentAmount =
     (tLoanAmount &&
@@ -44,6 +59,10 @@ export default function Financing({ setAppTotalLoanAmount }) {
     setHomePrice("");
     setDownPayment("");
   }
+
+  useEffect(() => {
+    setappMortgageMonthlyPayment(paymentAmount);
+  }, [paymentAmount, setappMortgageMonthlyPayment]);
 
   return (
     <Box textAlign={"center"} mx={8} my={5}>
@@ -131,8 +150,25 @@ export default function Financing({ setAppTotalLoanAmount }) {
         <MenuItem value={7.75}>7.75</MenuItem>
         <MenuItem value={7.875}>7.875</MenuItem>
       </Select>
+      {/*{tLoanAmount > 0 &&
+      downPayment > 0 &&
+      tLoanAmount * 0.035 > downPayment ? (
+        <Alert variant="filled" severity="warning">
+          Most lenders can go as low as 3.5% ({tLoanAmount * (0.035).toFixed(2)}
+          ) for a down payment with FHA lending options.
+        </Alert>
+      ) : (
+        <Alert variant="filled" severity="success">
+          You have enough assets to cover at least 3.5% down for an FHA loan.
+        </Alert>
+      )}*/}
       <Typography variant="h4">Estimated P&I Payment:</Typography>
       <Typography variant="h4">{paymentAmount}</Typography>
+      <Box my={3}>
+        <Button variant="outlined" onClick={() => handleButtonClick("Summary")}>
+          See Your Summary
+        </Button>
+      </Box>
     </Box>
   );
 }

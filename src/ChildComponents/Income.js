@@ -4,10 +4,18 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import "../StyleSheets/Income.css";
 import Button from "@mui/material/Button";
+import "../StyleSheets/Income.css";
+import "../StyleSheets/Universal.css";
 
-export default function Income({ setapptotalMonthlyIncome }) {
+export default function Income({
+  setapptotalMonthlyIncome,
+  setActiveComponent,
+}) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   const [payTypeBO, setpayTypeBO] = useState("");
   const [payTypeBT, setpayTypeBT] = useState("");
   const [hourlyPayBO, setHourlyPayBO] = useState("");
@@ -38,12 +46,11 @@ export default function Income({ setapptotalMonthlyIncome }) {
     totalsalaryPayBT || null,
   ];
 
-  const totalMonthlyIncome = incomeValues.reduce(
-    (accumulator, currentValue) => {
+  const totalMonthlyIncome = incomeValues
+    .reduce((accumulator, currentValue) => {
       return currentValue !== null ? accumulator + currentValue : accumulator;
-    },
-    0
-  );
+    }, 0)
+    .toFixed(2);
 
   const onChangeNOB = (event) => setNumberOfBorrowers(event.target.value);
   const onChangePTBO = (event) => setpayTypeBO(event.target.value);
@@ -88,15 +95,9 @@ export default function Income({ setapptotalMonthlyIncome }) {
         <Box>
           <Typography>How is borrower one paid?</Typography>
           <Select value={payTypeBO} onChange={onChangePTBO}>
-            <MenuItem value={"hourly"} onChange={onChangePTBO}>
-              Hourly
-            </MenuItem>
-            <MenuItem value={"monthly"} onChange={onChangePTBO}>
-              Monthly
-            </MenuItem>
-            <MenuItem value={"salary"} onChange={onChangePTBO}>
-              Salary
-            </MenuItem>
+            <MenuItem value={"hourly"}>Hourly</MenuItem>
+            <MenuItem value={"monthly"}>Monthly</MenuItem>
+            <MenuItem value={"salary"}>Salary</MenuItem>
           </Select>
           {payTypeBO === "hourly" && (
             <Box>
@@ -206,6 +207,14 @@ export default function Income({ setapptotalMonthlyIncome }) {
           )}
         </Box>
       )}
+      <Box my={3}>
+        <Button
+          variant="outlined"
+          onClick={() => handleButtonClick("Expenses")}
+        >
+          Next: Expenses
+        </Button>
+      </Box>
     </Box>
   );
 }
