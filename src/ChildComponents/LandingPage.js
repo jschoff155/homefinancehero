@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 function LandingPage({ setActiveComponent }) {
@@ -26,9 +27,11 @@ function LandingPage({ setActiveComponent }) {
         should apply with a lending institution for a definitive answer on
         whether or not you are able to purchase a home.***
       </Typography>
-      <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
-        Income
-      </Button>
+      <Grid container justifyContent="center">
+        <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
+          Let's get started!
+        </Button>
+      </Grid>
     </Box>
   );
 }
