@@ -69,7 +69,8 @@ export default function Summary(props) {
           {props.appMortgageMonthlyPayment}
         </Typography>
         <Typography variant="h5" my={3} fontStyle={"italic"}>
-          Additional updates to come.
+          Additional updates to come including input validation, updates to user
+          interface, and more.
         </Typography>
         <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
           Start again
