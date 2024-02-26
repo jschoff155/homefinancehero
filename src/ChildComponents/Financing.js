@@ -150,7 +150,7 @@ export default function Financing({
         <MenuItem value={7.75}>7.75</MenuItem>
         <MenuItem value={7.875}>7.875</MenuItem>
       </Select>
-      {tLoanAmount > 0 &&
+      {/*{tLoanAmount > 0 &&
       downPayment > 0 &&
       tLoanAmount * 0.035 > downPayment ? (
         <Alert variant="filled" severity="warning">
@@ -161,7 +161,7 @@ export default function Financing({
         <Alert variant="filled" severity="success">
           You have enough assets to cover at least 3.5% down for an FHA loan.
         </Alert>
-      )}
+      )}*/}
       <Typography variant="h4">Estimated P&I Payment:</Typography>
       <Typography variant="h4">{paymentAmount}</Typography>
       <Button variant="outlined" onClick={() => handleButtonClick("Summary")}>

@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
+//import Alert from "@mui/material/Alert";
 
 export default function Summary(props) {
   const handleButtonClick = (component) => {
@@ -30,7 +30,7 @@ export default function Summary(props) {
         <Typography variant="h5">
           Debt-To-Income %: {props.appdebtToIncome}
         </Typography>
-        {props.appdebtToIncome > 45 ? (
+        {/*{props.appdebtToIncome > 45 ? (
           <Alert variant="filled" severity="warning">
             Your debt to income level is 45% or greater. This may cause problems
             with your loan application. Consider paying off some debt
@@ -42,14 +42,14 @@ export default function Summary(props) {
             Your debt to income level is below 45% which is what many lenders
             prefer. Great Job!
           </Alert>
-        )}
+        )} */}
         <Typography variant="h5">
           Down payment amount: ${props.apptotalDownPaymentAmount}
         </Typography>
         <Typography variant="h5">
           Assets on file: ${props.totalAssets}
         </Typography>
-        {props.apptotalDownPaymentAmount > props.totalAssets ? (
+        {/*{props.apptotalDownPaymentAmount > props.totalAssets ? (
           <Alert variant="filled" severity="warning">
             Your downpayment amount exceeds your available assets on file.
             Please revisit the assets screen and update your values or decrease
@@ -59,7 +59,7 @@ export default function Summary(props) {
           <Alert variant="filled" severity="success">
             You assets on file exceed your downpayment. You're good to go!
           </Alert>
-        )}
+        )}*/}
 
         <Typography variant="h5">
           Loan Amount: ${props.totalLoanAmount}
