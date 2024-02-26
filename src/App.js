@@ -23,20 +23,36 @@ export default function App() {
   const renderActiveComponent = () => {
     switch (activeComponent) {
       case "LandingPage":
-        return <LandingPage />;
+        return <LandingPage setActiveComponent={setActiveComponent} />;
       case "Property":
-        return <Propertyinfo setAppTotalLoanAmount={setAppTotalLoanAmount} />;
+        return (
+          <Propertyinfo
+            setAppTotalLoanAmount={setAppTotalLoanAmount}
+            setActiveComponent={setActiveComponent}
+          />
+        );
 
       case "Income":
-        return <Income setapptotalMonthlyIncome={setapptotalMonthlyIncome} />;
+        return (
+          <Income
+            setapptotalMonthlyIncome={setapptotalMonthlyIncome}
+            setActiveComponent={setActiveComponent}
+          />
+        );
       case "Expenses":
         return (
           <MonthlyExpenses
             setapptotalMonthlyExpenses={setapptotalMonthlyExpenses}
+            setActiveComponent={setActiveComponent}
           />
         );
       case "Assets":
-        return <Assets setApptotalAssets={setApptotalAssets} />;
+        return (
+          <Assets
+            setApptotalAssets={setApptotalAssets}
+            setActiveComponent={setActiveComponent}
+          />
+        );
       case "Financing":
         return (
           <Financing
@@ -44,6 +60,7 @@ export default function App() {
             setapptotalMonthlyIncome={setapptotalMonthlyIncome}
             setappMortgageMonthlyPayment={setappMortgageMonthlyPayment}
             setAppDownPaymentAmount={setAppDownPaymentAmount}
+            setActiveComponent={setActiveComponent}
           />
         );
       case "Summary":
@@ -56,6 +73,7 @@ export default function App() {
             apptotalMonthlyExpenses={apptotalMonthlyExpenses}
             appMortgageMonthlyPayment={appMortgageMonthlyPayment}
             apptotalDownPaymentAmount={apptotalDownPaymentAmount}
+            setActiveComponent={setActiveComponent}
           />
         );
       default:

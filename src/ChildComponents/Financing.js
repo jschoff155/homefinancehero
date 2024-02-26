@@ -13,7 +13,12 @@ export default function Financing({
   setAppTotalLoanAmount,
   setappMortgageMonthlyPayment,
   setAppDownPaymentAmount,
+  setActiveComponent,
 }) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
   const [homePrice, setHomePrice] = useState("");
@@ -159,6 +164,9 @@ export default function Financing({
       )}
       <Typography variant="h4">Estimated P&I Payment:</Typography>
       <Typography variant="h4">{paymentAmount}</Typography>
+      <Button variant="outlined" onClick={() => handleButtonClick("Summary")}>
+        See your Summary
+      </Button>
     </Box>
   );
 }

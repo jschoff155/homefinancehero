@@ -6,7 +6,11 @@ import Button from "@mui/material/Button";
 import "../StyleSheets/Assets.css";
 import "../StyleSheets/Universal.css";
 
-export default function AssetsArea({ setApptotalAssets }) {
+export default function AssetsArea({ setApptotalAssets, setActiveComponent }) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   const [cAAmount, setcAAmount] = useState();
   const [sAAmount, setsAAmount] = useState();
   const [rEAmount, setrEAmount] = useState();
@@ -97,6 +101,9 @@ export default function AssetsArea({ setApptotalAssets }) {
       {assetTypeLabel.map((input) =>
         assetUI(input.title, input.onChangeValue, input.onChangeFunction)
       )}
+      <Button variant="outlined" onClick={() => handleButtonClick("Financing")}>
+        Financing
+      </Button>
     </Box>
   );
 }

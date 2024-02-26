@@ -1,8 +1,13 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-function LandingPage() {
+function LandingPage(setActiveComponent) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   return (
     <Box>
       <Typography textAlign={"center"} mx={8} my={5}>
@@ -21,6 +26,9 @@ function LandingPage() {
         should apply with a lending institution for a definitive answer on
         whether or not you are able to purchase a home.***
       </Typography>
+      <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
+        Income
+      </Button>
     </Box>
   );
 }

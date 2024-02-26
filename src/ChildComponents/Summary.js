@@ -1,9 +1,14 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 
-export default function Summary(props) {
+export default function Summary(props, setActiveComponent) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   return (
     <Stack display={"flex"} justifyContent={"space-around"} mx={5} my={4}>
       <Typography variant="h5">
@@ -52,6 +57,9 @@ export default function Summary(props) {
         Mortgage Payment (Principal & Interest): $
         {props.appMortgageMonthlyPayment}
       </Typography>
+      <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
+        Start again
+      </Button>
     </Stack>
   );
 }

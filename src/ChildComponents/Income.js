@@ -8,7 +8,14 @@ import Button from "@mui/material/Button";
 import "../StyleSheets/Income.css";
 import "../StyleSheets/Universal.css";
 
-export default function Income({ setapptotalMonthlyIncome }) {
+export default function Income({
+  setapptotalMonthlyIncome,
+  setActiveComponent,
+}) {
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
   const [payTypeBO, setpayTypeBO] = useState("");
   const [payTypeBT, setpayTypeBT] = useState("");
   const [hourlyPayBO, setHourlyPayBO] = useState("");
@@ -200,6 +207,9 @@ export default function Income({ setapptotalMonthlyIncome }) {
           )}
         </Box>
       )}
+      <Button variant="outlined" onClick={() => handleButtonClick("Expenses")}>
+        Expenses
+      </Button>
     </Box>
   );
 }
