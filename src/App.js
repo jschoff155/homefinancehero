@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Statusbar from "./ChildComponents/Statusbar";
+//import Statusbar from "./ChildComponents/Statusbar";
 import Propertyinfo from "./ChildComponents/Propertyinfo";
 import MonthlyExpenses from "./ChildComponents/MonthlyExpenses";
 import Income from "./ChildComponents/Income";
@@ -81,30 +81,20 @@ export default function App() {
   };
 
   const appdebtToIncome =
-    apptotalMonthlyExpenses &&
-    apptotalMonthlyIncome &&
-    appMortgageMonthlyPayment &&
-    (
-      ((parseInt(appMortgageMonthlyPayment) +
-        parseInt(apptotalMonthlyExpenses)) /
-        parseInt(apptotalMonthlyIncome)) *
-      100
-    ).toFixed(2);
+    (apptotalMonthlyIncome && apptotalMonthlyExpenses) ||
+    (appMortgageMonthlyPayment &&
+      (
+        ((parseInt(appMortgageMonthlyPayment) +
+          parseInt(apptotalMonthlyExpenses)) /
+          parseInt(apptotalMonthlyIncome)) *
+        100
+      ).toFixed(2));
   console.log(appMortgageMonthlyPayment);
   return (
     <>
       <Typography textAlign={"center"} variant="h3" my={4}>
         Mortgage Application Preparedness Guide
       </Typography>
-      {
-        <Statusbar
-          totalAssets={apptotalAssets}
-          totalLoanAmount={apptotalLoanAmount}
-          appdebtToIncome={appdebtToIncome}
-          apptotalMonthlyIncome={apptotalMonthlyIncome}
-          apptotalMonthlyExpenses={apptotalMonthlyExpenses}
-        />
-      }
       {renderActiveComponent()}
     </>
   );
