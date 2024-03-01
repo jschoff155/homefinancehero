@@ -27,7 +27,7 @@ function LandingPage({ setActiveComponent }) {
         should apply with a lending institution for a definitive answer on
         whether or not you are able to purchase a home.***
       </Typography>
-      <Grid my={3} container justifyContent="center">
+      <Grid container justifyContent="center" my={3}>
         <Button variant="outlined" onClick={() => handleButtonClick("Income")}>
           Let's get started!
         </Button>
