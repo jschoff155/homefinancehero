@@ -62,6 +62,16 @@ export default function AssetsArea({ setApptotalAssets, setActiveComponent }) {
       onChangeFunction: onChangeRET,
     },
     {
+      title: "Money Market Account",
+      onChangeValue: gAmount,
+      onChangeFunction: onChangeGFT,
+    },
+    {
+      title: "Brokerage Account",
+      onChangeValue: gAmount,
+      onChangeFunction: onChangeGFT,
+    },
+    {
       title: "Gift Funds",
       onChangeValue: gAmount,
       onChangeFunction: onChangeGFT,

@@ -71,6 +71,11 @@ export default function Income({
     setSalaryPayBT("");
   }
 
+  /*
+Function for self-employment income
+SelfEmployment = (net + amortization + depreciation - expenses meals)
+*/
+
   return (
     <Box textAlign={"center"} mx={8} my={5}>
       <Typography variant="h3">Income</Typography>
@@ -98,6 +103,7 @@ export default function Income({
             <MenuItem value={"hourly"}>Hourly</MenuItem>
             <MenuItem value={"monthly"}>Monthly</MenuItem>
             <MenuItem value={"salary"}>Salary</MenuItem>
+            <MenuItem value={"selfEmployed"}>Self Employed</MenuItem>
           </Select>
           {payTypeBO === "hourly" && (
             <Box>
@@ -129,6 +135,34 @@ export default function Income({
               />
             </Box>
           )}
+          {/*payTypeBO === "selfEmployed" && (
+            <Box>
+              <Typography>Please input last years net income</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years amortization amount</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years depreciation written off</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years total for expensed meals</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+            </Box>
+          )*/}
         </Box>
       )}
       {numberOfBorrowers === 2 && (
@@ -169,11 +203,40 @@ export default function Income({
               />
             </Box>
           )}
+          {/*payTypeBO === "selfEmployed" && (
+            <Box>
+              <Typography>Please input last years net income</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years amortization amount</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years depreciation written off</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years total for expensed meals</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+            </Box>
+          )*/}
           <Typography>How is borrower two paid?</Typography>
           <Select value={payTypeBT} onChange={onChangePTBT}>
             <MenuItem value={"hourly"}>Hourly</MenuItem>
             <MenuItem value={"monthly"}>Monthly</MenuItem>
             <MenuItem value={"salary"}>Salary</MenuItem>
+            <MenuItem value={"selfEmployed"}>Self Employed</MenuItem>
           </Select>
           {payTypeBT === "hourly" && (
             <Box>
@@ -205,6 +268,35 @@ export default function Income({
               />
             </Box>
           )}
+
+          {/*payTypeBT === "selfEmployed" && (
+            <Box>
+              <Typography>Please input last years net income</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years amortization amount</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years depreciation written off</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years total for expensed meals</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+            </Box>
+          )*/}
         </Box>
       )}
       <Box my={3}>

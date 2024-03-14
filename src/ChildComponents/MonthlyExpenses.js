@@ -64,6 +64,26 @@ export default function MonthlyExpenses({
       onChangeFunction: onChangemC,
     },
     {
+      title: "Alimony",
+      onChangeValue: mMiscDebts,
+      onChangeFunction: onChangemMD,
+    },
+    {
+      title: "Child Support",
+      onChangeValue: mMiscDebts,
+      onChangeFunction: onChangemMD,
+    },
+    {
+      title: "Seperate Maintenance",
+      onChangeValue: mMiscDebts,
+      onChangeFunction: onChangemMD,
+    },
+    {
+      title: "Personal Loans",
+      onChangeValue: mMiscDebts,
+      onChangeFunction: onChangemMD,
+    },
+    {
       title: "All other credit debts",
       onChangeValue: mMiscDebts,
       onChangeFunction: onChangemMD,
