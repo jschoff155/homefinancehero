@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import "../StyleSheets/Landingpage.css";
 
 function LandingPage({ setActiveComponent }) {
   const handleButtonClick = (component) => {
@@ -26,6 +27,25 @@ function LandingPage({ setActiveComponent }) {
         means, the information here is meant to be informative at best and you
         should apply with a lending institution for a definitive answer on
         whether or not you are able to purchase a home.***
+      </Typography>
+      <Typography textAlign={"center"} mx={8} my={5}>
+        <h2>
+          <em>Updates</em>
+          <br></br>
+          <em>3/14/2024</em>
+        </h2>
+        <ul>
+          <li>
+            Monthly expense fields added: Alimony, child support, separate
+            maintenance, and personal loans.
+          </li>
+          <li>Asset fields added: Money market and brokerage accounts.</li>
+        </ul>
+        <br></br>
+        <h3>
+          <em>Updates coming soon</em>
+        </h3>
+        <ul></ul>
       </Typography>
       <Grid container justifyContent="center" my={3}>
         <Button variant="outlined" onClick={() => handleButtonClick("Income")}>

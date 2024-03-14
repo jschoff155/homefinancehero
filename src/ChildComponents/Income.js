@@ -103,7 +103,6 @@ SelfEmployment = (net + amortization + depreciation - expenses meals)
             <MenuItem value={"hourly"}>Hourly</MenuItem>
             <MenuItem value={"monthly"}>Monthly</MenuItem>
             <MenuItem value={"salary"}>Salary</MenuItem>
-            <MenuItem value={"selfEmployed"}>Self Employed</MenuItem>
           </Select>
           {payTypeBO === "hourly" && (
             <Box>
@@ -236,7 +235,6 @@ SelfEmployment = (net + amortization + depreciation - expenses meals)
             <MenuItem value={"hourly"}>Hourly</MenuItem>
             <MenuItem value={"monthly"}>Monthly</MenuItem>
             <MenuItem value={"salary"}>Salary</MenuItem>
-            <MenuItem value={"selfEmployed"}>Self Employed</MenuItem>
           </Select>
           {payTypeBT === "hourly" && (
             <Box>
