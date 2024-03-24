@@ -53,8 +53,14 @@ export default function Income({
     .toFixed(2);
 
   const onChangeNOB = (event) => setNumberOfBorrowers(event.target.value);
-  const onChangePTBO = (event) => setpayTypeBO(event.target.value);
-  const onChangePTBT = (event) => setpayTypeBT(event.target.value);
+  const onChangePTBO = (event) => {
+    setpayTypeBO(event.target.value);
+    resetBO();
+  };
+  const onChangePTBT = (event) => {
+    setpayTypeBT(event.target.value);
+    resetBT();
+  };
   const onChangeHBO = (event) => setHourlyPayBO(event.target.value);
   const onChangeMBO = (event) => setMonthlyPayBO(event.target.value);
   const onChangeSBO = (event) => setSalaryPayBO(event.target.value);
@@ -62,10 +68,12 @@ export default function Income({
   const onChangeMBT = (event) => setMonthlyPayBT(event.target.value);
   const onChangeSBT = (event) => setSalaryPayBT(event.target.value);
 
-  function reset() {
+  function resetBO() {
     setHourlyPayBO("");
     setMonthlyPayBO("");
     setSalaryPayBO("");
+  }
+  function resetBT() {
     setHourlyPayBT("");
     setMonthlyPayBT("");
     setSalaryPayBT("");
@@ -83,9 +91,6 @@ SelfEmployment = (net + amortization + depreciation - expenses meals)
         Total Monthly Income: $
         {totalMonthlyIncome && parseFloat(totalMonthlyIncome).toFixed(2)}
       </Typography>
-      <Button variant="outline" labelId="Reset" onClick={reset}>
-        Reset
-      </Button>
       <Typography variant="h3">Number of borrowers?</Typography>
       <Select
         labelId="demo-simple-select-label"
