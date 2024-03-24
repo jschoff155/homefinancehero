@@ -17,11 +17,21 @@ export default function MonthlyExpenses({
   const [mAutoLoans, setmAutoLoans] = useState("");
   const [mStdLoans, setmStdLoans] = useState("");
   const [mCredit, setmCredit] = useState("");
+  const [mAlimony, setmAlimony] = useState("");
+  const [mChildSupport, setmChildSupport] = useState("");
+  const [mSeperateMaintenance, setmSeperateMaintenance] = useState("");
+  const [mPesonalLoans, setmPesonalLoans] = useState("");
   const [mMiscDebts, setmMiscDebts] = useState("");
 
   const onChangemAL = (event) => setmAutoLoans(event.target.value);
   const onChangemSL = (event) => setmStdLoans(event.target.value);
   const onChangemC = (event) => setmCredit(event.target.value);
+  const onChangemAlimony = (event) => setmAlimony(event.target.value);
+  const onChangemChildSupport = (event) => setmChildSupport(event.target.value);
+  const onChangemSepMain = (event) =>
+    setmSeperateMaintenance(event.target.value);
+  const onChangemPersonalLoans = (event) =>
+    setmPesonalLoans(event.target.value);
   const onChangemMD = (event) => setmMiscDebts(event.target.value);
 
   let totalmAutoLoans = parseInt(mAutoLoans);
@@ -65,23 +75,23 @@ export default function MonthlyExpenses({
     },
     {
       title: "Alimony",
-      onChangeValue: mMiscDebts,
-      onChangeFunction: onChangemMD,
+      onChangeValue: mAlimony,
+      onChangeFunction: onChangemAlimony,
     },
     {
       title: "Child Support",
-      onChangeValue: mMiscDebts,
-      onChangeFunction: onChangemMD,
+      onChangeValue: mChildSupport,
+      onChangeFunction: onChangemChildSupport,
     },
     {
       title: "Seperate Maintenance",
-      onChangeValue: mMiscDebts,
-      onChangeFunction: onChangemMD,
+      onChangeValue: mSeperateMaintenance,
+      onChangeFunction: onChangemSepMain,
     },
     {
       title: "Personal Loans",
-      onChangeValue: mMiscDebts,
-      onChangeFunction: onChangemMD,
+      onChangeValue: mPesonalLoans,
+      onChangeFunction: onChangemPersonalLoans,
     },
     {
       title: "All other credit debts",
@@ -119,7 +129,8 @@ export default function MonthlyExpenses({
         {totalMonthlyExpenses && parseInt(totalMonthlyExpenses).toFixed(2)}
       </Typography>
       <Typography variant="h4">
-        Only include debts which appear on your credit report.
+        Please exclude utilities, insurance, and similar non-legal financial
+        obligations.
       </Typography>
       <Button variant="outline" labelId="Reset" onClick={reset}>
         Reset
