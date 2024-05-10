@@ -81,14 +81,15 @@ export default function App() {
   };
 
   const appdebtToIncome =
-    (apptotalMonthlyIncome && apptotalMonthlyExpenses) ||
-    (appMortgageMonthlyPayment &&
-      (
-        ((parseInt(appMortgageMonthlyPayment) +
-          parseInt(apptotalMonthlyExpenses)) /
-          parseInt(apptotalMonthlyIncome)) *
-        100
-      ).toFixed(2));
+    apptotalMonthlyIncome &&
+    apptotalMonthlyExpenses &&
+    appMortgageMonthlyPayment &&
+    (
+      ((parseInt(appMortgageMonthlyPayment) +
+        parseInt(apptotalMonthlyExpenses)) /
+        parseInt(apptotalMonthlyIncome)) *
+      100
+    ).toFixed(2);
   console.log(appMortgageMonthlyPayment);
   return (
     <>
