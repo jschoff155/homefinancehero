@@ -109,59 +109,17 @@ export default function Financing({
         value={rate}
         onChange={onChangeRate}
       >
-        <MenuItem value={3}>3</MenuItem>
-        <MenuItem value={3.125}>3.125</MenuItem>
-        <MenuItem value={3.25}>3.25</MenuItem>
-        <MenuItem value={3.375}>3.375</MenuItem>
-        <MenuItem value={3.5}>3.5</MenuItem>
-        <MenuItem value={3.625}>3.625</MenuItem>
-        <MenuItem value={3.75}>3.75</MenuItem>
-        <MenuItem value={3.875}>3.875</MenuItem>
-        <MenuItem value={4}>4</MenuItem>
-        <MenuItem value={4.125}>4.125</MenuItem>
-        <MenuItem value={4.25}>4.25</MenuItem>
-        <MenuItem value={4.475}>4.375</MenuItem>
-        <MenuItem value={4.5}>4.5</MenuItem>
-        <MenuItem value={4.625}>4.625</MenuItem>
-        <MenuItem value={4.75}>4.75</MenuItem>
-        <MenuItem value={4.875}>4.875</MenuItem>
-        <MenuItem value={5}>5</MenuItem>
-        <MenuItem value={5.125}>5.125</MenuItem>
-        <MenuItem value={5.25}>5.25</MenuItem>
-        <MenuItem value={5.375}>5.375</MenuItem>
-        <MenuItem value={5.5}>5.5</MenuItem>
-        <MenuItem value={5.625}>5.625</MenuItem>
-        <MenuItem value={5.75}>5.75</MenuItem>
-        <MenuItem value={5.875}>5.875</MenuItem>
-        <MenuItem value={6}>6</MenuItem>
-        <MenuItem value={6.125}>6.125</MenuItem>
-        <MenuItem value={6.25}>6.25</MenuItem>
-        <MenuItem value={6.375}>6.375</MenuItem>
-        <MenuItem value={6.5}>6.5</MenuItem>
-        <MenuItem value={6.625}>6.625</MenuItem>
-        <MenuItem value={6.75}>6.75</MenuItem>
-        <MenuItem value={6.875}>6.875</MenuItem>
-        <MenuItem value={7}>7</MenuItem>
-        <MenuItem value={7.125}>7.125</MenuItem>
-        <MenuItem value={7.25}>7.25</MenuItem>
-        <MenuItem value={7.375}>7.375</MenuItem>
-        <MenuItem value={7.5}>7.5</MenuItem>
-        <MenuItem value={7.625}>7.625</MenuItem>
-        <MenuItem value={7.75}>7.75</MenuItem>
-        <MenuItem value={7.875}>7.875</MenuItem>
+        {[
+          3, 3.125, 3.25, 3.375, 3.5, 3.625, 3.75, 3.875, 4, 4.125, 4.25, 4.375,
+          4.5, 4.625, 4.75, 4.875, 5, 5.125, 5.25, 5.375, 5.5, 5.625, 5.75,
+          5.875, 6, 6.125, 6.25, 6.375, 6.5, 6.625, 6.75, 6.875, 7, 7.125, 7.25,
+          7.375, 7.5, 7.625, 7.75, 7.875,
+        ].map((value) => (
+          <MenuItem key={value} value={value}>
+            {value}
+          </MenuItem>
+        ))}
       </Select>
-      {/*{tLoanAmount > 0 &&
-      downPayment > 0 &&
-      tLoanAmount * 0.035 > downPayment ? (
-        <Alert variant="filled" severity="warning">
-          Most lenders can go as low as 3.5% ({tLoanAmount * (0.035).toFixed(2)}
-          ) for a down payment with FHA lending options.
-        </Alert>
-      ) : (
-        <Alert variant="filled" severity="success">
-          You have enough assets to cover at least 3.5% down for an FHA loan.
-        </Alert>
-      )}*/}
       <Typography variant="h4">Estimated P&I Payment:</Typography>
       <Typography variant="h4">{paymentAmount}</Typography>
       <Box my={3}>

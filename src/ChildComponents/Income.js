@@ -53,8 +53,14 @@ export default function Income({
     .toFixed(2);
 
   const onChangeNOB = (event) => setNumberOfBorrowers(event.target.value);
-  const onChangePTBO = (event) => setpayTypeBO(event.target.value);
-  const onChangePTBT = (event) => setpayTypeBT(event.target.value);
+  const onChangePTBO = (event) => {
+    setpayTypeBO(event.target.value);
+    resetBO();
+  };
+  const onChangePTBT = (event) => {
+    setpayTypeBT(event.target.value);
+    resetBT();
+  };
   const onChangeHBO = (event) => setHourlyPayBO(event.target.value);
   const onChangeMBO = (event) => setMonthlyPayBO(event.target.value);
   const onChangeSBO = (event) => setSalaryPayBO(event.target.value);
@@ -62,14 +68,21 @@ export default function Income({
   const onChangeMBT = (event) => setMonthlyPayBT(event.target.value);
   const onChangeSBT = (event) => setSalaryPayBT(event.target.value);
 
-  function reset() {
+  function resetBO() {
     setHourlyPayBO("");
     setMonthlyPayBO("");
     setSalaryPayBO("");
+  }
+  function resetBT() {
     setHourlyPayBT("");
     setMonthlyPayBT("");
     setSalaryPayBT("");
   }
+
+  /*
+Function for self-employment income
+SelfEmployment = (net + amortization + depreciation - expenses meals)
+*/
 
   return (
     <Box textAlign={"center"} mx={8} my={5}>
@@ -78,9 +91,6 @@ export default function Income({
         Total Monthly Income: $
         {totalMonthlyIncome && parseFloat(totalMonthlyIncome).toFixed(2)}
       </Typography>
-      <Button variant="outline" labelId="Reset" onClick={reset}>
-        Reset
-      </Button>
       <Typography variant="h3">Number of borrowers?</Typography>
       <Select
         labelId="demo-simple-select-label"
@@ -129,6 +139,34 @@ export default function Income({
               />
             </Box>
           )}
+          {/*payTypeBO === "selfEmployed" && (
+            <Box>
+              <Typography>Please input last years net income</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years amortization amount</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years depreciation written off</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+              <Typography>Please input last years total for expensed meals</Typography>
+              <TextField
+                type="number"
+                value={salaryPayBT}
+                onChange={onChangeSBT}
+              />
+            </Box>
+          )*/}
         </Box>
       )}
       {numberOfBorrowers === 2 && (

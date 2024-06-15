@@ -14,22 +14,30 @@ export default function AssetsArea({ setApptotalAssets, setActiveComponent }) {
   const [cAAmount, setcAAmount] = useState();
   const [sAAmount, setsAAmount] = useState();
   const [rEAmount, setrEAmount] = useState();
+  const [mMAmount, setmMAmount] = useState();
+  const [bAAmount, setbAAmount] = useState();
   const [gAmount, setgAmount] = useState();
 
   const onChangeCHK = (event) => setcAAmount(event.target.value);
   const onChangeSAV = (event) => setsAAmount(event.target.value);
   const onChangeRET = (event) => setrEAmount(event.target.value);
+  const onChangeMM = (event) => setmMAmount(event.target.value);
+  const onChangeBA = (event) => setbAAmount(event.target.value);
   const onChangeGFT = (event) => setgAmount(event.target.value);
 
   let totalcAAmount = parseInt(cAAmount);
   let totalsAAmount = parseInt(sAAmount);
   let totalrEAmount = parseInt(rEAmount);
+  let totalmMAmount = parseInt(mMAmount);
+  let totalbAAmount = parseInt(bAAmount);
   let totalgAmount = parseInt(gAmount);
 
   const assetValues = [
     totalcAAmount || null,
     totalsAAmount || null,
     totalrEAmount || null,
+    totalmMAmount || null,
+    totalbAAmount || null,
     totalgAmount || null,
   ];
 
@@ -60,6 +68,16 @@ export default function AssetsArea({ setApptotalAssets, setActiveComponent }) {
       title: "401K/IRA Value",
       onChangeValue: rEAmount,
       onChangeFunction: onChangeRET,
+    },
+    {
+      title: "Money Market Account",
+      onChangeValue: mMAmount,
+      onChangeFunction: onChangeMM,
+    },
+    {
+      title: "Brokerage Account",
+      onChangeValue: bAAmount,
+      onChangeFunction: onChangeBA,
     },
     {
       title: "Gift Funds",

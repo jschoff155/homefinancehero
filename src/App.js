@@ -2,6 +2,7 @@ import React, { useState } from "react";
 //import Statusbar from "./ChildComponents/Statusbar";
 import Propertyinfo from "./ChildComponents/Propertyinfo";
 import MonthlyExpenses from "./ChildComponents/MonthlyExpenses";
+import Box from "@mui/material/Box";
 import Income from "./ChildComponents/Income";
 import Assets from "./ChildComponents/Assets";
 import Summary from "./ChildComponents/Summary";
@@ -81,14 +82,15 @@ export default function App() {
   };
 
   const appdebtToIncome =
-    (apptotalMonthlyIncome && apptotalMonthlyExpenses) ||
-    (appMortgageMonthlyPayment &&
-      (
-        ((parseInt(appMortgageMonthlyPayment) +
-          parseInt(apptotalMonthlyExpenses)) /
-          parseInt(apptotalMonthlyIncome)) *
-        100
-      ).toFixed(2));
+    apptotalMonthlyIncome &&
+    apptotalMonthlyExpenses &&
+    appMortgageMonthlyPayment &&
+    (
+      ((parseInt(appMortgageMonthlyPayment) +
+        parseInt(apptotalMonthlyExpenses)) /
+        parseInt(apptotalMonthlyIncome)) *
+      100
+    ).toFixed(2);
   console.log(appMortgageMonthlyPayment);
   return (
     <>
@@ -96,6 +98,15 @@ export default function App() {
         Mortgage Application Preparedness Guide
       </Typography>
       {renderActiveComponent()}
+      <Box my={3}>
+        <Typography textAlign={"center"} variant="h5">
+          Income {">"} Expenses {">"} Assets {">"} Loan Terms {">"} Summary
+        </Typography>
+      </Box>
+      <Typography textAlign={"center"} variant="h4">
+        Support the project,{" "}
+        <a href="https://buymeacoffee.com/jacobschoff">Buy me a coffee</a>
+      </Typography>
     </>
   );
 }
