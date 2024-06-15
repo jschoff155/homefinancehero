@@ -207,34 +207,6 @@ SelfEmployment = (net + amortization + depreciation - expenses meals)
               />
             </Box>
           )}
-          {/*payTypeBO === "selfEmployed" && (
-            <Box>
-              <Typography>Please input last years net income</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-              <Typography>Please input last years amortization amount</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-              <Typography>Please input last years depreciation written off</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-              <Typography>Please input last years total for expensed meals</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-            </Box>
-          )*/}
           <Typography>How is borrower two paid?</Typography>
           <Select value={payTypeBT} onChange={onChangePTBT}>
             <MenuItem value={"hourly"}>Hourly</MenuItem>
@@ -271,35 +243,6 @@ SelfEmployment = (net + amortization + depreciation - expenses meals)
               />
             </Box>
           )}
-
-          {/*payTypeBT === "selfEmployed" && (
-            <Box>
-              <Typography>Please input last years net income</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-              <Typography>Please input last years amortization amount</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-              <Typography>Please input last years depreciation written off</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-              <Typography>Please input last years total for expensed meals</Typography>
-              <TextField
-                type="number"
-                value={salaryPayBT}
-                onChange={onChangeSBT}
-              />
-            </Box>
-          )*/}
         </Box>
       )}
       <Box my={3}>
